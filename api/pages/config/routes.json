@@ -7,6 +7,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang(en|ar|ko|zh-Hans)/offerings/:slug",
+      "handler": "Pages.offering",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

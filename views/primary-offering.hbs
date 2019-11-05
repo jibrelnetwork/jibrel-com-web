@@ -1,0 +1,37 @@
+{{#> layouts/default}}
+    <div class="page">
+        <header class="page__header">
+          {{> partials/navbar color="white" }}
+        </header>
+        <article class="page__content">
+            <div class="offering__primary">
+                <div class="offering__primary__hero" style="background-image: linear-gradient(0deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%), url({{asset preview_bg_img }});"></div>
+                <button class="offering__primary__watch--large">
+                    <span class="offering__primary__watch__text">Watch video</span>
+                </button>
+                <div class="--centered">
+                    <div class="offering__primary__about">
+                        <div class="offering__primary__content">
+                            <div class="offering__primary__logo" style="background-color: {{logo_bg}};">
+                                <img class="offering__primary__logo__img" src="{{asset logo_img}}" />
+                            </div>
+                            <h1 class="offering__primary__title">{{ title }}</h1>
+                            <ul class="offering__primary__tags">
+                                <li class="offering__primary__tags__item">Cloud communication</li>
+                                <li class="offering__primary__tags__item">Crypto</li>
+                                <li class="offering__primary__tags__item">Power supply</li>
+                            </ul>
+                            <button class="offering__primary__watch--small">Watch video</button>
+                            <p class="offering__primary__pitch">{{ pitch }}</p>
+                        </div>
+                        <div class="offering__primary__sidebar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <footer class="page__footer">
+          {{> partials/footer }}
+        </footer>
+    </div>
+{{/layouts/default}}
