@@ -9,15 +9,15 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sqlite3": "~4.1.0"
+  },
   "dependencies": {
     "handlebars": "~4.4.5",
     "knex": "~0.20.1",
     "koa-views": "~6.2.1",
     "lodash": "~4.17.15",
     "pg": "~7.12.1",
-    "pm2": "~4.1.2",
-    "sqlite3": "~4.1.0",
     "strapi": "3.0.0-beta.17.5",
     "strapi-admin": "3.0.0-beta.17.5",
     "strapi-hook-bookshelf": "3.0.0-beta.17.5",
