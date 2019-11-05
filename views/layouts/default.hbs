@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Jibrel.com</title>
+    <link rel="manifest" href="{{asset '/meta/site.webmanifest'}}" />
+    <link rel="shortcut icon" href="{{asset '/meta/favicon.ico'}}" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset '/meta/apple-touch-icon.png'}}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset '/meta/favicon-32x32.png'}}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset '/meta/favicon-16x16.png'}}" />
+    <link rel="mask-icon" href="{{asset '/meta/safari-pinned-tab.svg'}}" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <link rel="stylesheet" href="{{asset '/style.css'}}" />
+</head>
+<body>
+{{> @partial-block }}
+</body>
+</html>

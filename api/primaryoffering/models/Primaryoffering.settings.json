@@ -1,0 +1,75 @@
+{
+  "connection": "default",
+  "collectionName": "primaryofferings",
+  "info": {
+    "name": "primaryoffering",
+    "description": "Primary offering"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "active": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "lang": {
+      "enum": [
+        "en",
+        "ar"
+      ],
+      "type": "enumeration",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "required": true
+    },
+    "pitch": {
+      "type": "text"
+    },
+    "preview_bg_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "preview_bg_color": {
+      "default": "#000000",
+      "minLength": 7,
+      "maxLength": 7,
+      "type": "string"
+    },
+    "logo_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "logo_bg": {
+      "default": "#ffffff",
+      "minLength": 7,
+      "maxLength": 7,
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "path": {
+      "unique": true,
+      "type": "string"
+    }
+  }
+}

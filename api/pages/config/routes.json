@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/:lang(en|ar|ko|zh-Hans)",
+      "handler": "Pages.list",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

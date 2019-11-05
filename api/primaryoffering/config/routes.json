@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/primaryofferings",
+      "handler": "Primaryoffering.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/primaryofferings/count",
+      "handler": "Primaryoffering.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/primaryofferings/:id",
+      "handler": "Primaryoffering.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/primaryofferings",
+      "handler": "Primaryoffering.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/primaryofferings/:id",
+      "handler": "Primaryoffering.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/primaryofferings/:id",
+      "handler": "Primaryoffering.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

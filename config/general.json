@@ -1,0 +1,8 @@
+{
+  "views": {
+    "map": {
+      "hbs": "handlebars"
+    },
+    "default": "html"
+  }
+}

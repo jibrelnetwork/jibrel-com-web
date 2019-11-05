@@ -1,0 +1,17 @@
+{
+  "host": "localhost",
+  "port": "${process.env.PORT || 1337}",
+  "production": true,
+  "proxy": {
+    "enabled": true,
+    "ssl": "${process.env.PROXY_SSL || true}",
+    "host": "${process.env.PROXY_HOST || '127.0.0.1'}",
+    "port": "${process.env.PROXY_PORT}"
+  },
+  "cron": {
+    "enabled": false
+  },
+  "admin": {
+    "autoOpen": false
+  }
+}
