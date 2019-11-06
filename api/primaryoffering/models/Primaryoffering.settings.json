@@ -70,6 +70,57 @@
     "path": {
       "unique": true,
       "type": "string"
+    },
+    "hero_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "investment_goal_usd": {
+      "type": "integer",
+      "min": 1,
+      "required": true
+    },
+    "investment_commited_usd": {
+      "type": "integer",
+      "default": "0",
+      "required": true
+    },
+    "investment_participants": {
+      "type": "integer",
+      "required": true,
+      "default": "0"
+    },
+    "investment_deadline": {
+      "type": "date"
+    },
+    "legal_name": {
+      "type": "string"
+    },
+    "founded": {
+      "type": "string"
+    },
+    "employees": {
+      "type": "integer",
+      "min": 1
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "deal_valuation_usd": {
+      "type": "decimal"
+    },
+    "deal_min_investment_usd": {
+      "type": "decimal"
+    },
+    "deal_equity_percent": {
+      "type": "decimal"
+    },
+    "deal_round": {
+      "type": "string"
+    },
+    "deal_security_type": {
+      "type": "string"
     }
   }
 }

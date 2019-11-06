@@ -13,6 +13,7 @@
     "sqlite3": "~4.1.0"
   },
   "dependencies": {
+    "date-fns": "~2.6.0",
     "handlebars": "~4.4.5",
     "knex": "~0.20.1",
     "koa-views": "~6.2.1",

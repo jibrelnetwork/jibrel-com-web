@@ -3,17 +3,19 @@
         <header class="page__header">
           {{> partials/navbar color="white" }}
         </header>
-        <article class="page__content">
+        <article class="page__content offering">
             <div class="offering__primary">
-                <div class="offering__primary__hero" style="background-image: linear-gradient(0deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%), url({{asset preview_bg_img }});"></div>
+                <div class="offering__primary__hero" style="background-image: url({{ hero_img }});">
+                    <div class="offering__primary__hero__overlay"></div>
+                </div>
                 <button class="offering__primary__watch--large">
                     <span class="offering__primary__watch__text">Watch video</span>
                 </button>
-                <div class="--centered">
+                <div class="common__centered">
                     <div class="offering__primary__about">
                         <div class="offering__primary__content">
                             <div class="offering__primary__logo" style="background-color: {{logo_bg}};">
-                                <img class="offering__primary__logo__img" src="{{asset logo_img}}" />
+                                <img class="offering__primary__logo__img" src="{{ logo_img }}" />
                             </div>
                             <h1 class="offering__primary__title">{{ title }}</h1>
                             <ul class="offering__primary__tags">
@@ -22,13 +24,125 @@
                                 <li class="offering__primary__tags__item">Power supply</li>
                             </ul>
                             <button class="offering__primary__watch--small">Watch video</button>
-                            <p class="offering__primary__pitch">{{ pitch }}</p>
+                            <p class="offering__primary__excerpt">{{ excerpt }}</p>
                         </div>
                         <div class="offering__primary__sidebar">
+                            <button class="offering__primary__invest">Invest now</button>
+                            <h2 class="offering__primary__investment">
+                                <span class="offering__primary__investment__commited">{{ investment_commited_formatted }}</span> commited of {{ investment_goal_formatted }} goal
+                            </h2>
+                            <div class="offering__primary__investment-progress">
+                                <div class="offering__primary__investment-progress-finished" style="width: {{ investment_progress }}%;"></div>
+                            </div>
+                            <ul class="offering__primary__investment-features">
+                                <li class="offering__primary__investment-features__item">
+                                    <h3 class="offering__primary__investment-features__item__title">From</h3>
+                                    <p class="offering__primary__investment-features__item__value">{{ investment_participants }} investors</p>
+                                </li>
+                                <li class="offering__primary__investment-features__item">
+                                    <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
+                                    <p class="offering__primary__investment-features__item__value">{{ investment_deadline_left_formatted }}</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            <section class="offering__terms common__centered">
+                <h2 class="offering__title-2">Deal Terms</h2>
+                <ul class="offering__terms__list">
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Valuation</h3>
+                        <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
+                    </li>
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Funding Round</h3>
+                        <p class="offering__terms__list__item__value">{{ deal_round }}</p>
+                    </li>
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Minimum Investment</h3>
+                        <p class="offering__terms__list__item__value">{{ deal_min_investment_formatted }}</p>
+                    </li>
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Type of Security</h3>
+                        <p class="offering__terms__list__item__value">{{ deal_security_type }}</p>
+                    </li>
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Offered Equity</h3>
+                        <p class="offering__terms__list__item__value">{{ deal_equity_formatted }}</p>
+                    </li>
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Round Size</h3>
+                        <p class="offering__terms__list__item__value">{{ investment_goal_formatted }}</p>
+                    </li>
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Deadline</h3>
+                        <p class="offering__terms__list__item__value">{{ investment_deadline_formatted }}</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="offering__description common__centered --grid">
+                <h2 class="offering__title-2 --hidden">Description</h2>
+                <div class="offering__description__content common__grid__item">
+                    <h3>Header</h3>
+                    <h4>Subheader</h4>
+                    <ul>
+                        <li>Nunc et, dis dictum posuere id elit commodo pulvinar ut. Integer auctor sed adipiscing nec eu eleifend quis. Sed augue dictum ultrices id sit euismod nunc amet nunc.</li>
+                        <li>item</li>
+                    </ul>
+                    <hr>
+                    <img src="#" />
+                </div>
+            </section>
+            <section class="offering__last-chance common__centered --grid">
+                <h2 class="offering__last-chance__title offering__title-2 common__grid__item">Sounds Interesting?</h2>
+                <div class="offering__last-chance__button common__grid__item">
+                  <button class="offering__primary__invest common__grid__item">Invest now</button>
+                </div>
+            </section>
+            <section class="offering__contacts common__centered">
+                <h2 class="offering__title-2">About {{ title }}</h2>
+                <ul class="offering__contacts__list">
+                    {{#if legal_name}}
+                    <li class="offering__contacts__list__item">
+                        <h3 class="offering__contacts__list__item__title">Legal Name</h3>
+                        <p class="offering__contacts__list__item__value">{{ legal_name }}</p>
+                    </li>
+                    {{/if}}
+                    {{#if founded}}
+                    <li class="offering__contacts__list__item">
+                        <h3 class="offering__contacts__list__item__title">Founded</h3>
+                        <p class="offering__contacts__list__item__value">{{ founded }}</p>
+                    </li>
+                    {{/if}}
+                    {{#if employees}}
+                    <li class="offering__contacts__list__item">
+                        <h3 class="offering__contacts__list__item__title">Employees</h3>
+                        <p class="offering__contacts__list__item__value">{{ employees }}</p>
+                    </li>
+                    {{/if}}
+                    {{#if website_url}}
+                    <li class="offering__contacts__list__item">
+                        <h3 class="offering__contacts__list__item__title">Website</h3>
+                        <p class="offering__contacts__list__item__value">
+                            <a href="{{ website_url }}" target="_blank" rel="noopener noreferrer">{{ website_name }}</a>
+                        </p>
+                    </li>
+                    {{/if}}
+                    {{#if social}}
+                    <li class="offering__contacts__list__item">
+                        <h3 class="offering__contacts__list__item__title">Social</h3>
+                        <p class="offering__contacts__list__item__value">{{ title }}</p>
+                    </li>
+                    {{/if}}
+                    {{#if location_img}}
+                    <li class="offering__contacts__list__item --map">
+                        <h3 class="offering__contacts__list__item__title">Location</h3>
+                        <p class="offering__contacts__list__item__value">{{ location }}</p>
+                    </li>
+                    {{/if}}
+                </ul>
+            </section>
         </article>
         <footer class="page__footer">
           {{> partials/footer }}

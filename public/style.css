@@ -68,35 +68,87 @@ html, body {
 GLOBAL MODIFIERS
 ---------------------------------------------------------------- */
 
-.--centered {
-  /*width: calc(100% - 56px);*/
+.common__centered {
   width: 100%;
   max-width: 1128px;
   min-width: 360px;
-  padding-left: 28px;
-  padding-right: 28px;
+  padding-left: 24px;
+  padding-right: 24px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.common__centered.--grid {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.common__grid {
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.common__grid__item {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
 /* Small */
 @media (min-width: 600px) {
-  .--centered {
+  .common__centered {
     padding-left: 32px;
     padding-right: 32px;
-    /*width: calc(100% - 64px);*/
+  }
+
+  .common__centered.--grid {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .common__grid {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  .common__grid__item {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
 /* Medium */
 @media (min-width: 768px) {
+  .common__centered {
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+
+  .common__centered.--grid {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .common__grid {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  .common__grid__item {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 /* Large */
 @media (min-width: 1024px) {
-  .--centered {
-    padding-left: 76px;
-    padding-right: 76px;
+  .common__centered {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .common__centered.--grid {
+    padding-left: 28px;
+    padding-right: 28px;
   }
 }
 
@@ -528,14 +580,20 @@ END GLOBAL MODIFIERS
   left: 0;
   right: 0;
   height: 402px;
-  background-color: rgba(0, 61, 198, 0.5);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+.offering__primary__hero__overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
 .offering__primary__about {
   position: relative;
+  margin-bottom: 64px;
 }
 
 .offering__primary__content {
@@ -632,7 +690,7 @@ END GLOBAL MODIFIERS
   margin: 0 auto;
 }
 
-.offering__primary__pitch {
+.offering__primary__excerpt {
   padding: 32px 0;
   font-weight: normal;
   font-size: 20px;
@@ -640,8 +698,259 @@ END GLOBAL MODIFIERS
   color: #081E39;
 }
 
+.offering {
+  display: flex;
+  flex-direction: column;
+  color: #081E39;
+}
+
+.offering__title-2 {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.offering__title-2.--hidden {
+  display: none;
+}
+
+.offering__primary__sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.offering__primary__invest {
+  display: block;
+  width: 100%;
+  background: #003DC6;
+  padding: 23px 6px 22px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 32px;
+  border: none;
+  text-transform: uppercase;
+  order: 1;
+}
+
+.offering__primary__investment {
+  font-size: 15px;
+  line-height: 140%;
+  color: rgba(8, 30, 57, 0.6);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.offering__primary__investment__commited {
+  display: block;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 33px;
+  color: #081E39;
+  margin-bottom: 8px;
+}
+
+.offering__primary__investment-progress {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(0, 61, 198, 0.2);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.offering__primary__investment-progress-finished {
+  content: '';
+  display: block;
+  height: 100%;
+  background: #003DC6;
+}
+
+.offering__primary__investment-features {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.offering__primary__investment-features__item {
+  margin-bottom: 27px;
+}
+
+.offering__primary__investment-features__item__title {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: -0.54px;
+  color: rgba(8, 30, 57, 0.6);
+  margin-bottom: 4px;
+}
+
+.offering__primary__investment-features__item__value {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.54px;
+  color: #081E39;
+}
+
+.offering__terms {
+  order: 1;
+  margin-bottom: 64px;
+}
+
+.offering__terms__list {
+  background: rgba(0, 61, 198, 0.05);
+  border-radius: 12px;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.offering__terms__list__item {
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 6px 0 21px;
+}
+
+.offering__terms__list__item__title {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: -0.54px;
+  color: rgba(8, 30, 57, 0.6);
+  margin-bottom: 4px;
+}
+
+.offering__terms__list__item__value {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.54px;
+  color: #081E39;
+}
+
+.offering__description {
+  margin-bottom: 48px;
+}
+
+.offering__description::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(8, 30, 57, 0.1);
+  margin: 0 6px;
+}
+
+.offering__description__content {
+  max-width: 575px;
+}
+
+.offering__description__content h3 {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 24px;
+}
+
+.offering__description__content h4 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.offering__description__content p {
+  font-size: 18px;
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.offering__description__content ul {
+  font-size: 18px;
+  line-height: 140%;
+}
+
+.offering__description__content ul li {
+  padding-left: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.offering__description__content ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(8, 30, 57, 0.4);
+}
+
+.offering__description__content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: rgba(0, 61, 198, 0.1);
+  border-radius: 12px;
+  min-height: 24px;
+  margin: 0 0 32px;
+  overflow: hidden;
+}
+
+.offering__description__content hr {
+  border: none;
+  border-bottom: 1px solid rgba(8, 30, 57, 0.1);
+  margin: 0 0 32px;
+}
+
+.offering__last-chance {
+  margin-bottom: 64px;
+}
+
+.offering__contacts {
+  order: 2;
+  margin-bottom: 64px;
+}
+
+.offering__contacts__list {
+  background: rgba(8, 30, 57, 0.05);
+  border-radius: 12px;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.offering__contacts__list__item {
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 6px 0 21px;
+}
+
+.offering__contacts__list__item__title {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: -0.54px;
+  color: rgba(8, 30, 57, 0.6);
+  margin-bottom: 4px;
+}
+
+.offering__contacts__list__item__value {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.54px;
+  color: #081E39;
+}
+
 /* Small */
 @media (min-width: 600px) {
+  .offering__title-2 {
+    margin-bottom: 24px;
+  }
+
   .offering__primary__hero {
     height: 440px;
   }
@@ -658,10 +967,49 @@ END GLOBAL MODIFIERS
   .offering__primary__watch--small {
     margin-bottom: 41px;
   }
+
+  .offering__last-chance__button,
+  .offering__primary__sidebar {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .offering__terms__list {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .offering__terms__list__item {
+    width: 50%;
+    padding: 0 8px;
+  }
+
+  .offering__description::after {
+    margin: 0 8px;
+  }
+
+  .offering__contacts__list {
+    max-height: 300px;
+  }
+
+  .offering__contacts__list__item {
+    width: 50%;
+  }
+
+  .offering__contacts__list__item.--map {
+    flex: 1 0 auto;
+  }
 }
 
 /* Medium */
 @media (min-width: 768px) {
+  .offering__title-2 {
+    font-size: 32px;
+    line-height: 38px;
+    text-align: left;
+  }
+
   .offering__primary__hero {
     height: 480px;
   }
@@ -676,8 +1024,18 @@ END GLOBAL MODIFIERS
     background: none;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 96px 0 0;
     flex: 0 0 auto;
+  }
+
+  .offering__primary__watch--large::before {
+    content: '';
+    display: block;
+    background: no-repeat center center url('./img/ic_play_large.svg');
+    width: 62px;
+    height: 71px;
+    margin: 0 auto 20px;
+    background-size: contain;
   }
 
   .offering__primary__about {
@@ -715,7 +1073,7 @@ END GLOBAL MODIFIERS
     display: none;
   }
 
-  .offering__primary__pitch {
+  .offering__primary__excerpt {
     padding: 0;
     margin-bottom: 32px;
   }
@@ -724,6 +1082,64 @@ END GLOBAL MODIFIERS
     margin-top: -32px;
     width: 37.5%;
     padding: 0 12px;
+  }
+
+  .offering__primary__invest {
+    order: 0;
+    margin-bottom: 44px;
+  }
+
+  .offering__primary__investment {
+    text-align: left;
+  }
+
+  .offering__primary__investment__commited {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .offering__primary__investment-progress {
+    margin-bottom: 22px;
+  }
+
+  .offering__primary__investment-features {
+    text-align: left;
+  }
+
+  .offering__terms {
+    order: 0;
+    margin-bottom: 64px;
+  }
+
+  .offering__terms__list {
+    padding: 30px 12px 2px;
+  }
+
+  .offering__terms__list__item {
+    width: 33.33%;
+    margin: 0 0 27px;
+    padding: 0 12px;
+  }
+
+  .offering__description::after {
+    margin: 0 12px;
+  }
+
+  .offering__last-chance {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .offering__last-chance__title {
+    flex: 0 0 auto;
+    width: 62.5%
+  }
+
+  .offering__last-chance__button {
+    flex: 0 0 auto;
+    width: 37.5%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -740,6 +1156,48 @@ END GLOBAL MODIFIERS
   .offering__primary__title {
     font-size: 64px;
     line-height: 76px;
+  }
+
+  .offering__primary__content {
+    width: 66.66%;
+  }
+
+  .offering__primary__sidebar {
+    width: 33.33%;
+  }
+
+  .offering__primary__investment-features {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  .offering__primary__investment-features__item {
+    width: 50%;
+    padding: 0 12px;
+  }
+
+  .offering__description__content {
+    max-width: none;
+    width: 66.66%;
+  }
+
+
+  .offering__last-chance__title {
+    width: 33.33%
+  }
+
+  .offering__last-chance__button {
+    width: 33.33%;
+  }
+
+  .offering__contacts__list {
+    max-height: 250px;
+  }
+
+  .offering__contacts__list__item {
+    width: 33.33%;
   }
 }
 
