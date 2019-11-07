@@ -78,6 +78,26 @@ a:active {
 }
 
 /* ----------------------------------------------------------------
+BREAKPOINTS
+---------------------------------------------------------------- */
+
+/* Small */
+@media (min-width: 600px) {
+}
+
+/* Medium */
+@media (min-width: 768px) {
+}
+
+/* Large */
+@media (min-width: 1024px) {
+}
+
+/* XLarge */
+@media (min-width: 1209px) {
+}
+
+/* ----------------------------------------------------------------
 GLOBAL MODIFIERS
 ---------------------------------------------------------------- */
 
@@ -133,6 +153,14 @@ GLOBAL MODIFIERS
   background: #dde4f5;
   color: #003DC6;
   text-decoration: none;
+}
+
+.common__html-content h2 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 24px;
+  margin-top: 64px;
 }
 
 .common__html-content h3 {
@@ -191,6 +219,12 @@ GLOBAL MODIFIERS
   margin: 0 0 32px;
 }
 
+.common__page-title {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 38px;
+}
+
 /* Small */
 @media (min-width: 600px) {
   .common__centered {
@@ -211,6 +245,11 @@ GLOBAL MODIFIERS
   .common__grid__item {
     padding-left: 8px;
     padding-right: 8px;
+  }
+
+  .common__page-title {
+    font-size: 48px;
+    line-height: 57px;
   }
 }
 
@@ -235,6 +274,11 @@ GLOBAL MODIFIERS
     padding-left: 12px;
     padding-right: 12px;
   }
+
+  .common__page-title {
+    font-size: 56px;
+    line-height: 67px;
+  }
 }
 
 /* Large */
@@ -247,6 +291,11 @@ GLOBAL MODIFIERS
   .common__centered.--grid {
     padding-left: 28px;
     padding-right: 28px;
+  }
+
+  .common__page-title {
+    font-size: 64px;
+    line-height: 76px;
   }
 }
 
@@ -1396,8 +1445,55 @@ END GLOBAL MODIFIERS
   display: block;
 }
 
+/* Medium */
 @media (min-width: 768px) {
   .invest {
     padding-top: 96px;
+  }
+}
+
+.about {
+  padding-top: 80px;
+}
+
+.about__title {
+  margin: 32px 0 24px;
+}
+
+.about__main {
+  max-width: 744px;
+  margin-bottom: 64px;
+}
+
+.about__excerpt {
+  font-size: 24px;
+  line-height: 140%;
+}
+
+/* Small */
+@media (min-width: 600px) {
+  .about__title {
+    margin: 48px 0 24px;
+  }
+}
+
+/* Medium */
+@media (min-width: 768px) {
+  .about {
+    padding-top: 96px;
+  }
+
+  .about__title {
+  }
+}
+
+/* Large */
+@media (min-width: 1024px) {
+  .about__title {
+    margin: 64px 0 24px;
+  }
+
+  .about__main {
+    width: 66.66%;
   }
 }
