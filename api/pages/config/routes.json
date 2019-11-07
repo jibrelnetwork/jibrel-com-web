@@ -10,8 +10,24 @@
     },
     {
       "method": "GET",
+      "path": "/:lang(en|ar|ko|zh-Hans)/about",
+      "handler": "Pages.about",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/:lang(en|ar|ko|zh-Hans)/offerings/:slug",
       "handler": "Pages.offering",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang(en|ar|ko|zh-Hans)/offerings/:slug/invest",
+      "handler": "Pages.invest",
       "config": {
         "policies": []
       }

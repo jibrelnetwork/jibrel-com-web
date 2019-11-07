@@ -88,6 +88,18 @@ module.exports = {
     })
   },
 
+  async about(ctx) {
+    const lang = ctx.getLocaleFromUrl()
+    const dir = lang === 'ar'
+      ? 'rtl'
+      : 'ltr'
+
+    await ctx.render('about.hbs', {
+      lang,
+      dir,
+    })
+  },
+
   async offering(ctx) {
     const lang = ctx.getLocaleFromUrl()
     const dir = lang === 'ar'
@@ -101,6 +113,25 @@ module.exports = {
     })
 
     await ctx.render('primary-offering.hbs', {
+      ...transformOffering(rawOffering),
+      lang,
+      dir,
+    })
+  },
+
+  async invest(ctx) {
+    const lang = ctx.getLocaleFromUrl()
+    const dir = lang === 'ar'
+      ? 'rtl'
+      : 'ltr'
+
+    const rawOffering = await strapi.query('primaryoffering').findOne({
+      active: true,
+      lang,
+      slug: ctx.params.slug,
+    })
+
+    await ctx.render('invest.hbs', {
       ...transformOffering(rawOffering),
       lang,
       dir,

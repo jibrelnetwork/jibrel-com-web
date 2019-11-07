@@ -10,4 +10,31 @@
  * See more details here: https://strapi.io/documentation/3.0.0-beta.x/configurations/configurations.html#bootstrap
  */
 
-module.exports = () => {};
+const PUBLIC_ROLE_ID = 2
+
+module.exports = async () => {
+  // Enable public access to some controllers on init
+  await strapi.plugins['users-permissions'].services.userspermissions
+    .updateRole(PUBLIC_ROLE_ID, {
+      permissions: {
+        application: {
+          controllers: {
+            pages: {
+              list: {
+                enabled: 1,
+              },
+              offering: {
+                enabled: 1,
+              },
+              about: {
+                enabled: 1,
+              },
+              invest: {
+                enabled: 1,
+              },
+            },
+          },
+        },
+      },
+    })
+}
