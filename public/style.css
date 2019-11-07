@@ -1385,3 +1385,19 @@ END GLOBAL MODIFIERS
   .offering__primary__hero {
   }
 }
+
+.invest {
+  padding-top: 80px;
+}
+
+.invest__frame {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .invest {
+    padding-top: 96px;
+  }
+}
