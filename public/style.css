@@ -64,6 +64,19 @@ html, body {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: #003DC6;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgba(0, 61, 198, 0.4);
+}
+
 /* ----------------------------------------------------------------
 GLOBAL MODIFIERS
 ---------------------------------------------------------------- */
@@ -91,6 +104,22 @@ GLOBAL MODIFIERS
 .common__grid__item {
   padding-left: 6px;
   padding-right: 6px;
+}
+
+.common__button {
+  display: block;
+  width: 100%;
+  background: #003DC6;
+  padding: 23px 6px 22px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 32px;
+  border: none;
+  text-transform: uppercase;
 }
 
 /* Small */
@@ -666,8 +695,12 @@ END GLOBAL MODIFIERS
   text-transform: uppercase;
   padding: 9px 40px 9px 16px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: no-repeat center right 8px url('./img/ic_play_24.svg') rgba(255, 255, 255, 0.9);
   margin-bottom: 32px;
+}
+
+.offering__primary__watch--small.--placeholder {
+  background: none;
 }
 
 .offering__primary__watch--large {
@@ -722,20 +755,12 @@ END GLOBAL MODIFIERS
 }
 
 .offering__primary__invest {
-  display: block;
-  width: 100%;
-  background: #003DC6;
-  padding: 23px 6px 22px;
-  text-align: center;
-  color: #fff;
-  font-size: 16px;
-  line-height: 19px;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  border-radius: 32px;
-  border: none;
-  text-transform: uppercase;
   order: 1;
+}
+
+.offering__primary__invest.--placeholder {
+  display: none;
+  height: 64px;
 }
 
 .offering__primary__investment {
@@ -842,10 +867,6 @@ END GLOBAL MODIFIERS
   height: 1px;
   background: rgba(8, 30, 57, 0.1);
   margin: 0 6px;
-}
-
-.offering__description__content {
-  max-width: 575px;
 }
 
 .offering__description__content h3 {
@@ -1038,6 +1059,11 @@ END GLOBAL MODIFIERS
     background-size: contain;
   }
 
+  .offering__primary__watch--large.--placeholder::before {
+    content: none;
+    display: none;
+  }
+
   .offering__primary__about {
     margin: 0 -12px;
     display: flex;
@@ -1089,6 +1115,10 @@ END GLOBAL MODIFIERS
     margin-bottom: 44px;
   }
 
+  .offering__primary__invest.--placeholder {
+    display: block;
+  }
+
   .offering__primary__investment {
     text-align: left;
   }
@@ -1121,6 +1151,10 @@ END GLOBAL MODIFIERS
     padding: 0 12px;
   }
 
+  .offering__description__content {
+    max-width: 575px;
+  }
+
   .offering__description::after {
     margin: 0 12px;
   }
@@ -1128,11 +1162,13 @@ END GLOBAL MODIFIERS
   .offering__last-chance {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
   .offering__last-chance__title {
     flex: 0 0 auto;
-    width: 62.5%
+    width: 62.5%;
+    margin-bottom: 0;
   }
 
   .offering__last-chance__button {

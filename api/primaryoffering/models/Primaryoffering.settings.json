@@ -121,6 +121,12 @@
     },
     "deal_security_type": {
       "type": "string"
+    },
+    "tags_csv": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
     }
   }
 }

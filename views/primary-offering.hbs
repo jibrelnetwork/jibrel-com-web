@@ -8,9 +8,13 @@
                 <div class="offering__primary__hero" style="background-image: url({{ hero_img }});">
                     <div class="offering__primary__hero__overlay"></div>
                 </div>
-                <button class="offering__primary__watch--large">
+                {{#if video_url}}
+                <a href="{{ video_url }}" target="_blank" rel="noopener noreferrer" class="offering__primary__watch--large">
                     <span class="offering__primary__watch__text">Watch video</span>
-                </button>
+                </a>
+                {{else}}
+                <div class="offering__primary__watch--large --placeholder"></div>
+                {{/if}}
                 <div class="common__centered">
                     <div class="offering__primary__about">
                         <div class="offering__primary__content">
@@ -19,15 +23,23 @@
                             </div>
                             <h1 class="offering__primary__title">{{ title }}</h1>
                             <ul class="offering__primary__tags">
-                                <li class="offering__primary__tags__item">Cloud communication</li>
-                                <li class="offering__primary__tags__item">Crypto</li>
-                                <li class="offering__primary__tags__item">Power supply</li>
+                                {{#each tags}}
+                                <li class="offering__primary__tags__item">{{ this }}</li>
+                                {{/each}}
                             </ul>
-                            <button class="offering__primary__watch--small">Watch video</button>
+                            {{#if video_url}}
+                            <a href="{{ video_url }}" target="_blank" rel="noopener noreferrer" class="offering__primary__watch--small">Watch video</a>
+                            {{else}}
+                            <div class="offering__primary__watch--small --placeholder"></div>
+                            {{/if}}
                             <p class="offering__primary__excerpt">{{ excerpt }}</p>
                         </div>
                         <div class="offering__primary__sidebar">
-                            <button class="offering__primary__invest">Invest now</button>
+                            {{#if investment_active}}
+                            <button class="offering__primary__invest common__button">Invest now</button>
+                            {{else}}
+                            <div class="offering__primary__invest --placeholder"></div>
+                            {{/if}}
                             <h2 class="offering__primary__investment">
                                 <span class="offering__primary__investment__commited">{{ investment_commited_formatted }}</span> commited of {{ investment_goal_formatted }} goal
                             </h2>
@@ -39,10 +51,16 @@
                                     <h3 class="offering__primary__investment-features__item__title">From</h3>
                                     <p class="offering__primary__investment-features__item__value">{{ investment_participants }} investors</p>
                                 </li>
+                                {{#if investment_deadline_left_formatted}}
                                 <li class="offering__primary__investment-features__item">
+                                    {{#if investment_active}}
                                     <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
+                                    {{else}}
+                                    <h3 class="offering__primary__investment-features__item__title">Finished</h3>
+                                    {{/if}}
                                     <p class="offering__primary__investment-features__item__value">{{ investment_deadline_left_formatted }}</p>
                                 </li>
+                                {{/if}}
                             </ul>
                         </div>
                     </div>
@@ -97,7 +115,7 @@
             <section class="offering__last-chance common__centered --grid">
                 <h2 class="offering__last-chance__title offering__title-2 common__grid__item">Sounds Interesting?</h2>
                 <div class="offering__last-chance__button common__grid__item">
-                  <button class="offering__primary__invest common__grid__item">Invest now</button>
+                  <button class="common__button">Invest now</button>
                 </div>
             </section>
             <section class="offering__contacts common__centered">
