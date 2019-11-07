@@ -198,9 +198,13 @@
                     <li class="offering__contacts__list__item --map">
                         <h3 class="offering__contacts__list__item__title">Location</h3>
                         <p class="offering__contacts__list__item__value">
-                            <a href="#" class="offering__contacts__map-link">
-                              <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location}}" />
+                            {{#if location_url }}
+                            <a href="{{ location_url }}" target="_blank" rel="noopener noreferrer" class="offering__contacts__map-link">
+                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location}}" />
                             </a>
+                            {{else}}
+                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location}}" />
+                            {{/if}}
                         </p>
                     </li>
                     {{/if}}

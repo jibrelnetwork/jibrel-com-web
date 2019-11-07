@@ -135,6 +135,9 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
+    },
+    "location_url": {
+      "type": "string"
     }
   }
 }
