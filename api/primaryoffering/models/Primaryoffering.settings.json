@@ -127,6 +127,14 @@
     },
     "video_url": {
       "type": "string"
+    },
+    "social": {
+      "type": "json"
+    },
+    "location_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
     }
   }
 }

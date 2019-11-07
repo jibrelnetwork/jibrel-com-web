@@ -36,7 +36,7 @@
                         </div>
                         <div class="offering__primary__sidebar">
                             {{#if investment_active}}
-                            <button class="offering__primary__invest common__button">Invest now</button>
+                            <a href="{{ url }}/invest" class="offering__primary__invest common__button">Invest now</a>
                             {{else}}
                             <div class="offering__primary__invest --placeholder"></div>
                             {{/if}}
@@ -101,7 +101,7 @@
             </section>
             <section class="offering__description common__centered --grid">
                 <h2 class="offering__title-2 --hidden">Description</h2>
-                <div class="offering__description__content common__grid__item">
+                <div class="offering__description__content common__html-content common__grid__item">
                     <h3>Header</h3>
                     <h4>Subheader</h4>
                     <ul>
@@ -115,7 +115,7 @@
             <section class="offering__last-chance common__centered --grid">
                 <h2 class="offering__last-chance__title offering__title-2 common__grid__item">Sounds Interesting?</h2>
                 <div class="offering__last-chance__button common__grid__item">
-                  <button class="common__button">Invest now</button>
+                  <a href="{{ url }}/invest" class="common__button">Invest now</a>
                 </div>
             </section>
             <section class="offering__contacts common__centered">
@@ -150,13 +150,58 @@
                     {{#if social}}
                     <li class="offering__contacts__list__item">
                         <h3 class="offering__contacts__list__item__title">Social</h3>
-                        <p class="offering__contacts__list__item__value">{{ title }}</p>
+                        <ul class="offering__contacts__list__item__value offering__contacts__list__social-list">
+                            {{#if social.facebook }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --facebook">Facebook</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.instagram }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --instagram">Instagram</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.twitter }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --twitter">Twitter</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.linkedin }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --linkedin">LinkedIn</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.medium }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --medium">Medium</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.kakaotalk }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --kakaotalk">KakaoTalk</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.telegram }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --telegram">Telegram</a>
+                            </li>
+                            {{/if}}
+                            {{#if social.youtube }}
+                            <li class="offering__contacts__list__social-list__item">
+                                <a href="#" class="offering__contacts__list__social-list__item__link --youtube">YouTube</a>
+                            </li>
+                            {{/if}}
+                        </ul>
                     </li>
                     {{/if}}
                     {{#if location_img}}
                     <li class="offering__contacts__list__item --map">
                         <h3 class="offering__contacts__list__item__title">Location</h3>
-                        <p class="offering__contacts__list__item__value">{{ location }}</p>
+                        <p class="offering__contacts__list__item__value">
+                            <a href="#" class="offering__contacts__map-link">
+                              <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location}}" />
+                            </a>
+                        </p>
                     </li>
                     {{/if}}
                 </ul>

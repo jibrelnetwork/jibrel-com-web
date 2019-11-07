@@ -122,6 +122,62 @@ GLOBAL MODIFIERS
   text-transform: uppercase;
 }
 
+.common__html-content h3 {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 24px;
+}
+
+.common__html-content h4 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.common__html-content p {
+  font-size: 18px;
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.common__html-content ul {
+  font-size: 18px;
+  line-height: 140%;
+}
+
+.common__html-content ul li {
+  padding-left: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.common__html-content ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(8, 30, 57, 0.4);
+}
+
+.common__html-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: rgba(0, 61, 198, 0.1);
+  border-radius: 12px;
+  min-height: 24px;
+  margin: 0 0 32px;
+  overflow: hidden;
+}
+
+.common__html-content hr {
+  border: none;
+  border-bottom: 1px solid rgba(8, 30, 57, 0.1);
+  margin: 0 0 32px;
+}
+
 /* Small */
 @media (min-width: 600px) {
   .common__centered {
@@ -869,62 +925,6 @@ END GLOBAL MODIFIERS
   margin: 0 6px;
 }
 
-.offering__description__content h3 {
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 29px;
-  margin-bottom: 24px;
-}
-
-.offering__description__content h4 {
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 140%;
-  margin-bottom: 24px;
-}
-
-.offering__description__content p {
-  font-size: 18px;
-  line-height: 140%;
-  margin-bottom: 24px;
-}
-
-.offering__description__content ul {
-  font-size: 18px;
-  line-height: 140%;
-}
-
-.offering__description__content ul li {
-  padding-left: 24px;
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.offering__description__content ul li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: rgba(8, 30, 57, 0.4);
-}
-
-.offering__description__content img {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: rgba(0, 61, 198, 0.1);
-  border-radius: 12px;
-  min-height: 24px;
-  margin: 0 0 32px;
-  overflow: hidden;
-}
-
-.offering__description__content hr {
-  border: none;
-  border-bottom: 1px solid rgba(8, 30, 57, 0.1);
-  margin: 0 0 32px;
-}
-
 .offering__last-chance {
   margin-bottom: 64px;
 }
@@ -964,6 +964,136 @@ END GLOBAL MODIFIERS
   line-height: 24px;
   letter-spacing: -0.54px;
   color: #081E39;
+}
+
+.offering__contacts__list__social-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px -8px 0;
+}
+
+.offering__contacts__list__social-list__item {
+  flex: 0 0 auto;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.offering__contacts__list__social-list__item__link {
+  display: block;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+}
+
+.offering__contacts__list__social-list__item__link::before,
+.offering__contacts__list__social-list__item__link::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  transition: opacity 0.3s;
+}
+
+.offering__contacts__list__social-list__item__link::before {
+  opacity: 1;
+}
+
+.offering__contacts__list__social-list__item__link::after {
+  opacity: 0;
+}
+
+.offering__contacts__list__social-list__item__link:hover::before {
+  opacity: 0;
+}
+
+.offering__contacts__list__social-list__item__link:hover::after {
+  opacity: 1;
+}
+
+.offering__contacts__list__social-list__item__link.--facebook::before {
+  background-image: url('./img/social/ic_facebook_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--instagram::before {
+  background-image: url('./img/social/ic_instagram_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--kakaotalk::before {
+  background-image: url('./img/social/ic_kakaotalk_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--linkedin::before {
+  background-image: url('./img/social/ic_linkedin_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--medium::before {
+  background-image: url('./img/social/ic_medium_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--telegram::before {
+  background-image: url('./img/social/ic_telegram_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--twitter::before {
+  background-image: url('./img/social/ic_twitter_24_gray.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--youtube::before {
+  background-image: url('./img/social/ic_youtube_24_gray.svg')
+}
+
+
+.offering__contacts__list__social-list__item__link.--facebook::after {
+  background-image: url('./img/social/ic_facebook_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--instagram::after {
+  background-image: url('./img/social/ic_instagram_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--kakaotalk::after {
+  background-image: url('./img/social/ic_kakaotalk_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--linkedin::after {
+  background-image: url('./img/social/ic_linkedin_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--medium::after {
+  background-image: url('./img/social/ic_medium_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--telegram::after {
+  background-image: url('./img/social/ic_telegram_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--twitter::after {
+  background-image: url('./img/social/ic_twitter_24.svg')
+}
+
+.offering__contacts__list__social-list__item__link.--youtube::after {
+  background-image: url('./img/social/ic_youtube_24.svg')
+}
+
+.offering__contacts__map-link {
+  display: block;
+}
+
+.offering__contacts__map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 /* Small */
@@ -1011,7 +1141,7 @@ END GLOBAL MODIFIERS
   }
 
   .offering__contacts__list {
-    max-height: 300px;
+    max-height: 340px;
   }
 
   .offering__contacts__list__item {
