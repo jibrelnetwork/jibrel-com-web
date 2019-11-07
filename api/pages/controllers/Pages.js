@@ -137,4 +137,8 @@ module.exports = {
       dir,
     })
   },
+
+  async redirectToLang(ctx) {
+    ctx.redirect('/en')
+  }
 }
