@@ -110,7 +110,7 @@ GLOBAL MODIFIERS
   display: block;
   width: 100%;
   background: #003DC6;
-  padding: 23px 6px 22px;
+  padding: 19px 6px 18px;
   text-align: center;
   color: #fff;
   font-size: 16px;
@@ -118,8 +118,21 @@ GLOBAL MODIFIERS
   font-weight: bold;
   letter-spacing: 0.05em;
   border-radius: 32px;
-  border: none;
+  border: 4px solid #003DC6;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+.common__button:hover {
+  background: #fff;
+  color: #003DC6;
+  text-decoration: none;
+}
+
+.common__button:active {
+  background: #dde4f5;
+  color: #003DC6;
+  text-decoration: none;
 }
 
 .common__html-content h3 {
