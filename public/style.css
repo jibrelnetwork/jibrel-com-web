@@ -254,12 +254,16 @@ END GLOBAL MODIFIERS
   padding: 0;
 }
 
+.navbar__menu-toggle {
+  display: none;
+}
+
 .navbar.--white .navbar__menu-toggle {
   background-image: url('./img/ic_menu_toggle_white.svg');
 }
 
 .navbar__menu {
-  display: none;
+  display: flex;
   list-style: none;
   padding: 0 16px;
   margin: 0;
@@ -309,10 +313,6 @@ END GLOBAL MODIFIERS
 
   .navbar__menu {
     display: flex;
-  }
-
-  .navbar__menu-toggle {
-    display: none;
   }
 }
 
