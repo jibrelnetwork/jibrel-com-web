@@ -1,7 +1,4 @@
 {
-  "page": {
-    "enabled": true
-  },
   "views": {
     "enabled": true
   }

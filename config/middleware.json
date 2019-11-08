@@ -13,8 +13,7 @@
     ],
     "after": [
       "parser",
-      "router",
-      "page"
+      "router"
     ]
   }
 }

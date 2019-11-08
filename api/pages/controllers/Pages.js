@@ -19,6 +19,25 @@ const dateLocales = {
  * to customize this controller
  */
 
+const createTitle = (title) => title
+  ? `${title} • Jibrel.com`
+  : 'Jibrel.com'
+
+function getLocals(ctx, config = {}) {
+  const lang = ctx.getLocaleFromUrl()
+  const dir = lang === 'ar'
+    ? 'rtl'
+    : 'ltr'
+
+  return {
+    page: {
+      lang,
+      dir,
+      title: createTitle(config.title),
+    }
+  }
+}
+
 function transformOffering(offering) {
   const o = sanitizeEntity(
     offering,
@@ -68,7 +87,7 @@ function transformOffering(offering) {
 
 module.exports = {
   async list(ctx) {
-    const { lang } = ctx.locals.page
+    const { lang } = getLocals(ctx).page
 
     const rawOfferings = await strapi.query('primaryoffering').find({
       active: true,
@@ -80,18 +99,22 @@ module.exports = {
 
     await ctx.render('index.hbs', {
       offerings,
-      ...ctx.locals,
+      ...getLocals(ctx, {
+        title: 'Startup investing made simple, for everyone',
+      }),
     })
   },
 
   async about(ctx) {
     await ctx.render('about.hbs', {
-      ...ctx.locals,
+      ...getLocals(ctx, {
+        title: 'About',
+      }),
     })
   },
 
   async offering(ctx) {
-    const { lang } = ctx.locals.page
+    const { lang } = getLocals(ctx).page
 
     const rawOffering = await strapi.query('primaryoffering').findOne({
       active: true,
@@ -99,14 +122,18 @@ module.exports = {
       slug: ctx.params.slug,
     })
 
+    const offering = transformOffering(rawOffering)
+
     await ctx.render('primary-offering.hbs', {
-      ...transformOffering(rawOffering),
-      ...ctx.locals,
+      ...offering,
+      ...getLocals(ctx, {
+        title: offering.title,
+      }),
     })
   },
 
   async invest(ctx) {
-    const { lang } = ctx.locals.page
+    const { lang } = getLocals(ctx).page
 
     const rawOffering = await strapi.query('primaryoffering').findOne({
       active: true,
@@ -114,9 +141,13 @@ module.exports = {
       slug: ctx.params.slug,
     })
 
+    const offering = transformOffering(rawOffering)
+
     await ctx.render('invest.hbs', {
-      ...transformOffering(rawOffering),
-      ...ctx.locals,
+      ...offering,
+      ...getLocals(ctx, {
+        title: `Invest in ${offering.title}`,
+      }),
     })
   },
 
