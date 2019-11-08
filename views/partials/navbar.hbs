@@ -1,14 +1,14 @@
 <div class="navbar --{{ color }}">
     <div class="navbar__wrapper common__centered">
         <nav class="navbar__content">
-            <a href="/{{ lang }}" class="navbar__logo-link">
+            <a href="/{{ page.lang }}" class="navbar__logo-link">
                 <img class="navbar__logo navbar__logo--black" src="{{asset '/img/ic_logo_colored_32.svg'}}" />
                 <img class="navbar__logo navbar__logo--white" src="{{asset '/img/ic_logo_colored_32_white.svg'}}" />
             </a>
             <button class="navbar__menu-toggle">Open menu</button>
             <ul class="navbar__menu">
                 <li class="navbar__menu-item">
-                    <a href="/{{ lang }}/about" class="navbar__menu-link">About</a>
+                    <a href="/{{ page.lang }}/about" class="navbar__menu-link">About</a>
                 </li>
             </ul>
         </nav>
