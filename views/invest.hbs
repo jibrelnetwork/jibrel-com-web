@@ -5,6 +5,40 @@
         </header>
         <div class="page__content">
             <div class="invest common__centered">
+                <h1 class="invest__title common__page-title">Early Bird Investment in {{ title }}</h1>
+                <section class="offering__terms">
+                    <h2 class="offering__title-2">Deal Terms</h2>
+                    <ul class="offering__terms__list">
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Valuation</h3>
+                            <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
+                        </li>
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Funding Round</h3>
+                            <p class="offering__terms__list__item__value">{{ deal_round }}</p>
+                        </li>
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Minimum Investment</h3>
+                            <p class="offering__terms__list__item__value">{{ deal_min_investment_formatted }}</p>
+                        </li>
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Type of Security</h3>
+                            <p class="offering__terms__list__item__value">{{ deal_security_type }}</p>
+                        </li>
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Offered Equity</h3>
+                            <p class="offering__terms__list__item__value">{{ deal_equity_formatted }}</p>
+                        </li>
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Round Size</h3>
+                            <p class="offering__terms__list__item__value">{{ investment_goal_formatted }}</p>
+                        </li>
+                        <li class="offering__terms__list__item">
+                            <h3 class="offering__terms__list__item__title">Deadline</h3>
+                            <p class="offering__terms__list__item__value">{{ investment_deadline_formatted }}</p>
+                        </li>
+                    </ul>
+                </section>
                 <iframe
                     class="invest__frame"
                     src="https://docs.google.com/forms/d/e/1FAIpQLSeZcXc2HRjarysDxe8RVOOBdPj45jA4pBrUmHG66TH59oVFZA/viewform?embedded=true&entry.628167958={{ title }}"

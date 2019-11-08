@@ -1456,6 +1456,7 @@ END GLOBAL MODIFIERS
   padding-top: 80px;
 }
 
+.invest__title,
 .about__title {
   margin: 32px 0 24px;
 }
@@ -1472,6 +1473,7 @@ END GLOBAL MODIFIERS
 
 /* Small */
 @media (min-width: 600px) {
+  .invest__title,
   .about__title {
     margin: 48px 0 24px;
   }
@@ -1489,6 +1491,7 @@ END GLOBAL MODIFIERS
 
 /* Large */
 @media (min-width: 1024px) {
+  .invest__title,
   .about__title {
     margin: 64px 0 24px;
   }
