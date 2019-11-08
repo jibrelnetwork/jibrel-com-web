@@ -68,10 +68,7 @@ function transformOffering(offering) {
 
 module.exports = {
   async list(ctx) {
-    const lang = ctx.getLocaleFromUrl()
-    const dir = lang === 'ar'
-      ? 'rtl'
-      : 'ltr'
+    const { lang } = ctx.locals.page
 
     const rawOfferings = await strapi.query('primaryoffering').find({
       active: true,
@@ -82,29 +79,19 @@ module.exports = {
       .map(transformOffering)
 
     await ctx.render('index.hbs', {
-      lang,
-      dir,
       offerings,
+      ...ctx.locals,
     })
   },
 
   async about(ctx) {
-    const lang = ctx.getLocaleFromUrl()
-    const dir = lang === 'ar'
-      ? 'rtl'
-      : 'ltr'
-
     await ctx.render('about.hbs', {
-      lang,
-      dir,
+      ...ctx.locals,
     })
   },
 
   async offering(ctx) {
-    const lang = ctx.getLocaleFromUrl()
-    const dir = lang === 'ar'
-      ? 'rtl'
-      : 'ltr'
+    const { lang } = ctx.locals.page
 
     const rawOffering = await strapi.query('primaryoffering').findOne({
       active: true,
@@ -114,16 +101,12 @@ module.exports = {
 
     await ctx.render('primary-offering.hbs', {
       ...transformOffering(rawOffering),
-      lang,
-      dir,
+      ...ctx.locals,
     })
   },
 
   async invest(ctx) {
-    const lang = ctx.getLocaleFromUrl()
-    const dir = lang === 'ar'
-      ? 'rtl'
-      : 'ltr'
+    const { lang } = ctx.locals.page
 
     const rawOffering = await strapi.query('primaryoffering').findOne({
       active: true,
@@ -133,8 +116,7 @@ module.exports = {
 
     await ctx.render('invest.hbs', {
       ...transformOffering(rawOffering),
-      lang,
-      dir,
+      ...ctx.locals,
     })
   },
 
