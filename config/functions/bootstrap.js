@@ -40,4 +40,27 @@ module.exports = async () => {
         },
       },
     })
+
+  // if there is S3 config for current environment, start with it
+  if (strapi.config.currentEnvironment['aws-s3']) {
+    const s3Config = strapi.config.currentEnvironment['aws-s3']
+
+    await strapi
+      .store({
+        environment: strapi.config.environment,
+        type: 'plugin',
+        name: 'upload',
+      })
+      .set({
+        key: 'provider',
+        value: {
+          enabled: true,
+          provider: 'aws-s3',
+          region: s3Config.region,
+          public: s3Config.public,
+          private: s3Config.private,
+          bucket: s3Config.bucket,
+        }
+      })
+  }
 }
