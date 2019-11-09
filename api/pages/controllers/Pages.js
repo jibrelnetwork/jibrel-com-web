@@ -29,7 +29,7 @@ const createTitle = (title) => title
   ? `${title} • Jibrel.com`
   : 'Jibrel.com'
 
-function getLocals(ctx, config = {}) {
+function getPageData(ctx, config = {}) {
   const lang = ctx.getLocaleFromUrl()
   const dir = lang === 'ar'
     ? 'rtl'
@@ -40,6 +40,7 @@ function getLocals(ctx, config = {}) {
       lang,
       dir,
       title: createTitle(config.title),
+      description: config.description || 'Jibrel enables startups and investors to connect in previously unimaginable ways to create capital formation.',
     }
   }
 }
@@ -94,7 +95,7 @@ function transformOffering(offering) {
 
 module.exports = {
   async list(ctx) {
-    const { lang } = getLocals(ctx).page
+    const { lang } = getPageData(ctx).page
 
     const rawOfferings = await strapi.query('primaryoffering').find({
       active: true,
@@ -106,7 +107,7 @@ module.exports = {
 
     await ctx.render('index.hbs', {
       offerings,
-      ...getLocals(ctx, {
+      ...getPageData(ctx, {
         title: 'Startup investing made simple, for everyone',
       }),
     })
@@ -114,14 +115,14 @@ module.exports = {
 
   async about(ctx) {
     await ctx.render('about.hbs', {
-      ...getLocals(ctx, {
+      ...getPageData(ctx, {
         title: 'About',
       }),
     })
   },
 
   async offering(ctx) {
-    const { lang } = getLocals(ctx).page
+    const { lang } = getPageData(ctx).page
 
     const rawOffering = await strapi.query('primaryoffering').findOne({
       active: true,
@@ -134,14 +135,15 @@ module.exports = {
     await ctx.render('primary-offering.hbs', {
       ...offering,
       description_html: md.render(offering.description || ''),
-      ...getLocals(ctx, {
+      ...getPageData(ctx, {
         title: offering.title,
+        description: offering.pitch,
       }),
     })
   },
 
   async invest(ctx) {
-    const { lang } = getLocals(ctx).page
+    const { lang } = getPageData(ctx).page
 
     const rawOffering = await strapi.query('primaryoffering').findOne({
       active: true,
@@ -153,8 +155,9 @@ module.exports = {
 
     await ctx.render('invest.hbs', {
       ...offering,
-      ...getLocals(ctx, {
+      ...getPageData(ctx, {
         title: `Invest in ${offering.title}`,
+        description: offering.pitch,
       }),
     })
   },
