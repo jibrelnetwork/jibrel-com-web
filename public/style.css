@@ -624,10 +624,32 @@ END GLOBAL MODIFIERS
   color: #fff;
 }
 
+.offerings__card:hover {
+  text-decoration: none;
+}
+
+.offerings__card:hover .offerings__card__contents {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.offerings__card:hover .offerings__card__title,
+.offerings__card:hover .offerings__card__pitch,
+.offerings__card:hover .offerings__card__location {
+  display: none;
+}
+
+.offerings__card:hover .offerings__card__stats {
+  display: block;
+}
+
+.offerings__card:focus, .offerings__card:active {
+  color: #fff;
+}
+
 .offerings__card__contents {
   position: relative;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   padding: 280px 32px 32px;
 }
 
@@ -673,6 +695,32 @@ END GLOBAL MODIFIERS
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.offerings__card__stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 160px 32px 32px;
+  display: none;
+}
+
+.offerings__card__stats__item {
+}
+
+.offerings__card__stats__item__title {
+  font-size: 18px;
+  line-height: 140%;
+  margin-bottom: 4px;
+}
+
+.offerings__card__stats__item__value {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 16px;
 }
 
 /* Small */

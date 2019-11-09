@@ -6,5 +6,29 @@
         <h3 class="offerings__card__title">{{ title }}</h3>
         <div class="offerings__card__pitch">{{ pitch }}</div>
         <div class="offerings__card__location">{{ location }}</div>
+        <ul class="offerings__card__stats">
+            <li class="offerings__card__stats__item">
+                <h4 class="offerings__card__stats__item__title">Raised</h4>
+                <p class="offerings__card__stats__item__value">{{ investment_commited_formatted }}</p>
+            </li>
+            <li class="offerings__card__stats__item">
+                <h4 class="offerings__card__stats__item__title">Total Raise</h4>
+                <p class="offerings__card__stats__item__value">{{ investment_goal_formatted }}</p>
+            </li>
+            <li class="offerings__card__stats__item">
+                <h4 class="offerings__card__stats__item__title">Minimum Investment</h4>
+                <p class="offerings__card__stats__item__value">{{ investment_goal_formatted }}</p>
+            </li>
+            {{#if investment_deadline_left_formatted}}
+            <li class="offerings__card__stats__item">
+                {{#if investment_active}}
+                    <h3 class="offerings__card__stats__item__title">Time Left</h3>
+                {{else}}
+                    <h3 class="offerings__card__stats__item__title">Finished</h3>
+                {{/if}}
+                <p class="offerings__card__stats__item__value">{{ investment_deadline_left_formatted }}</p>
+            </li>
+            {{/if}}
+        </ul>
     </div>
 </a>
