@@ -235,6 +235,19 @@ GLOBAL MODIFIERS
   margin: 0 0 32px;
 }
 
+.common__html-content .tagline {
+  display: block;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+.common__html-content .tagline.strikethrough {
+  text-decoration-line: line-through;
+  text-decoration-style: solid;
+  text-decoration-thickness: 8px;
+}
+
 .common__page-title {
   font-weight: 800;
   font-size: 32px;
@@ -272,6 +285,11 @@ GLOBAL MODIFIERS
   .common__html-content h2 + h4,
   .common__html-content h3 + h4 {
     padding-top: 32px;
+  }
+
+  .common__html-content .tagline {
+    font-size: 48px;
+    line-height: 57px;
   }
 }
 
@@ -336,6 +354,11 @@ GLOBAL MODIFIERS
   .common__html-content ul {
     font-size: 18px;
   }
+
+  .common__html-content .tagline {
+    font-size: 56px;
+    line-height: 67px;
+  }
 }
 
 /* Large */
@@ -351,6 +374,11 @@ GLOBAL MODIFIERS
   }
 
   .common__page-title {
+    font-size: 64px;
+    line-height: 76px;
+  }
+
+  .common__html-content .tagline {
     font-size: 64px;
     line-height: 76px;
   }
