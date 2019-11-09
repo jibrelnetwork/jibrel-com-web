@@ -153,42 +153,42 @@
                         <ul class="offering__contacts__list__item__value offering__contacts__list__social-list">
                             {{#if social.facebook }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --facebook">Facebook</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.facebook }}" class="offering__contacts__list__social-list__item__link --facebook">Facebook</a>
                             </li>
                             {{/if}}
                             {{#if social.instagram }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --instagram">Instagram</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.instagram }}" class="offering__contacts__list__social-list__item__link --instagram">Instagram</a>
                             </li>
                             {{/if}}
                             {{#if social.twitter }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --twitter">Twitter</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.twitter }}" class="offering__contacts__list__social-list__item__link --twitter">Twitter</a>
                             </li>
                             {{/if}}
                             {{#if social.linkedin }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --linkedin">LinkedIn</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.linkedin }}" class="offering__contacts__list__social-list__item__link --linkedin">LinkedIn</a>
                             </li>
                             {{/if}}
                             {{#if social.medium }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --medium">Medium</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.medium }}" class="offering__contacts__list__social-list__item__link --medium">Medium</a>
                             </li>
                             {{/if}}
                             {{#if social.kakaotalk }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --kakaotalk">KakaoTalk</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.kakaotalk }}" class="offering__contacts__list__social-list__item__link --kakaotalk">KakaoTalk</a>
                             </li>
                             {{/if}}
                             {{#if social.telegram }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --telegram">Telegram</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.telegram }}" class="offering__contacts__list__social-list__item__link --telegram">Telegram</a>
                             </li>
                             {{/if}}
                             {{#if social.youtube }}
                             <li class="offering__contacts__list__social-list__item">
-                                <a href="#" class="offering__contacts__list__social-list__item__link --youtube">YouTube</a>
+                                <a target="_blank" rel="noopener noreferrer" href="{{ social.youtube }}" class="offering__contacts__list__social-list__item__link --youtube">YouTube</a>
                             </li>
                             {{/if}}
                         </ul>
@@ -200,10 +200,10 @@
                         <p class="offering__contacts__list__item__value">
                             {{#if location_url }}
                             <a href="{{ location_url }}" target="_blank" rel="noopener noreferrer" class="offering__contacts__map-link">
-                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location}}" />
+                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location }}" />
                             </a>
                             {{else}}
-                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location}}" />
+                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location }}" />
                             {{/if}}
                         </p>
                     </li>
