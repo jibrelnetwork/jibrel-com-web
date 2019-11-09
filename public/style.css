@@ -213,6 +213,12 @@ GLOBAL MODIFIERS
   overflow: hidden;
 }
 
+.common__html-content iframe {
+  background: rgba(0, 61, 198, 0.1);
+  max-width: 100%;
+  margin: 0 0 32px;
+}
+
 .common__html-content hr {
   border: none;
   border-bottom: 1px solid rgba(8, 30, 57, 0.1);
