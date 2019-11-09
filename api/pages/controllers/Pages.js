@@ -79,6 +79,7 @@ function transformOffering(offering) {
   o.investment_goal_formatted = moneyLocale.format(o.investment_goal_usd)
   o.investment_commited_formatted = moneyLocale.format(o.investment_commited_usd)
   o.deal_valuation_formatted = moneyLocale.format(o.deal_valuation_usd)
+  o.deal_valuation_cap_formatted = moneyLocale.format(o.deal_valuation_cap_usd)
   o.deal_min_investment_formatted = moneyLocale.format(o.deal_min_investment_usd)
   o.deal_equity_formatted = `${o.deal_equity_percent}%`
   o.website_name = o.website_url

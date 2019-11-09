@@ -69,10 +69,18 @@
             <section class="offering__terms common__centered">
                 <h2 class="offering__title-2">Deal Terms</h2>
                 <ul class="offering__terms__list">
+                    {{#if deal_valuation_usd }}
                     <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Valuation Cap</h3>
+                        <h3 class="offering__terms__list__item__title">Valuation</h3>
                         <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
                     </li>
+                    {{/if}}
+                    {{#if deal_valuation_cap_usd }}
+                    <li class="offering__terms__list__item">
+                        <h3 class="offering__terms__list__item__title">Valuation Cap</h3>
+                        <p class="offering__terms__list__item__value">{{ deal_valuation_cap_formatted }}</p>
+                    </li>
+                    {{/if}}
                     <li class="offering__terms__list__item">
                         <h3 class="offering__terms__list__item__title">Funding Round</h3>
                         <p class="offering__terms__list__item__value">{{ deal_round }}</p>

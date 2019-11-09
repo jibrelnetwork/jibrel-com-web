@@ -110,6 +110,9 @@
     "deal_valuation_usd": {
       "type": "decimal"
     },
+    "deal_valuation_cap_usd": {
+      "type": "decimal"
+    },
     "deal_min_investment_usd": {
       "type": "decimal"
     },
