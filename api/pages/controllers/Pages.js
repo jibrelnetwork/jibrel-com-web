@@ -97,6 +97,10 @@ module.exports = {
   async list(ctx) {
     const { lang } = getPageData(ctx).page
 
+    if (lang !== 'en') {
+      return ctx.redirect('/en')
+    }
+
     const rawOfferings = await strapi.query('primaryoffering').find({
       active: true,
       lang,
