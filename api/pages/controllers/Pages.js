@@ -7,6 +7,12 @@ const formatDistanceToNow = require('date-fns/formatDistanceToNow')
 const isFuture = require('date-fns/isFuture')
 const isPast = require('date-fns/isPast')
 const { en, ar, ko } = require('date-fns/locale')
+const adjustHeadingLevels = require('../../../utils/markdown-it-plugin-adjust-heading-levels')
+const md = require('markdown-it')({
+  html: true,
+  breaks: true,
+  typographer: true
+}).use(adjustHeadingLevels, { minLevel: 3 })
 
 const dateLocales = {
   en,
@@ -126,6 +132,7 @@ module.exports = {
 
     await ctx.render('primary-offering.hbs', {
       ...offering,
+      description_html: md.render(offering.description || ''),
       ...getLocals(ctx, {
         title: offering.title,
       }),
