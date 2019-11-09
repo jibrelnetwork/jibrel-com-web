@@ -19,7 +19,7 @@
                     <div class="offering__primary__about">
                         <div class="offering__primary__content">
                             <div class="offering__primary__logo" style="background-color: {{logo_bg}};">
-                                <img class="offering__primary__logo__img" src="{{ logo_img }}" />
+                                <img class="offering__primary__logo__img" alt="{{ title }} Logo" src="{{ logo_img }}" />
                             </div>
                             <h1 class="offering__primary__title">{{ title }}</h1>
                             <ul class="offering__primary__tags">
@@ -70,7 +70,7 @@
                 <h2 class="offering__title-2">Deal Terms</h2>
                 <ul class="offering__terms__list">
                     <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Valuation</h3>
+                        <h3 class="offering__terms__list__item__title">Valuation Cap</h3>
                         <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
                     </li>
                     <li class="offering__terms__list__item">
@@ -85,10 +85,12 @@
                         <h3 class="offering__terms__list__item__title">Type of Security</h3>
                         <p class="offering__terms__list__item__value">{{ deal_security_type }}</p>
                     </li>
+                    {{#if deal_equity_percent }}
                     <li class="offering__terms__list__item">
                         <h3 class="offering__terms__list__item__title">Offered Equity</h3>
                         <p class="offering__terms__list__item__value">{{ deal_equity_formatted }}</p>
                     </li>
+                    {{/if}}
                     <li class="offering__terms__list__item">
                         <h3 class="offering__terms__list__item__title">Round Size</h3>
                         <p class="offering__terms__list__item__value">{{ investment_goal_formatted }}</p>
