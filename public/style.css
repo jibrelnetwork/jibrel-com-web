@@ -628,7 +628,7 @@ END GLOBAL MODIFIERS
   position: relative;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
-  padding: 320px 32px 32px;
+  padding: 280px 32px 32px;
 }
 
 .offerings__card__logo {
@@ -661,7 +661,8 @@ END GLOBAL MODIFIERS
   margin: 8px 0 0;
   font-size: 18px;
   line-height: 140%;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
+  height: 126px;
 }
 
 .offerings__card__location {
