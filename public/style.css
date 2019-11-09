@@ -157,40 +157,50 @@ GLOBAL MODIFIERS
 
 .common__html-content h2 {
   font-weight: 800;
-  font-size: 32px;
-  line-height: 38px;
-  margin-bottom: 24px;
-  margin-top: 64px;
+  font-size: 28px;
+  line-height: 33px;
+  padding-top: 64px;
+  padding-bottom: 16px;
+}
+
+.common__html-content h2 + h3,
+.common__html-content h2 + h4,
+.common__html-content h3 + h4 {
+  padding-top: 16px;
 }
 
 .common__html-content h3 {
   font-weight: 800;
-  font-size: 24px;
-  line-height: 29px;
-  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  padding-bottom: 16px;
 }
 
 .common__html-content h4 {
   font-weight: normal;
   font-size: 24px;
   line-height: 140%;
-  margin-bottom: 24px;
+  padding-bottom: 16px;
 }
 
 .common__html-content p {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 140%;
-  margin-bottom: 24px;
+  padding-bottom: 15px;
+}
+
+.common__html-content p + :not(p) {
+  padding-top: 1px;
 }
 
 .common__html-content ul {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 140%;
 }
 
 .common__html-content ul li {
   padding-left: 24px;
-  margin-bottom: 24px;
+  padding-bottom: 24px;
   position: relative;
 }
 
@@ -257,6 +267,12 @@ GLOBAL MODIFIERS
     font-size: 48px;
     line-height: 57px;
   }
+
+  .common__html-content h2 + h3,
+  .common__html-content h2 + h4,
+  .common__html-content h3 + h4 {
+    padding-top: 32px;
+  }
 }
 
 /* Medium */
@@ -284,6 +300,41 @@ GLOBAL MODIFIERS
   .common__page-title {
     font-size: 56px;
     line-height: 67px;
+  }
+
+  .common__html-content h2 {
+    font-size: 32px;
+    line-height: 38px;
+    padding-bottom: 24px;
+  }
+
+  .common__html-content h3 {
+    font-size: 24px;
+    line-height: 29px;
+    padding-bottom: 24px;
+  }
+
+  .common__html-content h4 {
+    padding-bottom: 24px;
+  }
+
+  .common__html-content h2 + h3,
+  .common__html-content h2 + h4,
+  .common__html-content h3 + h4 {
+    padding-top: 40px;
+  }
+
+  .common__html-content p {
+    font-size: 18px;
+    padding-bottom: 18px;
+  }
+
+  .common__html-content p + :not(p) {
+    padding-top: 6px;
+  }
+
+  .common__html-content ul {
+    font-size: 18px;
   }
 }
 
