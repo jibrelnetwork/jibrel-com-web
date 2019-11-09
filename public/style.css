@@ -248,6 +248,20 @@ GLOBAL MODIFIERS
   text-decoration-thickness: 8px;
 }
 
+.common__html-content .team {
+  display: block;
+  color: rgba(8, 30, 57, 0.4);
+}
+
+.common__html-content .team-member {
+  padding-bottom: 15px;
+}
+
+.common__html-content .team-member-name {
+  font-weight: bold;
+  color: rgba(8, 30, 57);
+}
+
 .common__page-title {
   font-weight: 800;
   font-size: 32px;
@@ -358,6 +372,10 @@ GLOBAL MODIFIERS
   .common__html-content .tagline {
     font-size: 56px;
     line-height: 67px;
+  }
+
+  .common__html-content .team-member {
+    padding-bottom: 18px;
   }
 }
 
