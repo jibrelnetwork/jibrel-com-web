@@ -9,10 +9,18 @@
                 <section class="offering__terms">
                     <h2 class="offering__title-2">Deal Terms</h2>
                     <ul class="offering__terms__list">
-                        <li class="offering__terms__list__item">
-                            <h3 class="offering__terms__list__item__title">Valuation</h3>
-                            <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
-                        </li>
+                      {{#if deal_valuation_usd }}
+                          <li class="offering__terms__list__item">
+                              <h3 class="offering__terms__list__item__title">Valuation</h3>
+                              <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
+                          </li>
+                      {{/if}}
+                      {{#if deal_valuation_cap_usd }}
+                          <li class="offering__terms__list__item">
+                              <h3 class="offering__terms__list__item__title">Valuation Cap</h3>
+                              <p class="offering__terms__list__item__value">{{ deal_valuation_cap_formatted }}</p>
+                          </li>
+                      {{/if}}
                         <li class="offering__terms__list__item">
                             <h3 class="offering__terms__list__item__title">Funding Round</h3>
                             <p class="offering__terms__list__item__value">{{ deal_round }}</p>
@@ -25,10 +33,12 @@
                             <h3 class="offering__terms__list__item__title">Type of Security</h3>
                             <p class="offering__terms__list__item__value">{{ deal_security_type }}</p>
                         </li>
-                        <li class="offering__terms__list__item">
-                            <h3 class="offering__terms__list__item__title">Offered Equity</h3>
-                            <p class="offering__terms__list__item__value">{{ deal_equity_formatted }}</p>
-                        </li>
+                      {{#if deal_equity_percent }}
+                          <li class="offering__terms__list__item">
+                              <h3 class="offering__terms__list__item__title">Offered Equity</h3>
+                              <p class="offering__terms__list__item__value">{{ deal_equity_formatted }}</p>
+                          </li>
+                      {{/if}}
                         <li class="offering__terms__list__item">
                             <h3 class="offering__terms__list__item__title">Round Size</h3>
                             <p class="offering__terms__list__item__value">{{ investment_goal_formatted }}</p>
