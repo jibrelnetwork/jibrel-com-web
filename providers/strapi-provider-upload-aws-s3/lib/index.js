@@ -64,9 +64,10 @@ module.exports = {
         return new Promise((resolve, reject) => {
           // upload file on S3 bucket
           const path = file.path ? `${file.path}/` : '';
+          const envPathPrefix = config.root ? `${config.root}/` : ''
           S3.upload(
             {
-              Key: `${path}${file.hash}${file.ext}`,
+              Key: `${envPathPrefix}${path}${file.hash}${file.ext}`,
               Body: Buffer.from(file.buffer, 'binary'),
               ContentType: file.mime,
             },

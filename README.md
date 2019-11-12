@@ -4,7 +4,7 @@ Jibrel.com CMS for offerings management and public content
 
 ## Deployment
 
-Required production run environment variables:
+Required server run environment variables:
 
 - `NODE_ENV` = `staging` for development and staging server, `production` for production server
 - `JWT_SECRET` = any secret string for session token signing / verifying. There is already a secret in default config, but it is not suitable for production.
@@ -18,5 +18,9 @@ Required production run environment variables:
 - `PROXY_PORT` = proxy port number.
 - `AWS_S3_REGION`
 - `AWS_S3_BUCKET`
+
+Additional environemnt variables available are:
+
+- `AWS_S3_ROOT` = if not specified, `NODE_ENV` value will be used instead
 
 Configurations are stored under [/config/environments](./config/environments). They are named after respective `NODE_ENV` value. So if you pass `NODE_ENV=staging` app will load config files from `/config/environments/staging`. If you pass `NODE_ENV=test` there will be no configuration at all.

@@ -1,9 +1,8 @@
 {
   "aws-s3": {
     "region": "${process.env.AWS_S3_REGION || ''}",
-    "public": null,
-    "private": null,
-    "bucket": "${process.env.AWS_S3_BUCKET || ''}"
+    "bucket": "${process.env.AWS_S3_BUCKET || ''}",
+    "root": "${process.env.AWS_S3_ROOT || ''}"
   },
   "myCustomConfiguration": "This configuration is accessible through strapi.config.environments.staging.myCustomConfiguration"
 }
