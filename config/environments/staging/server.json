@@ -2,12 +2,6 @@
   "host": "localhost",
   "port": "${process.env.PORT || 1337}",
   "production": true,
-  "proxy": {
-    "enabled": true,
-    "ssl": false,
-    "host": "${process.env.PROXY_HOST || '127.0.0.1'}",
-    "port": "${process.env.PROXY_PORT}"
-  },
   "cron": {
     "enabled": false
   },

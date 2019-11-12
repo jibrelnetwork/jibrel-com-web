@@ -14,8 +14,6 @@ Required server run environment variables:
 - `DATABASE_USERNAME`
 - `DATABASE_PASSWORD`
 - `PORT` = which port application is launched at
-- `PROXY_HOST` = proxy host name. All the URLs (links, CORS, etc.) will be generated based on proxy config
-- `PROXY_PORT` = proxy port number.
 - `AWS_S3_REGION`
 - `AWS_S3_BUCKET`
 
