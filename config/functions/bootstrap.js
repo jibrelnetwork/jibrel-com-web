@@ -36,6 +36,11 @@ module.exports = async () => {
                 enabled: 1,
               },
             },
+            system: {
+              version: {
+                enabled: 1,
+              },
+            },
           },
         },
       },
