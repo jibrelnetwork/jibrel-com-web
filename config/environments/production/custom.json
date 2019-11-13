@@ -1,8 +1,9 @@
 {
-  "aws-s3": {
+  "awsS3": {
     "region": "${process.env.AWS_S3_REGION || ''}",
     "bucket": "${process.env.AWS_S3_BUCKET || ''}",
-    "root": "${process.env.AWS_S3_ROOT || ''}"
+    "root": "${process.env.AWS_S3_ROOT || ''}",
+    "cdnHost": "${ process.env.AWS_CDN_HOST || ''}"
   },
   "myCustomConfiguration": "This configuration is accessible through strapi.config.environments.production.myCustomConfiguration"
 }

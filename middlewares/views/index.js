@@ -12,6 +12,7 @@ module.exports = strapi => {
     async initialize() {
       const assetsPath = _.get(strapi.config, 'currentEnvironment.request.router.prefix', '')
       const viewsDir = path.resolve(strapi.config.appPath, strapi.config.paths.views)
+      const cdnHost = _.get(strapi.config, 'currentEnvironment.awsS3.cdnHost', '')
 
       try {
         const partialsList = await glob(
@@ -34,7 +35,20 @@ module.exports = strapi => {
               map: { hbs: 'handlebars' },
               options: {
                 helpers: {
-                  asset: (str) => assetsPath + str
+                  asset: (str) => assetsPath + str,
+                  // accepts file or s3 url, returns url to cdn
+                  cdn: (strOrObject) => {
+                    const str = strOrObject.url || strOrObject
+
+                    if (!cdnHost) {
+                      return str
+                    }
+
+                    const url = new URL(str, cdnHost)
+                    url.host = cdnHost
+
+                    return url.toString()
+                  }
                 },
 
                 partials,

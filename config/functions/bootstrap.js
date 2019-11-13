@@ -47,8 +47,8 @@ module.exports = async () => {
     })
 
   // if there is S3 config for current environment, start with it
-  if (strapi.config.currentEnvironment['aws-s3']) {
-    const s3Config = strapi.config.currentEnvironment['aws-s3']
+  if (strapi.config.currentEnvironment.awsS3) {
+    const s3Config = strapi.config.currentEnvironment.awsS3
 
     await strapi
       .store({

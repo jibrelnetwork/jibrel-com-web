@@ -1,7 +1,7 @@
-<a href="{{ url }}" class="offerings__card" style="background-image: url({{asset preview_bg_img }});">
+<a href="{{ url }}" class="offerings__card" style="background-image: url({{cdn preview_bg_img }});">
     <div class="offerings__card__contents" style="background-image: linear-gradient(180deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%);">
         <div class="offerings__card__logo" style="background-color: {{logo_bg}};">
-            <img src="{{ logo_img }}" alt="{{ title }} Logo" class="offerings__card__logo__img" />
+            <img src="{{cdn logo_img }}" alt="{{ title }} Logo" class="offerings__card__logo__img" />
         </div>
         <h3 class="offerings__card__title">{{ title }}</h3>
         <div class="offerings__card__pitch">{{ pitch }}</div>

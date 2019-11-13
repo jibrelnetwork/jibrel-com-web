@@ -5,7 +5,7 @@
         </header>
         <article class="page__content offering">
             <div class="offering__primary">
-                <div class="offering__primary__hero" style="background-image: url({{ hero_img }});">
+                <div class="offering__primary__hero" style="background-image: url({{cdn hero_img }});">
                     <div class="offering__primary__hero__overlay"></div>
                 </div>
                 {{#if video_url}}
@@ -19,7 +19,7 @@
                     <div class="offering__primary__about">
                         <div class="offering__primary__content">
                             <div class="offering__primary__logo" style="background-color: {{logo_bg}};">
-                                <img class="offering__primary__logo__img" alt="{{ title }} Logo" src="{{ logo_img }}" />
+                                <img class="offering__primary__logo__img" alt="{{ title }} Logo" src="{{cdn logo_img }}" />
                             </div>
                             <h1 class="offering__primary__title">{{ title }}</h1>
                             <ul class="offering__primary__tags">
@@ -203,10 +203,10 @@
                         <p class="offering__contacts__list__item__value">
                             {{#if location_url }}
                             <a href="{{ location_url }}" target="_blank" rel="noopener noreferrer" class="offering__contacts__map-link">
-                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location }}" />
+                                <img class="offering__contacts__map" src="{{cdn location_img }}" alt="{{ location }}" />
                             </a>
                             {{else}}
-                                <img class="offering__contacts__map" src="{{ location_img.url }}" alt="{{ location }}" />
+                                <img class="offering__contacts__map" src="{{cdn location_img }}" alt="{{ location }}" />
                             {{/if}}
                         </p>
                     </li>
