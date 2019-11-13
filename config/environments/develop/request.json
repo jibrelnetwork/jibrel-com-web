@@ -12,9 +12,9 @@
     "rolling": false
   },
   "logger": {
-    "level": "debug",
+    "level": "info",
     "exposeInContext": true,
-    "requests": true
+    "requests": false
   },
   "parser": {
     "enabled": true,
