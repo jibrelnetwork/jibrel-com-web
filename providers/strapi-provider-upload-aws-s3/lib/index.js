@@ -88,9 +88,10 @@ module.exports = {
         return new Promise((resolve, reject) => {
           // delete file on S3 bucket
           const path = file.path ? `${file.path}/` : '';
+          const envPathPrefix = config.root ? `${config.root}/` : ''
           S3.deleteObject(
             {
-              Key: `${path}${file.hash}${file.ext}`,
+              Key: `${envPathPrefix}${path}${file.hash}${file.ext}`,
             },
             (err, data) => {
               if (err) {
