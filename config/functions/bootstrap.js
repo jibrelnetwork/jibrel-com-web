@@ -20,19 +20,19 @@ module.exports = async () => {
         application: {
           controllers: {
             pages: {
-              redirectToLang: {
-                enabled: 1,
-              },
-              list: {
-                enabled: 1,
-              },
-              offering: {
+              noop: {
                 enabled: 1,
               },
               about: {
                 enabled: 1,
               },
-              invest: {
+              list: {
+                enabled: 1,
+              },
+              company: {
+                enabled: 1,
+              },
+              offering: {
                 enabled: 1,
               },
             },

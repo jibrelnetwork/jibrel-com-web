@@ -20,7 +20,9 @@ module.exports = strapi => {
 
       // accepts file or s3 url, returns url to cdn
       const replaceS3UrlWithCDN = (strOrObject) => {
-        const str = strOrObject.url || strOrObject
+        const str = strOrObject
+          ? (strOrObject.url || strOrObject)
+          : '#'
 
         if (!cdnHost) {
           return str

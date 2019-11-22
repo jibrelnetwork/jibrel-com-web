@@ -1,4 +1,14 @@
 {
-  "meta.website.title": "Startup investing made simple, for everyone",
-  "meta.website.description": "Jibrel enables startups and investors to connect in previously unimaginable ways to create capital formation."
+  "meta.website.title.default": "Startup investing made simple, for everyone",
+  "meta.website.title.empty": "Jibrel",
+  "meta.website.title.template": "%s • Jibrel",
+  "meta.website.description": "Jibrel enables startups and investors to connect in previously unimaginable ways to create capital formation.",
+  "offering.type.common_shares": "Common Shares",
+  "offering.type.convertible_debt": "Convertible Promissory Note",
+  "offering.round.angel": "Angel Round",
+  "offering.round.seed": "Seed Round",
+  "offering.round.a": "Series A",
+  "offering.round.b": "Series B",
+  "offering.round.c": "Series C",
+  "offering.round.d": "Series D"
 }

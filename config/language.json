@@ -2,12 +2,9 @@
   "enabled": true,
   "defaultLocale": "en",
   "modes": [
-    "query",
-    "subdomain",
-    "cookie",
-    "header",
     "url",
-    "tld"
+    "cookie",
+    "header"
   ],
   "cookieName": "locale"
 }

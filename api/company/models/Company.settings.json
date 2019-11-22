@@ -1,0 +1,108 @@
+{
+  "connection": "default",
+  "collectionName": "companies",
+  "info": {
+    "name": "company",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "status": {
+      "enum": [
+        "draft",
+        "preview",
+        "public"
+      ],
+      "type": "enumeration",
+      "default": "draft",
+      "private": true
+    },
+    "slug": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    },
+    "title": {
+      "required": true,
+      "type": "string"
+    },
+    "tagline": {
+      "type": "text"
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "pitch": {
+      "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "preview_bg_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "preview_bg_color": {
+      "maxLength": 7,
+      "default": "#000000",
+      "required": true,
+      "minLength": 7,
+      "type": "string"
+    },
+    "logo_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "logo_bg_color": {
+      "maxLength": 7,
+      "default": "#ffffff",
+      "required": true,
+      "minLength": 7,
+      "type": "string"
+    },
+    "hero_img": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "hero_video_url": {
+      "type": "string"
+    },
+    "legal_name": {
+      "type": "string"
+    },
+    "founded": {
+      "type": "string"
+    },
+    "employees": {
+      "type": "integer"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "location_googlemaps_id": {
+      "type": "string"
+    },
+    "translations": {
+      "collection": "companytranslation",
+      "via": "company"
+    },
+    "offerings": {
+      "collection": "offering",
+      "via": "company"
+    }
+  }
+}

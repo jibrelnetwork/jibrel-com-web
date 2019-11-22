@@ -1,34 +1,36 @@
-<a href="{{ url }}" class="offerings__card" style="background-image: url({{cdn preview_bg_img }});">
+<a href="{{ permalink }}" class="offerings__card" style="background-image: url({{cdn preview_bg_img }});">
     <div class="offerings__card__contents" style="background-image: linear-gradient(180deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%);">
-        <div class="offerings__card__logo" style="background-color: {{logo_bg}};">
+        <div class="offerings__card__logo" style="background-color: {{logo_bg_color}};">
             <img src="{{cdn logo_img }}" alt="{{ title }} Logo" class="offerings__card__logo__img" />
         </div>
         <h3 class="offerings__card__title">{{ title }}</h3>
-        <div class="offerings__card__pitch">{{ pitch }}</div>
+        <div class="offerings__card__pitch">{{ tagline }}</div>
         <div class="offerings__card__location">{{ location }}</div>
+        {{#with current_offering}}
         <ul class="offerings__card__stats">
             <li class="offerings__card__stats__item">
                 <h4 class="offerings__card__stats__item__title">Raised</h4>
-                <p class="offerings__card__stats__item__value">{{ investment_commited_formatted }}</p>
+                <p class="offerings__card__stats__item__value">{{ raise_formatted }}</p>
             </li>
             <li class="offerings__card__stats__item">
                 <h4 class="offerings__card__stats__item__title">Total Raise</h4>
-                <p class="offerings__card__stats__item__value">{{ investment_goal_formatted }}</p>
+                <p class="offerings__card__stats__item__value">{{ goal_formatted }}</p>
             </li>
             <li class="offerings__card__stats__item">
                 <h4 class="offerings__card__stats__item__title">Minimum Investment</h4>
-                <p class="offerings__card__stats__item__value">{{ investment_goal_formatted }}</p>
+                <p class="offerings__card__stats__item__value">{{ min_investment_formatted }}</p>
             </li>
-            {{#if investment_deadline_left_formatted}}
+            {{#if deadline_left_formatted}}
             <li class="offerings__card__stats__item">
-                {{#if investment_active}}
+                {{#if is_active}}
                     <h3 class="offerings__card__stats__item__title">Time Left</h3>
                 {{else}}
                     <h3 class="offerings__card__stats__item__title">Finished</h3>
                 {{/if}}
-                <p class="offerings__card__stats__item__value">{{ investment_deadline_left_formatted }}</p>
+                <p class="offerings__card__stats__item__value">{{ deadline_left_formatted }}</p>
             </li>
             {{/if}}
         </ul>
+        {{/with}}
     </div>
 </a>

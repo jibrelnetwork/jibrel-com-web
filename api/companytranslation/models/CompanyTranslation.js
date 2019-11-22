@@ -1,20 +1,13 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Primaryoffering` model.
+ * Lifecycle callbacks for the `Companytranslation` model.
  */
 
 module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
   // beforeSave: async (model, attrs, options) => {},
-  beforeSave: async (model, attrs, options) => {
-    if (options.method === 'insert' && attrs.lang && attrs.slug) {
-      model.set('path', `${attrs.lang}/offerings/${attrs.slug}`)
-    } else if (options.method === 'update' && attrs.lang && attrs.slug) {
-      attrs.path = `${attrs.lang}/offerings/${attrs.slug}`
-    }
-  }
 
   // After saving a value.
   // Fired after an `insert` or `update` query.
@@ -27,7 +20,7 @@ module.exports = {
   // After fetching a value.
   // Fired after a `fetch` operation.
   // afterFetch: async (model, response, options) => {},
-
+  
   // Before fetching all values.
   // Fired before a `fetchAll` operation.
   // beforeFetchAll: async (model, columns, options) => {},
@@ -59,4 +52,4 @@ module.exports = {
   // After destroying a value.
   // Fired after a `delete` query.
   // afterDestroy: async (model, attrs, options) => {}
-}
+};

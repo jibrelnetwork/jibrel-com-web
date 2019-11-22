@@ -1,0 +1,27 @@
+{{#> layouts/default}}
+    <div class="page">
+        <header class="page__header">
+          {{> partials/navbar color="black" }}
+        </header>
+        <div class="page__content">
+            <div class="invest common__centered">
+                <h1 class="invest__title common__page-title">Early Bird Investment in {{ company.title }}</h1>
+            </div>
+            {{> partials/deal }}
+            <div class="common__centered">
+                <iframe
+                    class="invest__frame"
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSeZcXc2HRjarysDxe8RVOOBdPj45jA4pBrUmHG66TH59oVFZA/viewform?embedded=true&usp=pp_url&entry.1813727802={{ company.title }}"
+                    width="640"
+                    height="750"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                >Loading…</iframe>
+            </div>
+        </div>
+        <footer class="page__footer">
+          {{> partials/footer }}
+        </footer>
+    </div>
+{{/layouts/default}}

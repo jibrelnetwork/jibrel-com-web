@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/primaryofferings",
-      "handler": "Primaryoffering.find",
+      "path": "/offerings",
+      "handler": "Offering.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/primaryofferings/count",
-      "handler": "Primaryoffering.count",
+      "path": "/offerings/count",
+      "handler": "Offering.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/primaryofferings/:id",
-      "handler": "Primaryoffering.findOne",
+      "path": "/offerings/:id",
+      "handler": "Offering.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/primaryofferings",
-      "handler": "Primaryoffering.create",
+      "path": "/offerings",
+      "handler": "Offering.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/primaryofferings/:id",
-      "handler": "Primaryoffering.update",
+      "path": "/offerings/:id",
+      "handler": "Offering.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/primaryofferings/:id",
-      "handler": "Primaryoffering.delete",
+      "path": "/offerings/:id",
+      "handler": "Offering.delete",
       "config": {
         "policies": []
       }

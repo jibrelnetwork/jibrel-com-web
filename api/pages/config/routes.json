@@ -3,41 +3,51 @@
     {
       "method": "GET",
       "path": "/",
-      "handler": "Pages.redirectToLang",
+      "handler": "Pages.noop",
       "config": {
-        "policies": []
+        "policies": [
+          "withValidLanguage"
+        ]
       }
     },
     {
       "method": "GET",
-      "path": "/:lang(en|ar|ko|zh-Hans)",
+      "path": "/:lang(en|ar)",
       "handler": "Pages.list",
       "config": {
-        "policies": []
+        "policies": [
+          "withValidLanguage"
+        ]
       }
     },
     {
       "method": "GET",
-      "path": "/:lang(en|ar|ko|zh-Hans)/about",
+      "path": "/:lang(en|ar)/about",
       "handler": "Pages.about",
       "config": {
-        "policies": []
+        "policies": [
+          "withValidLanguage"
+        ]
       }
     },
     {
       "method": "GET",
-      "path": "/:lang(en|ar|ko|zh-Hans)/offerings/:slug",
+      "path": "/:lang(en|ar)/companies/:slug",
+      "handler": "Pages.company",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang(en|ar)/companies/:slug/offerings/:id",
       "handler": "Pages.offering",
       "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/:lang(en|ar|ko|zh-Hans)/offerings/:slug/invest",
-      "handler": "Pages.invest",
-      "config": {
-        "policies": []
+        "policies": [
+          "withValidLanguage"
+        ]
       }
     }
   ]

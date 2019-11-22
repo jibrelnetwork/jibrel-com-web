@@ -18,13 +18,13 @@
                 <div class="common__centered">
                     <div class="offering__primary__about">
                         <div class="offering__primary__content">
-                            <div class="offering__primary__logo" style="background-color: {{logo_bg}};">
+                            <div class="offering__primary__logo" style="background-color: {{logo_bg_color}};">
                                 <img class="offering__primary__logo__img" alt="{{ title }} Logo" src="{{cdn logo_img }}" />
                             </div>
                             <h1 class="offering__primary__title">{{ title }}</h1>
                             <ul class="offering__primary__tags">
                                 {{#each tags}}
-                                <li class="offering__primary__tags__item">{{ this }}</li>
+                                <li class="offering__primary__tags__item">{{ title }}</li>
                                 {{/each}}
                             </ul>
                             {{#if video_url}}
@@ -32,95 +32,61 @@
                             {{else}}
                             <div class="offering__primary__watch--small --placeholder"></div>
                             {{/if}}
-                            <p class="offering__primary__excerpt">{{ excerpt }}</p>
+                            <p class="offering__primary__excerpt">{{ pitch }}</p>
                         </div>
                         <div class="offering__primary__sidebar">
-                            {{#if investment_active}}
-                            <a href="{{ url }}/invest" class="offering__primary__invest common__button">Invest now</a>
-                            {{else}}
-                            <div class="offering__primary__invest --placeholder"></div>
-                            {{/if}}
-                            <h2 class="offering__primary__investment">
-                                <span class="offering__primary__investment__commited">{{ investment_commited_formatted }}</span> commited of {{ investment_goal_formatted }} goal
-                            </h2>
-                            <div class="offering__primary__investment-progress">
-                                <div class="offering__primary__investment-progress-finished" style="width: {{ investment_progress }}%;"></div>
-                            </div>
-                            <ul class="offering__primary__investment-features">
-                                <li class="offering__primary__investment-features__item">
-                                    <h3 class="offering__primary__investment-features__item__title">From</h3>
-                                    <p class="offering__primary__investment-features__item__value">{{ investment_participants }} investors</p>
-                                </li>
-                                {{#if investment_deadline_left_formatted}}
-                                <li class="offering__primary__investment-features__item">
-                                    {{#if investment_active}}
-                                    <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
-                                    {{else}}
-                                    <h3 class="offering__primary__investment-features__item__title">Finished</h3>
-                                    {{/if}}
-                                    <p class="offering__primary__investment-features__item__value">{{ investment_deadline_left_formatted }}</p>
-                                </li>
-                                {{/if}}
-                            </ul>
+                            {{#with current_offering}}
+                              {{#if is_active}}
+                              <a href="{{ ../permalink }}/offerings/{{ id }}" class="offering__primary__invest common__button">Invest now</a>
+                              {{else}}
+                              <div class="offering__primary__invest --placeholder"></div>
+                              {{/if}}
+                              <h2 class="offering__primary__investment">
+                                  <span class="offering__primary__investment__commited">{{ raise_formatted }}</span> commited of {{ goal_formatted }} goal
+                              </h2>
+                              <div class="offering__primary__investment-progress">
+                                  <div class="offering__primary__investment-progress-finished" style="width: {{ progress }}%;"></div>
+                              </div>
+                              <ul class="offering__primary__investment-features">
+                                  <li class="offering__primary__investment-features__item">
+                                      <h3 class="offering__primary__investment-features__item__title">From</h3>
+                                      <p class="offering__primary__investment-features__item__value">{{ participants }} investors</p>
+                                  </li>
+                                  {{#if deadline_left_formatted}}
+                                  <li class="offering__primary__investment-features__item">
+                                      {{#if is_active}}
+                                      <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
+                                      {{else}}
+                                      <h3 class="offering__primary__investment-features__item__title">Finished</h3>
+                                      {{/if}}
+                                      <p class="offering__primary__investment-features__item__value">{{ deadline_left_formatted }}</p>
+                                  </li>
+                                  {{/if}}
+                              </ul>
+                            {{/with}}
                         </div>
                     </div>
                 </div>
             </div>
-            <section class="offering__terms common__centered">
-                <h2 class="offering__title-2">Deal Terms</h2>
-                <ul class="offering__terms__list">
-                    {{#if deal_valuation_usd }}
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Valuation</h3>
-                        <p class="offering__terms__list__item__value">{{ deal_valuation_formatted }}</p>
-                    </li>
-                    {{/if}}
-                    {{#if deal_valuation_cap_usd }}
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Valuation Cap</h3>
-                        <p class="offering__terms__list__item__value">{{ deal_valuation_cap_formatted }}</p>
-                    </li>
-                    {{/if}}
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Funding Round</h3>
-                        <p class="offering__terms__list__item__value">{{ deal_round }}</p>
-                    </li>
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Minimum Investment</h3>
-                        <p class="offering__terms__list__item__value">{{ deal_min_investment_formatted }}</p>
-                    </li>
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Type of Security</h3>
-                        <p class="offering__terms__list__item__value">{{ deal_security_type }}</p>
-                    </li>
-                    {{#if deal_equity_percent }}
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Offered Equity</h3>
-                        <p class="offering__terms__list__item__value">{{ deal_equity_formatted }}</p>
-                    </li>
-                    {{/if}}
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Round Size</h3>
-                        <p class="offering__terms__list__item__value">{{ investment_goal_formatted }}</p>
-                    </li>
-                    <li class="offering__terms__list__item">
-                        <h3 class="offering__terms__list__item__title">Deadline</h3>
-                        <p class="offering__terms__list__item__value">{{ investment_deadline_formatted }}</p>
-                    </li>
-                </ul>
-            </section>
+            {{#with current_offering}}
+                {{> partials/deal }}
+            {{/with}}
             <section class="offering__description common__centered --grid">
                 <h2 class="offering__title-2 --hidden">Description</h2>
                 <div class="offering__description__content common__html-content common__grid__item">
-                    {{{projectMD description }}}
+                    {{{projectMD content }}}
                 </div>
             </section>
-            <section class="offering__last-chance common__centered --grid">
-                <h2 class="offering__last-chance__title offering__title-2 common__grid__item">Sounds Interesting?</h2>
-                <div class="offering__last-chance__button common__grid__item">
-                  <a href="{{ url }}/invest" class="common__button">Invest now</a>
-                </div>
-            </section>
+            {{#with current_offering}}
+                {{#if is_active}}
+                <section class="offering__last-chance common__centered --grid">
+                    <h2 class="offering__last-chance__title offering__title-2 common__grid__item">Sounds Interesting?</h2>
+                    <div class="offering__last-chance__button common__grid__item">
+                        <a href="{{ ../permalink }}/offerings/{{ id }}" class="common__button">Invest now</a>
+                    </div>
+                </section>
+                {{/if}}
+            {{/with}}
             <section class="offering__contacts common__centered">
                 <h2 class="offering__title-2">About {{ title }}</h2>
                 <ul class="offering__contacts__list">
@@ -197,17 +163,20 @@
                         </ul>
                     </li>
                     {{/if}}
-                    {{#if location_img}}
+                    {{#if location_googlemaps_id}}
                     <li class="offering__contacts__list__item --map">
                         <h3 class="offering__contacts__list__item__title">Location</h3>
                         <p class="offering__contacts__list__item__value">
-                            {{#if location_url }}
-                            <a href="{{ location_url }}" target="_blank" rel="noopener noreferrer" class="offering__contacts__map-link">
-                                <img class="offering__contacts__map" src="{{cdn location_img }}" alt="{{ location }}" />
-                            </a>
-                            {{else}}
-                                <img class="offering__contacts__map" src="{{cdn location_img }}" alt="{{ location }}" />
-                            {{/if}}
+                            <iframe
+                                title="{{ location }}"
+                                class="offering__contacts__map"
+                                src="https://www.google.com/maps/embed/v1/place?q=place_id:{{ location_googlemaps_id }}&key={{ env.GOOGLE_MAPS_API_KEY }}"
+                                width="400"
+                                height="300"
+                                frameborder="0"
+                                style="border:0;"
+                                allowfullscreen=""
+                            ></iframe>
                         </p>
                     </li>
                     {{/if}}
