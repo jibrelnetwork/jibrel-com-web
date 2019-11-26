@@ -43,8 +43,7 @@
       "required": true
     },
     "max_investment": {
-      "type": "decimal",
-      "default": ""
+      "type": "decimal"
     },
     "round": {
       "enumDefault": "seed",
