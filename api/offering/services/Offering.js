@@ -6,6 +6,10 @@ const _ = require('lodash')
 
 module.exports = {
   prepare (data) {
+    if (!data) {
+      return data
+    }
+
     const offering = sanitizeEntity(
       data,
       { model: strapi.models.offering }
@@ -25,6 +29,10 @@ module.exports = {
   },
 
   localize (i18n, data) {
+    if (!data) {
+      return data
+    }
+
     // data preparation is prerequisite for localization
     const offering = data._prepared
       ? data
