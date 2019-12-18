@@ -3,8 +3,17 @@
 const { sanitizeEntity } = require('strapi-utils')
 const _ = require('lodash')
 
+const ACCESS_WEIGHT = {
+  public: 0,
+  registered: 10,
+  verified: 20,
+  private: 100,
+}
+
 module.exports = {
-  prepare (data) {
+  prepare (data, {
+    access = 'public',
+  } = {}) {
     if (!data) {
       return data
     }
@@ -12,6 +21,18 @@ module.exports = {
     const company = sanitizeEntity(
       data,
       { model: strapi.models.company }
+    )
+
+    company.translations = company.translations.map((t) =>
+      ({
+        ...t,
+        content: t.content.map((b) =>
+          ({
+            ...b,
+            isVisible: ACCESS_WEIGHT[b.access] <= ACCESS_WEIGHT[access],
+          })
+        )
+      })
     )
 
     company.translations_index = company.translations

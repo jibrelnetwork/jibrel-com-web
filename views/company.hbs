@@ -75,7 +75,9 @@
                 <h2 class="offering__title-2 --hidden">Description</h2>
                 <div class="offering__description__content common__html-content common__grid__item">
                     {{#each translation.content}}
-                      {{{projectMD data }}}
+                      {{#if isVisible}}
+                        {{{projectMD data }}}
+                      {{/if}}
                     {{/each}}
                 </div>
             </section>
