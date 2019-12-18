@@ -23,7 +23,7 @@
                             </div>
                             <h1 class="offering__primary__title">{{ title }}</h1>
                             <ul class="offering__primary__tags">
-                                {{#each tags}}
+                                {{#each translation.tags}}
                                 <li class="offering__primary__tags__item">{{ title }}</li>
                                 {{/each}}
                             </ul>
@@ -32,7 +32,7 @@
                             {{else}}
                             <div class="offering__primary__watch--small --placeholder"></div>
                             {{/if}}
-                            <p class="offering__primary__excerpt">{{ pitch }}</p>
+                            <p class="offering__primary__excerpt">{{ translation.pitch }}</p>
                         </div>
                         <div class="offering__primary__sidebar">
                             {{#with current_offering}}
@@ -74,7 +74,9 @@
             <section class="offering__description common__centered --grid">
                 <h2 class="offering__title-2 --hidden">Description</h2>
                 <div class="offering__description__content common__html-content common__grid__item">
-                    {{{projectMD content }}}
+                    {{#each translation.content}}
+                      {{{projectMD data }}}
+                    {{/each}}
                 </div>
             </section>
             {{#with current_offering}}
