@@ -14,25 +14,13 @@ module.exports = {
       { model: strapi.models.company }
     )
 
-    company.tags = company.tags
-      ? company.tags
-        .map(strapi.services.tag.prepare)
-      : []
-
     company.translations_index = company.translations
       ? company.translations
         .reduce((memo, t) => {
-          const translation = strapi.services.companytranslation.prepare(t)
-
-          memo[translation.lang] = translation
-
+          memo[t.lang] = t
           return memo
         }, {})
       : {}
-    company.translations_index.en = {
-      ...company,
-      lang: 'en',
-    }
 
     company.offerings = company.offerings
       ? company.offerings
@@ -75,10 +63,15 @@ module.exports = {
 
     company.permalink = `/${locale}/companies/${company.slug}`
     // translate company to current locale or language, if available
-    _.extend(
-      company,
+    company.translation = _.extend({},
+      // locale is preferred
       company.translations_index[locale]
-        || company.translations_index[lang],
+        // next goes language derived from locale
+        || company.translations_index[lang]
+        // next goes english as default
+        || company.translations_index.en
+        // next goes top-most language from the list
+        || (company.translations && company.translations[0]),
     )
 
     company.offerings = company.offerings.map((offering) =>
@@ -101,7 +94,6 @@ module.exports = {
       'preview_bg_img',
       'logo_img',
       'hero_img',
-      'tags',
       'translations',
       'offerings',
     ])
@@ -117,9 +109,10 @@ module.exports = {
       'preview_bg_img',
       'logo_img',
       'hero_img',
-      'tags',
-      'translations',
       'offerings',
+      'translations',
+      'translations.tags',
+      'translations.content',
     ])
 
     if (!rawCompany) {

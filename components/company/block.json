@@ -1,0 +1,36 @@
+{
+  "connection": "default",
+  "collectionName": "components_company_content_blocks",
+  "info": {
+    "name": "Block",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "markdown"
+      ],
+      "required": true,
+      "default": "markdown"
+    },
+    "access": {
+      "type": "enumeration",
+      "enum": [
+        "public",
+        "restricted",
+        "verified",
+        "private"
+      ],
+      "default": "public",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "data": {
+      "type": "richtext"
+    }
+  }
+}
