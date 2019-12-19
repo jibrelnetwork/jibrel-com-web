@@ -1,7 +1,7 @@
 'use strict'
 
 const { sanitizeEntity } = require('strapi-utils')
-const { isPast, isFuture } = require('date-fns')
+const { isPast, isFuture, parseISO } = require('date-fns')
 const _ = require('lodash')
 
 module.exports = {
@@ -15,13 +15,22 @@ module.exports = {
       { model: strapi.models.offering }
     )
 
+    const start = offering.start
+      ? parseISO(offering.start)
+      : null
+
+    const deadline = offering.deadline
+      ? parseISO(offering.deadline)
+      : null
+
     // FIXME: should check relative to fixed time zone
-    offering.is_active = isPast(offering.start)
-      && (!offering.deadline || isFuture(offering.deadline))
-    offering.is_past = offering.deadline
-      ? isPast(offering.deadline)
+    offering.is_active = start
+      && isPast(start)
+      && (!deadline || isFuture(deadline))
+    offering.is_past = deadline
+      ? isPast(deadline)
       : false
-    offering.is_future = isFuture(offering.start)
+    offering.is_future = isFuture(start)
 
     offering._prepared = true
 
@@ -51,13 +60,17 @@ module.exports = {
       offering.permalink = `${locale}/companies/${offering.company.slug}/offerings/${offering.id}`
     }
 
-    offering.deadline_left_formatted = offering.deadline
-      ? i18n.date.formatDistanceToNow(offering.deadline, {
-        addSuffix: isPast(offering.deadline)
+    const deadline = offering.deadline
+      ? parseISO(offering.deadline)
+      : null
+
+    offering.deadline_left_formatted = deadline
+      ? i18n.date.formatDistanceToNow(deadline, {
+        addSuffix: isPast(deadline)
       })
       : null
-    offering.deadline_formatted = offering.deadline
-      ? i18n.date.format(offering.deadline, 'PPP')
+    offering.deadline_formatted = deadline
+      ? i18n.date.format(deadline, 'PPP')
       : null
 
     offering.progress = _.floor(100 * offering.raise / offering.goal, 2)

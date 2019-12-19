@@ -33,22 +33,11 @@
       "required": true,
       "type": "string"
     },
-    "tagline": {
-      "type": "text"
-    },
-    "tags": {
-      "collection": "tag"
-    },
-    "pitch": {
-      "type": "text"
-    },
-    "content": {
-      "type": "richtext"
-    },
     "preview_bg_img": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "preview_bg_color": {
       "maxLength": 7,
@@ -73,7 +62,8 @@
     "hero_img": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "hero_video_url": {
       "type": "string"
@@ -96,13 +86,14 @@
     "location_googlemaps_id": {
       "type": "string"
     },
-    "translations": {
-      "collection": "companytranslation",
-      "via": "company"
-    },
     "offerings": {
       "collection": "offering",
       "via": "company"
+    },
+    "translations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "company.translation"
     }
   }
 }
