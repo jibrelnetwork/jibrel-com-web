@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "components_company_translations",
+  "info": {
+    "name": "translation",
+    "icon": "atlas"
+  },
+  "options": {},
+  "attributes": {
+    "lang": {
+      "type": "enumeration",
+      "enum": [
+        "en"
+      ],
+      "default": "en",
+      "required": true
+    },
+    "tagline": {
+      "type": "text"
+    },
+    "pitch": {
+      "type": "text"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "company.block"
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "company.tag"
+    }
+  }
+}

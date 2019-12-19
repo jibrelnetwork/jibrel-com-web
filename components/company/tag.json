@@ -1,0 +1,14 @@
+{
+  "info": {
+    "name": "tag",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_company_tags"
+}
