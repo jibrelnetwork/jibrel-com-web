@@ -241,12 +241,26 @@ GLOBAL MODIFIERS
   line-height: 38px;
 }
 
-.common__html-content .tagline.strikethrough {
+.common__html-content .tagline p {
+  display: block;
+  font-size: inherit;
+  line-height: inherit;
+  text-decoration-color: inherit;
+  font-weight: inherit;
+}
+
+.common__html-content .tagline s {
+  display: block;
   -webkit-text-decoration-line: line-through;
   text-decoration-line: line-through;
   -webkit-text-decoration-style: solid;
   text-decoration-style: solid;
+  text-decoration-color: inherit;
   text-decoration-thickness: 8px;
+}
+
+.common__html-content .tagline em {
+  display: block;
 }
 
 .common__html-content .team {
