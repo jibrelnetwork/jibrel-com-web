@@ -26,12 +26,14 @@ module.exports = {
     company.translations = company.translations.map((t) =>
       ({
         ...t,
-        content: t.content.map((b) =>
-          ({
-            ...b,
-            isVisible: ACCESS_WEIGHT[b.access] <= ACCESS_WEIGHT[access],
-          })
-        )
+        content: t.content
+          ? t.content.map((b) =>
+            ({
+              ...b,
+              isVisible: ACCESS_WEIGHT[b.access] <= ACCESS_WEIGHT[access],
+            })
+          )
+          : []
       })
     )
 
