@@ -4,8 +4,6 @@ const views = require('koa-views')
 const glob = require('strapi/lib/load/glob')
 
 const markdownIt = require('markdown-it')
-const adjustHeadingLevels = require('../../utils/markdown-it-plugin-adjust-heading-levels')
-const modifyToken = require('markdown-it-modify-token')
 
 const removeExtension = (str) => str.split('.').slice(0, -1).join('.')
 
@@ -36,7 +34,7 @@ module.exports = strapi => {
 
       const md = markdownIt({
           html: true,
-          breaks: true,
+          breaks: false,
           typographer: true,
           modifyToken: function (token) {
             switch (token.type) {
@@ -46,8 +44,24 @@ module.exports = strapi => {
             }
           },
         })
-        .use(adjustHeadingLevels, { minLevel: 3 })
-        .use(modifyToken)
+        .use(require('../../utils/markdown-it-plugin-adjust-heading-levels'), { minLevel: 3 })
+        .use(require('markdown-it-modify-token'))
+        .use(require('markdown-it-container'), 'tagline', {
+          render: function (tokens, idx) {
+            const matches = tokens[idx].info.trim().match(/^tagline\s+(.*)$/)
+            const style = matches && matches[1]
+              ? `style="text-decoration-color: ${matches[1]};"`
+              : ''
+
+            if (tokens[idx].nesting === 1) {
+              // opening tag
+              return `<div class="tagline" ${style}>`
+            } else {
+              // closing tag
+              return '</div>\n'
+            }
+          }
+        })
 
       try {
         const partialsList = await glob(
