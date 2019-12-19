@@ -33,15 +33,6 @@
       "required": true,
       "type": "string"
     },
-    "tagline": {
-      "type": "text"
-    },
-    "pitch": {
-      "type": "text"
-    },
-    "content": {
-      "type": "richtext"
-    },
     "preview_bg_img": {
       "model": "file",
       "via": "related",
