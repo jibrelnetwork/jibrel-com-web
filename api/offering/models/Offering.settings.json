@@ -20,8 +20,7 @@
       "type": "enumeration"
     },
     "start": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "deadline": {
       "type": "date"
@@ -65,8 +64,8 @@
       "type": "decimal"
     },
     "company": {
-      "model": "company",
-      "via": "offerings"
+      "via": "offerings",
+      "model": "company"
     }
   }
 }
