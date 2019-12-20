@@ -32,6 +32,26 @@
     },
     {
       "method": "GET",
+      "path": "/:lang(en|ar)/invest",
+      "handler": "Pages.invest",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang(en|ar)/raise",
+      "handler": "Pages.raise",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
       "path": "/:lang(en|ar)/companies/:slug",
       "handler": "Pages.company",
       "config": {

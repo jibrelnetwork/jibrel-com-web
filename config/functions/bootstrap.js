@@ -26,6 +26,12 @@ module.exports = async () => {
               about: {
                 enabled: 1,
               },
+              invest: {
+                enabled: 1,
+              },
+              raise: {
+                enabled: 1,
+              },
               list: {
                 enabled: 1,
               },
