@@ -159,8 +159,8 @@
     background: #fff;
   }
 
-  .navbar.--white[data-is-open="1"] .navbar__menu-toggle {
-    background-image: url('./img/ic_menu_toggle.svg');
+  .navbar[data-is-open="1"] .navbar__menu-toggle {
+    background-image: url('./img/ic_close_24.svg');
   }
 
   .navbar.--white[data-is-open="1"] .navbar__logo--black {
