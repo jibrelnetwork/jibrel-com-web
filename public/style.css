@@ -1696,3 +1696,55 @@ END GLOBAL MODIFIERS
 /* XLarge */
 @media (min-width: 1209px) {
 }
+
+.offering__stub {
+  text-align: center;
+}
+
+.offering__stub.--sidebar {
+  padding: 24px 24px 32px;
+  background: #F2F5FC;
+  border-radius: 12px;
+}
+
+.offering__stub.--description {
+  background: no-repeat left url('./img/pic_blurred.png');
+  background-size: contain;
+  padding: 126px 24px;
+}
+
+.offering__stub.--footer {
+  margin: 0 8px 64px;
+  padding: 24px 24px 32px;
+  background: #F2F5FC;
+  border-radius: 12px;
+}
+
+.offering__stub__title.offering__stub__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.54px;
+  color: #081E39;
+  padding: 0 0 30px;
+}
+
+.offering__stub__link.offering__stub__link {
+  display: inline-block;
+  padding: 9px 16px;
+  background: #003DC6;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+  text-transform: uppercase;
+}
+
+.offering__stub__notice.offering__stub__notice {
+  font-size: 12px;
+  line-height: 140%;
+  color: #6B7888;
+}

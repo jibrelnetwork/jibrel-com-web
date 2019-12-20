@@ -36,48 +36,65 @@
                         </div>
                         <div class="offering__primary__sidebar">
                             {{#with current_offering}}
-                              {{#if is_active}}
-                              <a href="{{ ../permalink }}/offerings/{{ id }}" class="offering__primary__invest common__button">Invest now</a>
-                              {{else}}
-                              <div class="offering__primary__invest --placeholder"></div>
-                              {{/if}}
-                              <h2 class="offering__primary__investment">
-                                  <span class="offering__primary__investment__commited">{{ raise_formatted }}</span> commited of {{ goal_formatted }} goal
-                              </h2>
-                              <div class="offering__primary__investment-progress">
-                                  <div class="offering__primary__investment-progress-finished" style="width: {{ progress }}%;"></div>
-                              </div>
-                              <ul class="offering__primary__investment-features">
-                                  <li class="offering__primary__investment-features__item">
-                                      <h3 class="offering__primary__investment-features__item__title">From</h3>
-                                      <p class="offering__primary__investment-features__item__value">{{ participants }} investors</p>
-                                  </li>
-                                  {{#if deadline_left_formatted}}
-                                  <li class="offering__primary__investment-features__item">
-                                      {{#if is_active}}
-                                      <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
-                                      {{else}}
-                                      <h3 class="offering__primary__investment-features__item__title">Finished</h3>
-                                      {{/if}}
-                                      <p class="offering__primary__investment-features__item__value">{{ deadline_left_formatted }}</p>
-                                  </li>
-                                  {{/if}}
-                              </ul>
+                                {{#if is_active}}
+                                <a href="{{ ../permalink }}/offerings/{{ id }}" class="offering__primary__invest common__button">Invest now</a>
+                                {{else}}
+                                <div class="offering__primary__invest --placeholder"></div>
+                                {{/if}}
+                                {{#if user.isKnown}}
+                                    <h2 class="offering__primary__investment">
+                                        <span class="offering__primary__investment__commited">{{ raise_formatted }}</span> commited of {{ goal_formatted }} goal
+                                    </h2>
+                                    <div class="offering__primary__investment-progress">
+                                        <div class="offering__primary__investment-progress-finished" style="width: {{ progress }}%;"></div>
+                                    </div>
+                                    <ul class="offering__primary__investment-features">
+                                        <li class="offering__primary__investment-features__item">
+                                            <h3 class="offering__primary__investment-features__item__title">From</h3>
+                                            <p class="offering__primary__investment-features__item__value">{{ participants }} investors</p>
+                                        </li>
+                                        {{#if deadline_left_formatted}}
+                                        <li class="offering__primary__investment-features__item">
+                                            {{#if is_active}}
+                                            <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
+                                            {{else}}
+                                            <h3 class="offering__primary__investment-features__item__title">Finished</h3>
+                                            {{/if}}
+                                            <p class="offering__primary__investment-features__item__value">{{ deadline_left_formatted }}</p>
+                                        </li>
+                                        {{/if}}
+                                    </ul>
+                                {{else}}
+                                    <div class="offering__stub --sidebar">
+                                        <h2 class="offering__stub__title">To view deal terms, verify your identity</h2>
+                                        <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="offering__stub__link">Verify identity</a>
+                                        <p class="offering__stub__notice">To comply with financial regulations, we can only show full campaign details to registered users.</p>
+                                    </div>
+                                {{/if}}
                             {{/with}}
                         </div>
                     </div>
                 </div>
             </div>
-            {{#with current_offering}}
-                {{> partials/deal }}
-            {{/with}}
+            {{#if user.isKnown}}
+                {{#with current_offering}}
+                    {{> partials/deal }}
+                {{/with}}
+            {{/if}}
             <section class="offering__description common__centered --grid">
                 <h2 class="offering__title-2 --hidden">Description</h2>
                 <div class="offering__description__content common__html-content common__grid__item">
                     {{#each translation.content}}
-                      {{#if isVisible}}
-                        {{{projectMD data }}}
-                      {{/if}}
+                        {{#if isVisible}}
+                            {{{projectMD data }}}
+                        {{else}}
+                            <h3>{{ title }}</h3>
+                            <div class="offering__stub --description">
+                                <h4 class="offering__stub__title">Create and verify an account to reveal full {{../title}} campaign details</h4>
+                                <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="offering__stub__link">Verify identity</a>
+                                <p class="offering__stub__notice">To comply with financial regulations, we can only show full campaign details to registered users.</p>
+                            </div>
+                        {{/if}}
                     {{/each}}
                 </div>
             </section>
@@ -91,6 +108,15 @@
                 </section>
                 {{/if}}
             {{/with}}
+            {{#unless user.isKnown}}
+                <section class="common__centered --grid">
+                    <div class="offering__stub --footer">
+                        <h2 class="offering__stub__title">To view deal terms, verify your identity</h2>
+                        <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="offering__stub__link">Verify identity</a>
+                        <p class="offering__stub__notice">To comply with financial regulations, we can only show full campaign details to registered users.</p>
+                    </div>
+                </section>
+            {{/unless}}
             <section class="offering__contacts common__centered">
                 <h2 class="offering__title-2">About {{ title }}</h2>
                 <ul class="offering__contacts__list">
