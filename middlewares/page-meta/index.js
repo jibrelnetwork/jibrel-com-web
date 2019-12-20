@@ -11,6 +11,7 @@ module.exports = strapi => {
         (ctx, next) => {
           _.set(ctx, 'state.env.GOOGLE_MAPS_API_KEY', process.env.GOOGLE_MAPS_API_KEY)
 
+          _.set(ctx, 'state.global.year', (new Date()).getFullYear())
           _.set(ctx, 'state.page.lang', ctx.i18n.locale)
           _.set(ctx,
             'state.page.dir',
