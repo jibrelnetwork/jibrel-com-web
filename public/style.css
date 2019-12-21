@@ -1889,15 +1889,12 @@ END GLOBAL MODIFIERS
 /* Small */
 @media (min-width: 600px) {
   .offering__stub.--sidebar {
-    margin: 0 -32px 32px;
+    margin: 0 0 32px;
   }
 }
 
 /* Medium */
 @media (min-width: 768px) {
-  .offering__stub.--sidebar {
-    margin: 0 0 32px;
-  }
 }
 
 /* Large */
