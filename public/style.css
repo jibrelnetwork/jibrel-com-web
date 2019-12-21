@@ -1332,7 +1332,7 @@ END GLOBAL MODIFIERS
   }
 
   .offering__last-chance__button,
-  .offering__primary__sidebar {
+  .offering__primary__invest {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -1475,6 +1475,9 @@ END GLOBAL MODIFIERS
     -ms-flex-order: 0;
     order: 0;
     margin-bottom: 44px;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
   }
 
   .offering__primary__invest.--placeholder {
@@ -1838,6 +1841,7 @@ END GLOBAL MODIFIERS
   padding: 24px 24px 32px;
   background: #F2F5FC;
   border-radius: 12px;
+  margin: 0 -24px 32px;
 }
 
 .offering__stub.--description {
@@ -1880,4 +1884,26 @@ END GLOBAL MODIFIERS
   font-size: 12px;
   line-height: 140%;
   color: #6B7888;
+}
+
+/* Small */
+@media (min-width: 600px) {
+  .offering__stub.--sidebar {
+    margin: 0 -32px 32px;
+  }
+}
+
+/* Medium */
+@media (min-width: 768px) {
+  .offering__stub.--sidebar {
+    margin: 0 0 32px;
+  }
+}
+
+/* Large */
+@media (min-width: 1024px) {
+}
+
+/* XLarge */
+@media (min-width: 1209px) {
 }
