@@ -23,7 +23,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  margin: 0 -32px;
+  margin: 0 -24px;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -185,6 +185,9 @@
 
 /* Small */
 @media (min-width: 600px) {
+  .navbar__content {
+    margin: 0 -32px;
+  }
 }
 
 /* Medium */
