@@ -9,6 +9,18 @@ module.exports = {
     await ctx.render('about.hbs')
   },
 
+  async invest(ctx) {
+    _.set(ctx, 'state.page.title', ctx.app.createPageTitle('Invest'))
+
+    await ctx.render('invest.hbs')
+  },
+
+  async raise(ctx) {
+    _.set(ctx, 'state.page.title', ctx.app.createPageTitle('Raise'))
+
+    await ctx.render('raise.hbs')
+  },
+
   async list(ctx) {
     const companies = (await strapi.services.company.list())
       .map(company =>

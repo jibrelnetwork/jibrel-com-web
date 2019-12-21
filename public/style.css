@@ -289,6 +289,10 @@ GLOBAL MODIFIERS
   line-height: 38px;
 }
 
+.common__content {
+  padding-top: 80px;
+}
+
 /* Small */
 @media (min-width: 600px) {
   .common__centered {
@@ -353,6 +357,10 @@ GLOBAL MODIFIERS
   .common__page-title {
     font-size: 56px;
     line-height: 67px;
+  }
+
+  .common__content {
+    padding-top: 96px;
   }
 
   .common__html-content h2 {
@@ -1577,6 +1585,7 @@ END GLOBAL MODIFIERS
 }
 
 .invest__title,
+.raise__title,
 .about__title {
   margin: 32px 0 24px;
 }
@@ -1594,6 +1603,7 @@ END GLOBAL MODIFIERS
 /* Small */
 @media (min-width: 600px) {
   .invest__title,
+  .raise__title,
   .about__title {
     margin: 48px 0 24px;
   }
@@ -1612,6 +1622,7 @@ END GLOBAL MODIFIERS
 /* Large */
 @media (min-width: 1024px) {
   .invest__title,
+  .raise__title,
   .about__title {
     margin: 64px 0 24px;
   }
