@@ -234,6 +234,10 @@ GLOBAL MODIFIERS
   margin: 0 0 32px;
 }
 
+.common__html-content strong {
+  font-weight: bold;
+}
+
 .common__html-content .tagline {
   display: block;
   font-weight: 800;
