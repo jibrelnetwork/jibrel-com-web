@@ -361,6 +361,11 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  text-decoration: none;
+}
+
+.footer__navigation-link:hover {
+  text-decoration: underline;
 }
 
 .footer__navigation-item-icon {
