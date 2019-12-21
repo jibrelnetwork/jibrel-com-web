@@ -293,6 +293,42 @@ GLOBAL MODIFIERS
   padding-top: 80px;
 }
 
+.common__feature {
+  margin-bottom: 32px;
+}
+
+.common__feature__icon {
+  width: 25%;
+  padding-bottom: 24px;
+}
+
+.common__feature__icon img {
+  width: 100%;
+  height: auto;
+}
+
+.common__feature__content {
+  width: 100%;
+}
+
+.common__feature__title {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 0 0 16px;
+}
+
+.common__feature__description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 21px;
+}
+
+.common__feature__description p {
+  padding-bottom: 16px;
+}
+
 /* Small */
 @media (min-width: 600px) {
   .common__centered {
@@ -329,6 +365,16 @@ GLOBAL MODIFIERS
   .common__html-content .tagline {
     font-size: 48px;
     line-height: 57px;
+  }
+
+  .common__feature {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .common__feature__content {
+    width: 75%;
   }
 }
 
@@ -428,6 +474,14 @@ GLOBAL MODIFIERS
   .common__html-content .tagline {
     font-size: 64px;
     line-height: 76px;
+  }
+
+  .common__feature__icon {
+    width: 16.66%;
+  }
+
+  .common__feature__content {
+    width: 50%;
   }
 }
 
@@ -1567,16 +1621,80 @@ END GLOBAL MODIFIERS
   padding-top: 80px;
 }
 
-.invest__frame {
-  max-width: 100%;
-  margin: 0 auto;
-  display: block;
+.invest__start,
+.raise__start {
+  padding-bottom: 14px;
+}
+
+.invest__start__title,
+.raise__start__title {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 33px;
+  padding: 0 0 16px;
+}
+
+.invest__start__instructions,
+.raise__start__instructions {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  padding: 0 0 48px;
+}
+
+.invest__start__link,
+.raise__start__link {
+  display: flex;
+  background: #003DC6;
+  height: 64px;
+  border-radius: 32px;
+  margin: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+/* Small */
+@media (min-width: 600px) {
+  .invest__start__link,
+  .raise__start__link {
+    width: 50%;
+  }
 }
 
 /* Medium */
 @media (min-width: 768px) {
-  .invest {
+  .invest,
+  .raise {
     padding-top: 96px;
+  }
+
+  .invest__start__link,
+  .raise__start__link {
+    width: 37.5%;
+  }
+}
+
+/* Large */
+@media (min-width: 1024px) {
+  .invest__start__link,
+  .raise__start__link {
+    width: 33.33%;
+  }
+}
+
+/* XLarge */
+@media (min-width: 1209px) {
+  .invest__start__link,
+  .raise__start__link {
+    width: 25%;
   }
 }
 
