@@ -37,7 +37,7 @@
                         <div class="offering__primary__sidebar">
                             {{#with current_offering}}
                                 {{#if is_active}}
-                                <a href="{{ ../permalink }}/offerings/{{ id }}" class="offering__primary__invest common__button">Invest now</a>
+                                <a href="//id.{{ ../env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ ../ page.lang }}/signup" class="offering__primary__invest common__button">Invest now</a>
                                 {{else}}
                                 <div class="offering__primary__invest --placeholder"></div>
                                 {{/if}}
@@ -103,7 +103,7 @@
                 <section class="offering__last-chance common__centered --grid">
                     <h2 class="offering__last-chance__title offering__title-2 common__grid__item">Sounds Interesting?</h2>
                     <div class="offering__last-chance__button common__grid__item">
-                        <a href="{{ ../permalink }}/offerings/{{ id }}" class="common__button">Invest now</a>
+                        <a href="//id.{{ ../env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ ../ page.lang }}/signup" class="common__button">Invest now</a>
                     </div>
                 </section>
                 {{/if}}
