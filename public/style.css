@@ -657,15 +657,15 @@ END GLOBAL MODIFIERS
   background: rgba(0, 0, 0, 0.6);
 }
 
-.offerings__card:hover .offerings__card__title,
-.offerings__card:hover .offerings__card__pitch,
-.offerings__card:hover .offerings__card__location {
-  display: none;
-}
+/*.offerings__card:hover .offerings__card__title,*/
+/*.offerings__card:hover .offerings__card__pitch,*/
+/*.offerings__card:hover .offerings__card__location {*/
+/*  display: none;*/
+/*}*/
 
-.offerings__card:hover .offerings__card__stats {
-  display: block;
-}
+/*.offerings__card:hover .offerings__card__stats {*/
+/*  display: block;*/
+/*}*/
 
 .offerings__card:focus, .offerings__card:active {
   color: #fff;
