@@ -59,16 +59,6 @@
           "withValidLanguage"
         ]
       }
-    },
-    {
-      "method": "GET",
-      "path": "/:lang(en|ar)/companies/:slug/offerings/:id",
-      "handler": "Pages.offering",
-      "config": {
-        "policies": [
-          "withValidLanguage"
-        ]
-      }
     }
   ]
 }
