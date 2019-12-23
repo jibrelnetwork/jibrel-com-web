@@ -68,7 +68,16 @@ module.exports = {
     await ctx.render('offering.hbs', offering)
   },
 
+  async logout(ctx) {
+    ctx.cookies.set('sessionid', null, {
+      domain: `.${process.env.FRONTEND_ROOT_DOMAIN_NAME}`
+    })
+    const lang = ctx.cookies.get('lang') || ctx.i18n.defaultLocale
+
+    return ctx.redirect(`/${lang}`)
+  },
+
   async noop(ctx) {
     return ctx.send('')
-  }
+  },
 }

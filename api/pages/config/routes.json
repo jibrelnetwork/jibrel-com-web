@@ -59,6 +59,14 @@
           "withValidLanguage"
         ]
       }
+    },
+    {
+      "method": "GET",
+      "path": "/logout",
+      "handler": "Pages.logout",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

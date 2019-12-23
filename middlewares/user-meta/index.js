@@ -8,6 +8,7 @@ module.exports = strapi => {
       strapi.app.use(
         (ctx, next) => {
           _.set(ctx, 'state.user', {
+            isLoggedIn: !!ctx.cookies.get('sessionid'),
             isKnown: false,
           })
 
