@@ -6,31 +6,33 @@
         <h3 class="offerings__card__title">{{ title }}</h3>
         <div class="offerings__card__pitch">{{ translation.tagline }}</div>
         <div class="offerings__card__location">{{ location }}</div>
-        {{#with current_offering}}
-        <ul class="offerings__card__stats">
-            <li class="offerings__card__stats__item">
-                <h4 class="offerings__card__stats__item__title">Raised</h4>
-                <p class="offerings__card__stats__item__value">{{ raise_formatted }}</p>
-            </li>
-            <li class="offerings__card__stats__item">
-                <h4 class="offerings__card__stats__item__title">Total Raise</h4>
-                <p class="offerings__card__stats__item__value">{{ goal_formatted }}</p>
-            </li>
-            <li class="offerings__card__stats__item">
-                <h4 class="offerings__card__stats__item__title">Minimum Investment</h4>
-                <p class="offerings__card__stats__item__value">{{ min_investment_formatted }}</p>
-            </li>
-            {{#if deadline_left_formatted}}
-            <li class="offerings__card__stats__item">
-                {{#if is_active}}
-                    <h3 class="offerings__card__stats__item__title">Time Left</h3>
-                {{else}}
-                    <h3 class="offerings__card__stats__item__title">Finished</h3>
+        {{#unless user.isKnown }}
+            {{#with current_offering}}
+            <ul class="offerings__card__stats">
+                <li class="offerings__card__stats__item">
+                    <h4 class="offerings__card__stats__item__title">Raised</h4>
+                    <p class="offerings__card__stats__item__value">{{ raise_formatted }}</p>
+                </li>
+                <li class="offerings__card__stats__item">
+                    <h4 class="offerings__card__stats__item__title">Total Raise</h4>
+                    <p class="offerings__card__stats__item__value">{{ goal_formatted }}</p>
+                </li>
+                <li class="offerings__card__stats__item">
+                    <h4 class="offerings__card__stats__item__title">Minimum Investment</h4>
+                    <p class="offerings__card__stats__item__value">{{ min_investment_formatted }}</p>
+                </li>
+                {{#if deadline_left_formatted}}
+                <li class="offerings__card__stats__item">
+                    {{#if is_active}}
+                        <h3 class="offerings__card__stats__item__title">Time Left</h3>
+                    {{else}}
+                        <h3 class="offerings__card__stats__item__title">Finished</h3>
+                    {{/if}}
+                    <p class="offerings__card__stats__item__value">{{ deadline_left_formatted }}</p>
+                </li>
                 {{/if}}
-                <p class="offerings__card__stats__item__value">{{ deadline_left_formatted }}</p>
-            </li>
-            {{/if}}
-        </ul>
-        {{/with}}
+            </ul>
+            {{/with}}
+        {{/unless}}
     </div>
 </a>
