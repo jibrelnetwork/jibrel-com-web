@@ -18,25 +18,31 @@
             </a>
             <button class="navbar__menu-toggle" onclick="window.toggleMenu(this)">Open menu</button>
             <div class="navbar__menu">
-              <ul class="navbar__menu-list">
-                  <li class="navbar__menu-item">
-                      <a href="/{{ page.lang }}/invest" class="navbar__menu-link">Invest</a>
-                  </li>
-                  <li class="navbar__menu-item">
-                      <a href="/{{ page.lang }}/raise" class="navbar__menu-link">Raise</a>
-                  </li>
-                  <li class="navbar__menu-item">
-                      <a href="/{{ page.lang }}/about" class="navbar__menu-link">About</a>
-                  </li>
-              </ul>
-              <ul class="navbar__menu-list">
-                  <li class="navbar__menu-item">
-                      <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/login" class="navbar__menu-link">Log in</a>
-                  </li>
-                  <li class="navbar__menu-item">
-                      <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="navbar__menu-link --button">Sign up</a>
-                  </li>
-              </ul>
+                <ul class="navbar__menu-list">
+                    <li class="navbar__menu-item">
+                        <a href="/{{ page.lang }}/invest" class="navbar__menu-link">Invest</a>
+                    </li>
+                    <li class="navbar__menu-item">
+                        <a href="/{{ page.lang }}/raise" class="navbar__menu-link">Raise</a>
+                    </li>
+                    <li class="navbar__menu-item">
+                        <a href="/{{ page.lang }}/about" class="navbar__menu-link">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar__menu-list">
+                    {{#if user.isLoggedIn}}
+                        <li class="navbar__menu-item">
+                            <a class="navbar__menu-link" href="/logout">Log out</a>
+                        </li>
+                    {{else}}
+                        <li class="navbar__menu-item">
+                            <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/login" class="navbar__menu-link">Log in</a>
+                        </li>
+                        <li class="navbar__menu-item">
+                            <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="navbar__menu-link --button">Sign up</a>
+                        </li>
+                    {{/if}}
+                </ul>
             </div>
         </nav>
     </div>

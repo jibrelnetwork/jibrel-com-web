@@ -38,7 +38,7 @@ module.exports = async () => {
               company: {
                 enabled: 1,
               },
-              offering: {
+              logout: {
                 enabled: 1,
               },
             },
