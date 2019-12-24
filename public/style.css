@@ -269,22 +269,26 @@ GLOBAL MODIFIERS
 
 .common__html-content .team {
   display: block;
-  color: rgba(8, 30, 57, 0.4);
+  color: #9CA5B0;
+  margin: 0 0 32px;
 }
 
-.common__html-content .team-member {
-  padding-left: 0;
-  padding-bottom: 15px;
+.common__html-content .team ul {
+  display: block;
 }
 
-.common__html-content .team-member::before {
+.common__html-content .team ul li {
+  position: static;
+  padding: 0 0 15px;
+}
+
+.common__html-content .team ul li::before {
   content: none;
 }
 
-.common__html-content .team-member-name {
-  text-decoration: none;
-  font-weight: bold;
-  color: rgba(8, 30, 57);
+.common__html-content .team ul li strong {
+  color: #081E39;
+  padding-right: 8px;
 }
 
 .common__page-title {
@@ -570,6 +574,7 @@ END GLOBAL MODIFIERS
 /* Medium */
 @media (min-width: 768px) {
   .index__banner {
+    margin-top: 96px;
     height: 512px;
   }
 
@@ -605,6 +610,7 @@ END GLOBAL MODIFIERS
 
 .offerings {
   margin-top: 40px;
+  margin-bottom: 96px;
 }
 
 .offerings__title {
@@ -1548,12 +1554,7 @@ END GLOBAL MODIFIERS
   }
 
   .offering__last-chance__button {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
     width: 37.5%;
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 
