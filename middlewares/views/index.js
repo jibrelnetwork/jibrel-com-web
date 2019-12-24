@@ -62,6 +62,7 @@ module.exports = strapi => {
             }
           }
         })
+        .use(require('markdown-it-container'), 'team')
 
       try {
         const partialsList = await glob(
