@@ -41,7 +41,7 @@
                                 {{else}}
                                 <div class="offering__primary__invest --placeholder"></div>
                                 {{/if}}
-                                {{#if user.isKnown}}
+                                {{#if @root.visitor.isKnown}}
                                     <h2 class="offering__primary__investment">
                                         <span class="offering__primary__investment__commited">{{ raise_formatted }}</span> commited of {{ goal_formatted }} goal
                                     </h2>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            {{#if user.isKnown}}
+            {{#if @root.visitor.isKnown}}
                 {{#with current_offering}}
                     {{> partials/deal }}
                 {{/with}}
@@ -107,7 +107,7 @@
                 </section>
                 {{/if}}
             {{/with}}
-            {{#unless user.isKnown}}
+            {{#unless @root.visitor.isKnown}}
                 <section class="common__centered --grid">
                     <div class="offering__stub --footer">
                         <h2 class="offering__stub__title">To view deal terms, verify your identity</h2>

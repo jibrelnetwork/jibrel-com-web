@@ -44,7 +44,7 @@ module.exports = strapi => {
             }
           },
         })
-        .use(require('../../utils/markdown-it-plugin-adjust-heading-levels'), { minLevel: 3 })
+        .use(require('utils/markdown-it-plugin-adjust-heading-levels'), { minLevel: 3 })
         .use(require('markdown-it-modify-token'))
         .use(require('markdown-it-container'), 'tagline', {
           render: function (tokens, idx) {

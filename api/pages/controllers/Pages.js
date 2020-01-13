@@ -22,11 +22,13 @@ module.exports = {
   },
 
   async list(ctx) {
-    const companies = (await strapi.services.company.list())
-      .map(company =>
-        strapi.services.company.localize(
+    const { company } = strapi.services
+
+    const companies = (await company.list())
+      .map(c =>
+        company.localize(
           ctx.i18n,
-          strapi.services.company.prepare(company),
+          company.prepare(c),
         )
       )
 
@@ -46,7 +48,9 @@ module.exports = {
 
     const data = company.localize(
       ctx.i18n,
-      company.prepare(rawData),
+      company.prepare(rawData, {
+        access: ctx.state.visitor.access,
+      }),
     )
 
     _.set(ctx, 'state.page.title', ctx.app.createPageTitle(data.title))

@@ -2,17 +2,11 @@
 
 const { sanitizeEntity } = require('strapi-utils')
 const _ = require('lodash')
-
-const ACCESS_WEIGHT = {
-  public: 0,
-  registered: 10,
-  verified: 20,
-  private: 100,
-}
+const { ACCESS_LEVEL, isAccessible } = require('utils/access')
 
 module.exports = {
   prepare (data, {
-    access = 'public',
+    access = ACCESS_LEVEL.PUBLIC,
   } = {}) {
     if (!data) {
       return data
@@ -30,7 +24,7 @@ module.exports = {
           ? t.content.map((b) =>
             ({
               ...b,
-              isVisible: ACCESS_WEIGHT[b.access] <= ACCESS_WEIGHT[access],
+              isVisible: isAccessible(b.access, access),
             })
           )
           : []

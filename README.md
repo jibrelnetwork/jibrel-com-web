@@ -16,6 +16,7 @@ Required server run environment variables:
 - `PORT` = which port application is launched at
 - `AWS_S3_REGION`
 - `AWS_S3_BUCKET`
+- `API_BASE_URL` = base url to access backend API. For example, `https://api.jibrel.com` for production
 
 Additional environment variables available are:
 
