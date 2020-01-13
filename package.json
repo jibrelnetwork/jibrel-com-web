@@ -1,7 +1,7 @@
 {
   "name": "@jibrelnetwork/jibrel-com-web",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Jibrel.com Strapi CMS",
   "scripts": {
     "develop": "strapi develop",
@@ -23,17 +23,16 @@
     "markdown-it-container": "~2.0.0",
     "markdown-it-modify-token": "~1.0.2",
     "pg": "~7.12.1",
-    "strapi": "~3.0.0-beta.18.1",
-    "strapi-admin": "~3.0.0-beta.18.1",
-    "strapi-connector-bookshelf": "~3.0.0-beta.18.1",
-    "strapi-hook-bookshelf": "~3.0.0-next.31",
-    "strapi-plugin-content-manager": "~3.0.0-beta.18.1",
-    "strapi-plugin-content-type-builder": "~3.0.0-beta.18.1",
-    "strapi-plugin-email": "~3.0.0-beta.18.1",
-    "strapi-plugin-upload": "~3.0.0-beta.18.1",
-    "strapi-plugin-users-permissions": "~3.0.0-beta.18.1",
+    "strapi": "~3.0.0-beta.18.4",
+    "strapi-admin": "~3.0.0-beta.18.4",
+    "strapi-connector-bookshelf": "~3.0.0-beta.18.4",
+    "strapi-plugin-content-manager": "~3.0.0-beta.18.4",
+    "strapi-plugin-content-type-builder": "~3.0.0-beta.18.4",
+    "strapi-plugin-email": "~3.0.0-beta.18.4",
+    "strapi-plugin-upload": "~3.0.0-beta.18.4",
+    "strapi-plugin-users-permissions": "~3.0.0-beta.18.4",
     "strapi-provider-upload-aws-s3": "file:providers/strapi-provider-upload-aws-s3",
-    "strapi-utils": "~3.0.0-beta.18.1"
+    "strapi-utils": "~3.0.0-beta.18.4"
   },
   "author": {
     "name": "Jibrel AG",
