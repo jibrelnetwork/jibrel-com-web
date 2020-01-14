@@ -5,7 +5,7 @@ services:
       - database
     build: .
     environment:
-      NODE_ENV: staging
+      NODE_ENV: stage
       JWT_SECRET: 123
       DATABASE_SSL: "false"
       DATABASE_HOST: database
