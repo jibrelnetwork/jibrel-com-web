@@ -5,5 +5,5 @@
     "root": "${process.env.AWS_S3_ROOT || ''}",
     "cdnHost": "${ process.env.AWS_CDN_HOST || ''}"
   },
-  "myCustomConfiguration": "This configuration is accessible through strapi.config.environments.staging.myCustomConfiguration"
+  "myCustomConfiguration": "This configuration is accessible through strapi.config.environments.stage.myCustomConfiguration"
 }
