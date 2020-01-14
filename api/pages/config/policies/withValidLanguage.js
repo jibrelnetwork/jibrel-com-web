@@ -5,13 +5,14 @@ const LANGUAGES_AVAILABLE = {
 
 module.exports = async (ctx, next) => {
   const { i18n } = ctx
-  const { locale } = i18n
+  const { lang } = ctx.params
 
-  if (!locale) {
+  if (!lang) {
+    // FIXME: should instead use ctx.i18n.locale filled also from cookie
     return ctx.redirect(`/${i18n.defaultLocale}`)
   }
 
-  if (!i18n.locales[locale]) {
+  if (!i18n.locales[lang]) {
     // FIXME: should be not found?
     return ctx.redirect(`/${i18n.defaultLocale}`)
   }
