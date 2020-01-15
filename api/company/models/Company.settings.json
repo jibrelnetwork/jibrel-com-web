@@ -86,10 +86,6 @@
     "location_googlemaps_id": {
       "type": "string"
     },
-    "offerings": {
-      "collection": "offering",
-      "via": "company"
-    },
     "translations": {
       "type": "component",
       "repeatable": true,

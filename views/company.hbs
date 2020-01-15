@@ -53,14 +53,14 @@
                                             <h3 class="offering__primary__investment-features__item__title">From</h3>
                                             <p class="offering__primary__investment-features__item__value">{{ participants }} investors</p>
                                         </li>
-                                        {{#if deadline_left_formatted}}
+                                        {{#if date_end_left_formatted}}
                                         <li class="offering__primary__investment-features__item">
                                             {{#if is_active}}
                                             <h3 class="offering__primary__investment-features__item__title">Time Left</h3>
                                             {{else}}
                                             <h3 class="offering__primary__investment-features__item__title">Finished</h3>
                                             {{/if}}
-                                            <p class="offering__primary__investment-features__item__value">{{ deadline_left_formatted }}</p>
+                                            <p class="offering__primary__investment-features__item__value">{{ date_end_left_formatted }}</p>
                                         </li>
                                         {{/if}}
                                     </ul>

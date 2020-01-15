@@ -112,7 +112,6 @@ module.exports = {
       'logo_img',
       'hero_img',
       'translations',
-      'offerings',
     ])
   },
 
@@ -126,7 +125,6 @@ module.exports = {
       'preview_bg_img',
       'logo_img',
       'hero_img',
-      'offerings',
       'translations',
       'translations.tags',
       'translations.content',
