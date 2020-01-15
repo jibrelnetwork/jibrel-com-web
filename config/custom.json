@@ -5,5 +5,9 @@
   "api": {
     "userAgent": "${process.env.API_USER_AGENT || 'Jibrel CMS'}",
     "baseUrl": "${process.env.API_BASE_URL}"
+  },
+  "scss": {
+    "src": "/scss",
+    "dest": "/styles"
   }
 }
