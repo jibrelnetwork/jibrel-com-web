@@ -1,0 +1,13 @@
+@import '~include-media/dist/include-media';
+
+$breakpoints: (xsmall: 599px, small: 767px, medium: 1023px, large: 1208px);
+
+$media-expressions: (
+  'screen-only': 'only screen'
+);
+
+@mixin screen($args...) {
+  @include media('screen-only', $args...) {
+    @content;
+  }
+};

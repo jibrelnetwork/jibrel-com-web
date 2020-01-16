@@ -1,0 +1,197 @@
+@import 'colors';
+@import 'media';
+
+.common__markdown {
+  h2 {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 33px;
+    padding-top: 64px;
+    padding-bottom: 16px;
+
+    @include screen('>small') {
+      font-size: 32px;
+      line-height: 38px;
+      padding-bottom: 24px;
+    }
+  }
+
+  h3 {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 16px;
+
+    @include screen('>small') {
+      font-size: 24px;
+      line-height: 29px;
+      padding-bottom: 24px;
+    }
+  }
+
+  h4 {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 140%;
+    padding-bottom: 16px;
+
+    @include screen('>small') {
+      padding-bottom: 24px;
+    }
+  }
+
+  h2 + h3,
+  h2 + h4,
+  h3 + h4 {
+    padding-top: 16px;
+
+    @include screen('>xsmall') {
+      padding-top: 32px;
+    }
+
+    @include screen('>small') {
+      padding-top: 40px;
+    }
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 140%;
+    padding-bottom: 15px;
+
+    @include screen('>small') {
+      font-size: 18px;
+      padding-bottom: 18px;
+    }
+  }
+
+  p + :not(p) {
+    padding-top: 1px;
+
+    @include screen('>small') {
+      padding-top: 6px;
+    }
+  }
+
+  ul {
+    font-size: 15px;
+    line-height: 140%;
+
+    @include screen('>small') {
+      font-size: 18px;
+    }
+  }
+
+  ul li {
+    padding-left: 24px;
+    padding-bottom: 24px;
+    position: relative;
+  }
+
+  ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: $color-black-40;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 24px;
+    margin: 0 0 32px;
+    overflow: hidden;
+  }
+
+  iframe {
+    background: $color-blue-10;
+    max-width: 100%;
+    margin: 0 0 32px;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid $color-black-10;
+    margin: 0 0 32px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  &.--company {
+    .tagline {
+      display: block;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 38px;
+
+      @include screen('>xsmall') {
+        font-size: 48px;
+        line-height: 57px;
+      }
+
+      @include screen('>small') {
+        font-size: 56px;
+        line-height: 67px;
+      }
+
+      @include screen('>medium') {
+        font-size: 64px;
+        line-height: 76px;
+      }
+    }
+
+    .tagline p {
+      display: block;
+      font-size: inherit;
+      line-height: inherit;
+      text-decoration-color: inherit;
+      font-weight: inherit;
+    }
+
+    .tagline s {
+      display: block;
+      -webkit-text-decoration-line: line-through;
+      text-decoration-line: line-through;
+      -webkit-text-decoration-style: solid;
+      text-decoration-style: solid;
+      text-decoration-color: inherit;
+      text-decoration-thickness: 8px;
+    }
+
+    .tagline em {
+      display: block;
+    }
+
+    .team {
+      display: block;
+      color: $color-black-40;
+      margin: 0 0 32px;
+    }
+
+    .team ul {
+      display: block;
+    }
+
+    .team ul li {
+      position: static;
+      padding: 0 0 15px;
+
+      @include screen('>small') {
+        padding-bottom: 18px;
+      }
+    }
+
+    .team ul li::before {
+      content: none;
+    }
+
+    .team ul li strong {
+      color: $color-black;
+      padding-right: 8px;
+    }
+  }
+}
