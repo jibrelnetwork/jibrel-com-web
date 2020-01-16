@@ -22,9 +22,22 @@ module.exports = {
   },
 
   async list(ctx) {
-    const { company } = strapi.services
+    const {
+      company,
+      offering,
+    } = strapi.services
 
-    const companies = (await company.list())
+    const rawCompanies = await company.list()
+
+    const companies = (await Promise.all(
+      rawCompanies.map((c) =>
+        offering.list(c.slug)
+          .then((offerings) => {
+            c.offerings = offerings
+            return c
+          })
+      )
+    ))
       .map(c =>
         company.localize(
           ctx.i18n,
@@ -38,9 +51,18 @@ module.exports = {
   },
 
   async company(ctx) {
-    const { company } = strapi.services
+    const {
+      company,
+      offering,
+    } = strapi.services
 
-    const rawData = await company.slug(ctx.params.slug)
+    const [rawData, rawOfferingsData] = await Promise
+      .all([
+        company.slug(ctx.params.slug),
+        offering.list(ctx.params.slug),
+      ])
+
+    rawData.offerings = rawOfferingsData
 
     if (!rawData) {
       return ctx.notFound()
@@ -57,19 +79,6 @@ module.exports = {
     _.set(ctx, 'state.page.description', data.tagline)
 
     await ctx.render('company.hbs', data)
-  },
-
-  async offering(ctx) {
-    const offering = await strapi.services.offering.localizedWithCompany(
-      ctx.i18n,
-      ctx.params.slug,
-      ctx.params.id,
-    )
-
-    _.set(ctx, 'state.page.title', ctx.app.createPageTitle(`${offering.company.title} ${offering.round_formatted} investment`))
-    _.set(ctx, 'state.page.description', offering.company.pitch)
-
-    await ctx.render('offering.hbs', offering)
   },
 
   async logout(ctx) {

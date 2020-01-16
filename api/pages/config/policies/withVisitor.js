@@ -3,6 +3,8 @@ const rp = require('request-promise')
 const errors = require('request-promise/errors')
 const { ACCESS_LEVEL } = require('utils/access')
 
+const log = strapi.log.child({ module: 'pages/policies/withVisitor' })
+
 const ANONYMOUS_VISITOR = {
   isLoggedIn: false,
   isKnown: false,
@@ -11,7 +13,7 @@ const ANONYMOUS_VISITOR = {
 
 module.exports = async (ctx, next) => {
   if (!ctx.cookies.get('sessionid')) {
-    ctx.log.trace('VISITOR Anonymous')
+    log.trace('Visitor recognized as anonymous')
     _.set(ctx, 'state.visitor', ANONYMOUS_VISITOR)
 
     return next()
@@ -20,7 +22,11 @@ module.exports = async (ctx, next) => {
   const start = +new Date()
 
   try {
-    ctx.log.trace('VISITOR Request profile')
+    log.trace({
+      msg: 'Request profile API',
+      baseUrl: _.get(strapi.config, 'api.baseUrl'),
+      url: '/v1/user/profile',
+    })
     const { data: profile } = await rp({
       baseUrl: _.get(strapi.config, 'api.baseUrl'),
       url: '/v1/user/profile',
@@ -31,7 +37,12 @@ module.exports = async (ctx, next) => {
       json: true,
     })
 
-    ctx.log.debug(`VISITOR Profile found (${(new Date()) - start} ms)`)
+    log.debug(`Response from profile API (${(new Date()) - start} ms)`)
+    log.trace({
+      msg: 'User profile parameters',
+      uuid: profile.uuid,
+      kycStatus: profile.kycStatus,
+    })
     _.set(ctx, 'state.visitor', {
       isLoggedIn: true,
       isKnown: profile.kycStatus === 'verified',
@@ -43,7 +54,7 @@ module.exports = async (ctx, next) => {
     return next()
   } catch (err) {
     if (err instanceof errors.StatusCodeError && err.statusCode === 403) {
-      ctx.log.debug(`VISITOR No profile found (${(new Date()) - start} ms)`)
+      log.debug(`No profile found (${(new Date()) - start} ms)`)
       _.set(ctx, 'state.visitor', ANONYMOUS_VISITOR)
       return next()
     }
