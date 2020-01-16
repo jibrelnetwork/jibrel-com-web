@@ -1,0 +1,109 @@
+@mixin font-h1-l () {
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 76px;
+}
+
+@mixin font-h1-m () {
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 67px;
+}
+
+@mixin font-h1-s () {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 57px;
+}
+
+@mixin font-h1-xs () {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+@mixin font-h2-l () {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+@mixin font-h2-s () {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 33px;
+}
+
+@mixin font-h3-l () {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@mixin font-h3-s () {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin font-subheader-1 () {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@mixin font-subheader-2-l () {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+@mixin font-subheader-2-s () {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+@mixin font-title () {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  /* in design it is some kind of SF font hack */
+  /* letter-spacing: -0.54px; */
+}
+
+@mixin font-body-l () {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+@mixin font-body-s () {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+}
+
+@mixin font-caption () {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  /* in design it is some kind of SF font hack */
+  /* letter-spacing: -0.54px; */
+}
+
+@mixin font-button-1 () {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@mixin font-button-2 () {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

@@ -1,4 +1,11 @@
 'use strict';
+const path = require('path')
+const glob = require('strapi/lib/load/glob')
+const scssToCss = require('utils/scss-to-css')
+const fs = require('fs')
+const { promisify } = require('util')
+
+const writeFile = promisify(fs.writeFile)
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -13,6 +20,8 @@
 const PUBLIC_ROLE_ID = 2
 
 module.exports = async () => {
+  const log = strapi.log.child({ module: 'bootstrap' })
+
   // Enable public access to some controllers on init
   await strapi.plugins['users-permissions'].services.userspermissions
     .updateRole(PUBLIC_ROLE_ID, {
@@ -74,5 +83,45 @@ module.exports = async () => {
           root: s3Config.root || strapi.config.environment,
         }
       })
+  }
+
+  if (strapi.config.environment !== 'development') {
+    const staticPath = path.join(strapi.config.appPath, strapi.config.paths.static)
+    const srcPath = path.join(staticPath, strapi.config.scss.src)
+    const destPath = path.join(staticPath, strapi.config.scss.dest)
+    const scssFiles = await glob('*.scss', {
+      cwd: srcPath,
+      absolute: true,
+    })
+
+    await Promise.all(scssFiles.map(
+      (filepath) => scssToCss(filepath, destPath, srcPath)
+        .then((result) => {
+          return Promise.all([
+            writeFile(
+              path.join(destPath, result.names.css),
+              result.css.toString(),
+              'utf8',
+            )
+              .then(() => {
+                log.info({
+                  msg: `Built file ${path.join(strapi.config.scss.dest, result.names.css)}`,
+                  src: filepath,
+                })
+              }),
+            writeFile(
+              path.join(destPath, result.names.map),
+              result.map.toString(),
+              'utf8',
+            )
+              .then(() => {
+                log.info({
+                  msg: `Built file ${path.join(strapi.config.scss.dest, result.names.map)}`,
+                  src: filepath,
+                })
+              }),
+          ])
+        })
+    ))
   }
 }
