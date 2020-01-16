@@ -14,22 +14,22 @@ module.exports = {
 
     const offering = { ...data }
 
-    const date_start = offering.date_start
-      ? parseISO(offering.date_start)
+    const dateStart = offering.dateStart
+      ? parseISO(offering.dateStart)
       : null
 
-    const date_end = offering.date_end
-      ? parseISO(offering.date_end)
+    const dateEnd = offering.dateEnd
+      ? parseISO(offering.dateEnd)
       : null
 
     // FIXME: should check relative to fixed time zone
-    offering.is_active = date_start
-      && isPast(date_start)
-      && (!date_end || isFuture(date_end))
-    offering.is_past = date_end
-      ? isPast(date_end)
+    offering.is_active = dateStart
+      && isPast(dateStart)
+      && (!dateEnd || isFuture(dateEnd))
+    offering.is_past = dateEnd
+      ? isPast(dateEnd)
       : false
-    offering.is_future = isFuture(date_start)
+    offering.is_future = isFuture(dateStart)
 
     if (offering.raise === undefined) {
       offering.raise = 0
@@ -57,27 +57,28 @@ module.exports = {
       currency: i18n.user.currency,
       minimumFractionDigits: 0,
     })
+    const numberLocale = new Intl.NumberFormat(locale)
 
-    const date_end = offering.date_end
-      ? parseISO(offering.date_end)
+    const dateEnd = offering.dateEnd
+      ? parseISO(offering.dateEnd)
       : null
 
-    offering.date_end_left_formatted = date_end
-      ? i18n.date.formatDistanceToNow(date_end, {
-        addSuffix: isPast(date_end)
+    offering.date_end_left_formatted = dateEnd
+      ? i18n.date.formatDistanceToNow(dateEnd, {
+        addSuffix: isPast(dateEnd)
       })
       : null
-    offering.date_end_formatted = date_end
-      ? i18n.date.format(date_end, 'PPP')
+    offering.date_end_formatted = dateEnd
+      ? i18n.date.format(dateEnd, 'PPP')
       : null
 
     offering.progress = _.floor(100 * offering.raise / offering.goal, 2)
     offering.goal_formatted = moneyLocale.format(offering.goal)
     offering.raise_formatted = moneyLocale.format(offering.raise)
-    offering.min_investment_formatted = moneyLocale.format(offering.limit_min_amount)
-    offering.max_investment_formatted = moneyLocale.format(offering.limit_max_amount)
+    offering.min_investment_formatted = moneyLocale.format(offering.limitMinAmount)
+    offering.max_investment_formatted = moneyLocale.format(offering.limitMaxAmount)
     offering.valuation_formatted = moneyLocale.format(offering.valuation)
-    offering.equity_formatted = `${offering.equity}%`
+    offering.equity_formatted = `${numberLocale.format(offering.equity)}%`
 
     if (offering.security) {
       offering.type_formatted = i18n.__(`offering.type.${offering.security.type}`)
