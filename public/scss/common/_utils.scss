@@ -1,0 +1,20 @@
+@mixin disabled {
+  &:disabled, &[disabled], &:disabled:hover, &:disabled:active, &[disabled]:hover, &[disabled]:active {
+    @content;
+  }
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+$transition-duration-hover: .15s;
+
+@mixin transition($properties, $duration: $transition-duration-hover, $timing-function: ease-in-out, $delay: unset) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $timing-function;
+  transition-delay: $delay;
+}

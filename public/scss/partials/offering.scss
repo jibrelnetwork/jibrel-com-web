@@ -1,0 +1,72 @@
+@import '../common/media';
+@import '../common/fonts';
+
+.offering {
+  margin-bottom: 48px;
+
+  &__title {
+    @include font-h2-s;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include screen('>xsmall') {
+      margin-bottom: 24px;
+    }
+
+    @include screen('>small') {
+      @include font-h2-l;
+      text-align: left;
+    }
+  }
+
+  &__terms {
+    background: rgba(0, 61, 198, 0.05);
+    border-radius: 12px;
+    padding: 16px 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include screen('>xsmall') {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    @include screen('>small') {
+      padding: 30px 12px 2px;
+    }
+  }
+
+  &__terms-item {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 6px 0 21px;
+
+    @include screen('>xsmall') {
+      width: 50%;
+      padding: 0 8px;
+    }
+
+    @include screen('>small') {
+      width: 100%;
+      margin: 0 0 27px;
+      padding: 0 12px;
+    }
+  }
+
+  &__terms-item-title {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: -0.54px;
+    color: rgba(8, 30, 57, 0.6);
+    margin-bottom: 4px;
+  }
+
+  &__terms-item-value {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.54px;
+    color: #081E39;
+  }
+}
