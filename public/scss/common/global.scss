@@ -29,5 +29,11 @@ a:active {
 }
 
 .g-hidden {
-  display: none;
+  // Proper hiding leaves elements existent for screen readers
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
