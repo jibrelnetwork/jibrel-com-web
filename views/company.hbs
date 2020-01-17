@@ -1,209 +1,209 @@
 {{#> layouts/default}}
-    <div class="page">
-        <header class="page__header">
-            {{> partials/navbar color="white" }}
-        </header>
-        <article class="page__content company">
-            <div class="company-hero" style="background-image: url({{cdn hero_img }});">
-                <div class="company-hero__overlay"></div>
-                {{#if hero_video_url}}
-                    <a href="{{ hero_video_url }}" target="_blank" rel="noopener noreferrer" class="company-hero__video-link">
-                        <svg class="company-hero__video-link-icon" width="63" height="73" viewBox="0 0 63 73" fill="white" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M60.75 33.0361C63.4167 34.5757 63.4167 38.4247 60.75 39.9643L6.00001 71.5742C3.33334 73.1138 -1.34596e-07 71.1893 0 68.1101L2.76343e-06 4.89025C2.89802e-06 1.81105 3.33334 -0.113459 6 1.42614L60.75 33.0361Z" />
-                        </svg>
-                        <span class="company-hero__video-link-text">{{__ 'company.action.watch'}}</span>
-                    </a>
-                {{/if}}
+  <div class="page">
+    <header class="page__header">
+      {{> partials/navbar color="white" }}
+    </header>
+    <article class="page__content company">
+      <div class="company-hero" style="background-image: url({{cdn hero_img }});">
+        <div class="company-hero__overlay"></div>
+        {{#if hero_video_url}}
+          <a href="{{ hero_video_url }}" target="_blank" rel="noopener noreferrer" class="company-hero__video-link">
+            <svg class="company-hero__video-link-icon" width="63" height="73" viewBox="0 0 63 73" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M60.75 33.0361C63.4167 34.5757 63.4167 38.4247 60.75 39.9643L6.00001 71.5742C3.33334 73.1138 -1.34596e-07 71.1893 0 68.1101L2.76343e-06 4.89025C2.89802e-06 1.81105 3.33334 -0.113459 6 1.42614L60.75 33.0361Z" />
+            </svg>
+            <span class="company-hero__video-link-text">{{__ 'company.action.watch'}}</span>
+          </a>
+        {{/if}}
+      </div>
+      <div class="common__centered --grid">
+        <div class="company-content common__grid__item --m-5 --l-8">
+          <div class="company-about">
+            <div class="company-about__logo">
+              <img class="company-about__logo-img" alt="{{ title }} Logo" src="{{cdn logo_img }}"/>
             </div>
-            <div class="common__centered --grid">
-                <div class="company-content common__grid__item --m-5 --l-8">
-                    <div class="company-about">
-                        <div class="company-about__logo">
-                            <img class="company-about__logo-img" alt="{{ title }} Logo" src="{{cdn logo_img }}"/>
-                        </div>
-                        <h1 class="company-about__title">{{ title }}</h1>
-                        <ul class="company-about__tags">
-                            {{#each translation.tags}}
-                                <li class="company-about__tags-item">{{ title }}</li>
-                            {{/each}}
-                        </ul>
-                        {{#if hero_video_url}}
-                            <a href="{{ hero_video_url }}" target="_blank" rel="noopener noreferrer" class="company-about__video-link">
-                                <span class="company-about__video-link-text">{{__ 'company.action.watch'}}</span>
-                                <svg class="company-about__video-link-icon" width="24" height="24" viewBox="0 0 24 24" fill="#081E39" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.6742 11.1561C17.2917 11.5491 17.2917 12.4505 16.6742 12.8434L8.53688 18.0218C7.87115 18.4454 7 17.9672 7 17.1781L7 6.82145C7 6.03236 7.87115 5.55414 8.53688 5.97779L16.6742 11.1561Z" />
-                                </svg>
-                            </a>
-                        {{/if}}
-                        <p class="company-about__pitch">{{ translation.pitch }}</p>
-                    </div>
-                    {{#unless @root.visitor.isKnown}}
-                        <section class="company-cta-deal-stub">
-                            {{> partials/offering-stub }}
-                        </section>
-                    {{/unless}}
-                    {{#with current_offering}}
-                        {{#if is_active}}
-                            <div class="company-cta common__grid">
-                                <div class="common__grid__item --xs-4 --s-4">
-                                    <a href="//id.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest" class="company-cta__invest big-button --main">{{__ 'company.action.invest'}}</a>
-                                </div>
-                            </div>
-                        {{/if}}
-                    {{/with}}
-                    <h2 class="g-hidden">Description</h2>
-                    <div class="company-description common__markdown --company">
-                        {{#each translation.content}}
-                            {{#if isVisible}}
-                                {{{projectMD data }}}
-                            {{else}}
-                                <h3>{{ title }}</h3>
-                                {{> partials/content-hidden companyTitle=../title}}
-                            {{/if}}
-                        {{/each}}
-                    </div>
+            <h1 class="company-about__title">{{ title }}</h1>
+            <ul class="company-about__tags">
+              {{#each translation.tags}}
+                <li class="company-about__tags-item">{{ title }}</li>
+              {{/each}}
+            </ul>
+            {{#if hero_video_url}}
+              <a href="{{ hero_video_url }}" target="_blank" rel="noopener noreferrer" class="company-about__video-link">
+                <span class="company-about__video-link-text">{{__ 'company.action.watch'}}</span>
+                <svg class="company-about__video-link-icon" width="24" height="24" viewBox="0 0 24 24" fill="#081E39" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.6742 11.1561C17.2917 11.5491 17.2917 12.4505 16.6742 12.8434L8.53688 18.0218C7.87115 18.4454 7 17.9672 7 17.1781L7 6.82145C7 6.03236 7.87115 5.55414 8.53688 5.97779L16.6742 11.1561Z" />
+                </svg>
+              </a>
+            {{/if}}
+            <p class="company-about__pitch">{{ translation.pitch }}</p>
+          </div>
+          {{#unless @root.visitor.isKnown}}
+            <section class="company-cta-deal-stub">
+              {{> partials/offering-stub }}
+            </section>
+          {{/unless}}
+          {{#with current_offering}}
+            {{#if is_active}}
+              <div class="company-cta common__grid">
+                <div class="common__grid__item --xs-4 --s-4">
+                  <a href="//id.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest" class="company-cta__invest big-button --main">{{__ 'company.action.invest'}}</a>
                 </div>
-                <div class="company-sidebar common__grid__item --m-3 --l-4">
-                    {{#with current_offering}}
-                        {{#if is_active}}
-                            <a href="//id.{{ ../env.FRONTEND_ROOT_DOMAIN_NAME }}/invest"
-                               class="company-sidebar__invest big-button --main">{{__ 'company.action.invest'}}</a>
-                        {{else}}
-                            <div class="company-sidebar__invest --placeholder"></div>
-                        {{/if}}
-                        {{#if @root.visitor.isKnown}}
-                            {{> partials/offering }}
-                        {{else}}
-                            <h2 class="company-sidebar__offering-stub-title">Deal Terms</h2>
-                            {{> partials/offering-stub }}
-                        {{/if}}
-                    {{/with}}
-                </div>
-            </div>
-            <div class="common__centered">
-                {{#with current_offering}}
-                    {{#if is_active}}
-                        <section class="company-last-chance common__grid">
-                            <div class="common__grid__item --m-3 --l-4">
-                                <a href="//id.{{ ../env.FRONTEND_ROOT_DOMAIN_NAME }}/invest" class="company-last-chance__invest big-button --main">{{__ 'company.action.invest'}}</a>
-                            </div>
-                        </section>
-                    {{/if}}
-                {{/with}}
-                {{#unless @root.visitor.isKnown}}
-                    <section class="company-footer-deal-stub">
-                        {{> partials/offering-stub }}
-                    </section>
-                {{/unless}}
-                <section class="offering__contacts">
-                    <h2 class="offering__title-2">About {{ title }}</h2>
-                    <ul class="offering__contacts__list">
-                        {{#if legal_name}}
-                            <li class="offering__contacts__list__item">
-                                <h3 class="offering__contacts__list__item__title">Legal Name</h3>
-                                <p class="offering__contacts__list__item__value">{{ legal_name }}</p>
-                            </li>
-                        {{/if}}
-                        {{#if founded}}
-                            <li class="offering__contacts__list__item">
-                                <h3 class="offering__contacts__list__item__title">Founded</h3>
-                                <p class="offering__contacts__list__item__value">{{ founded }}</p>
-                            </li>
-                        {{/if}}
-                        {{#if employees}}
-                            <li class="offering__contacts__list__item">
-                                <h3 class="offering__contacts__list__item__title">Employees</h3>
-                                <p class="offering__contacts__list__item__value">{{ employees }}</p>
-                            </li>
-                        {{/if}}
-                        {{#if website_url}}
-                            <li class="offering__contacts__list__item">
-                                <h3 class="offering__contacts__list__item__title">Website</h3>
-                                <p class="offering__contacts__list__item__value">
-                                    <a href="{{ website_url }}" target="_blank"
-                                       rel="noopener noreferrer">{{ website_name }}</a>
-                                </p>
-                            </li>
-                        {{/if}}
-                        {{#if social}}
-                            <li class="offering__contacts__list__item">
-                                <h3 class="offering__contacts__list__item__title">Social</h3>
-                                <ul class="offering__contacts__list__item__value offering__contacts__list__social-list">
-                                    {{#if social.facebook }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.facebook }}"
-                                               class="offering__contacts__list__social-list__item__link --facebook">Facebook</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.instagram }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.instagram }}"
-                                               class="offering__contacts__list__social-list__item__link --instagram">Instagram</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.twitter }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.twitter }}"
-                                               class="offering__contacts__list__social-list__item__link --twitter">Twitter</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.linkedin }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.linkedin }}"
-                                               class="offering__contacts__list__social-list__item__link --linkedin">LinkedIn</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.medium }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.medium }}"
-                                               class="offering__contacts__list__social-list__item__link --medium">Medium</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.kakaotalk }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.kakaotalk }}"
-                                               class="offering__contacts__list__social-list__item__link --kakaotalk">KakaoTalk</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.telegram }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.telegram }}"
-                                               class="offering__contacts__list__social-list__item__link --telegram">Telegram</a>
-                                        </li>
-                                    {{/if}}
-                                    {{#if social.youtube }}
-                                        <li class="offering__contacts__list__social-list__item">
-                                            <a target="_blank" rel="noopener noreferrer" href="{{ social.youtube }}"
-                                               class="offering__contacts__list__social-list__item__link --youtube">YouTube</a>
-                                        </li>
-                                    {{/if}}
-                                </ul>
-                            </li>
-                        {{/if}}
-                        {{#if location_googlemaps_id}}
-                            <li class="offering__contacts__list__item --map">
-                                <h3 class="offering__contacts__list__item__title">Location</h3>
-                                <p class="offering__contacts__list__item__value">
-                                    <iframe
-                                            title="{{ location }}"
-                                            class="offering__contacts__map"
-                                            src="https://www.google.com/maps/embed/v1/place?q=place_id:{{ location_googlemaps_id }}&key={{ env.GOOGLE_MAPS_API_KEY }}"
-                                    width="400"
-                                    height="300"
-                                    frameborder="0"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    ></iframe>
-                                </p>
-                            </li>
-                        {{/if}}
-                    </ul>
-                </section>
-                {{> partials/risks }}
-            </div>
-        </article>
-        <footer class="page__footer">
-            {{> partials/footer }}
-        </footer>
-    </div>
+              </div>
+            {{/if}}
+          {{/with}}
+          <h2 class="g-hidden">Description</h2>
+          <div class="company-description common__markdown --company">
+            {{#each translation.content}}
+              {{#if isVisible}}
+                {{{projectMD data }}}
+              {{else}}
+                <h3>{{ title }}</h3>
+                {{> partials/content-hidden companyTitle=../title}}
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        <div class="company-sidebar common__grid__item --m-3 --l-4">
+          {{#with current_offering}}
+            {{#if is_active}}
+              <a href="//id.{{ ../env.FRONTEND_ROOT_DOMAIN_NAME }}/invest"
+                 class="company-sidebar__invest big-button --main">{{__ 'company.action.invest'}}</a>
+            {{else}}
+              <div class="company-sidebar__invest --placeholder"></div>
+            {{/if}}
+            {{#if @root.visitor.isKnown}}
+              {{> partials/offering }}
+            {{else}}
+              <h2 class="company-sidebar__offering-stub-title">Deal Terms</h2>
+              {{> partials/offering-stub }}
+            {{/if}}
+          {{/with}}
+        </div>
+      </div>
+      <div class="common__centered">
+        {{#with current_offering}}
+          {{#if is_active}}
+            <section class="company-last-chance common__grid">
+              <div class="common__grid__item --m-3 --l-4">
+                <a href="//id.{{ ../env.FRONTEND_ROOT_DOMAIN_NAME }}/invest" class="company-last-chance__invest big-button --main">{{__ 'company.action.invest'}}</a>
+              </div>
+            </section>
+          {{/if}}
+        {{/with}}
+        {{#unless @root.visitor.isKnown}}
+          <section class="company-footer-deal-stub">
+            {{> partials/offering-stub }}
+          </section>
+        {{/unless}}
+        <section class="offering__contacts">
+          <h2 class="offering__title-2">About {{ title }}</h2>
+          <ul class="offering__contacts__list">
+            {{#if legal_name}}
+              <li class="offering__contacts__list__item">
+                <h3 class="offering__contacts__list__item__title">Legal Name</h3>
+                <p class="offering__contacts__list__item__value">{{ legal_name }}</p>
+              </li>
+            {{/if}}
+            {{#if founded}}
+              <li class="offering__contacts__list__item">
+                <h3 class="offering__contacts__list__item__title">Founded</h3>
+                <p class="offering__contacts__list__item__value">{{ founded }}</p>
+              </li>
+            {{/if}}
+            {{#if employees}}
+              <li class="offering__contacts__list__item">
+                <h3 class="offering__contacts__list__item__title">Employees</h3>
+                <p class="offering__contacts__list__item__value">{{ employees }}</p>
+              </li>
+            {{/if}}
+            {{#if website_url}}
+              <li class="offering__contacts__list__item">
+                <h3 class="offering__contacts__list__item__title">Website</h3>
+                <p class="offering__contacts__list__item__value">
+                  <a href="{{ website_url }}" target="_blank"
+                     rel="noopener noreferrer">{{ website_name }}</a>
+                </p>
+              </li>
+            {{/if}}
+            {{#if social}}
+              <li class="offering__contacts__list__item">
+                <h3 class="offering__contacts__list__item__title">Social</h3>
+                <ul class="offering__contacts__list__item__value offering__contacts__list__social-list">
+                  {{#if social.facebook }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.facebook }}"
+                         class="offering__contacts__list__social-list__item__link --facebook">Facebook</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.instagram }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.instagram }}"
+                         class="offering__contacts__list__social-list__item__link --instagram">Instagram</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.twitter }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.twitter }}"
+                         class="offering__contacts__list__social-list__item__link --twitter">Twitter</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.linkedin }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.linkedin }}"
+                         class="offering__contacts__list__social-list__item__link --linkedin">LinkedIn</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.medium }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.medium }}"
+                         class="offering__contacts__list__social-list__item__link --medium">Medium</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.kakaotalk }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.kakaotalk }}"
+                         class="offering__contacts__list__social-list__item__link --kakaotalk">KakaoTalk</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.telegram }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.telegram }}"
+                         class="offering__contacts__list__social-list__item__link --telegram">Telegram</a>
+                    </li>
+                  {{/if}}
+                  {{#if social.youtube }}
+                    <li class="offering__contacts__list__social-list__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ social.youtube }}"
+                         class="offering__contacts__list__social-list__item__link --youtube">YouTube</a>
+                    </li>
+                  {{/if}}
+                </ul>
+              </li>
+            {{/if}}
+            {{#if location_googlemaps_id}}
+              <li class="offering__contacts__list__item --map">
+                <h3 class="offering__contacts__list__item__title">Location</h3>
+                <p class="offering__contacts__list__item__value">
+                  <iframe
+                      title="{{ location }}"
+                      class="offering__contacts__map"
+                      src="https://www.google.com/maps/embed/v1/place?q=place_id:{{ location_googlemaps_id }}&key={{ env.GOOGLE_MAPS_API_KEY }}"
+                  width="400"
+                  height="300"
+                  frameborder="0"
+                  style="border:0;"
+                  allowfullscreen=""
+                  ></iframe>
+                </p>
+              </li>
+            {{/if}}
+          </ul>
+        </section>
+        {{> partials/risks }}
+      </div>
+    </article>
+    <footer class="page__footer">
+      {{> partials/footer }}
+    </footer>
+  </div>
 {{/layouts/default}}
