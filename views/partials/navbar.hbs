@@ -1,49 +1,49 @@
 <script type="text/javascript">
-    window.toggleMenu = function (button) {
-        document.body.setAttribute('data-scroll', document.body.getAttribute('data-scroll') === '0' ? '1' : '0')
-        document.querySelectorAll('.navbar').forEach(function (el) {
-          el.setAttribute('data-is-open', el.getAttribute('data-is-open') === '1' ? '0' : '1')
-        })
-        if (button) {
-            button.setAttribute('data-active', button.getAttribute('data-active') === '1' ? '0' : '1')
-        }
+  window.toggleMenu = function (button) {
+    document.body.setAttribute('data-scroll', document.body.getAttribute('data-scroll') === '0' ? '1' : '0')
+    document.querySelectorAll('.navbar').forEach(function (el) {
+      el.setAttribute('data-is-open', el.getAttribute('data-is-open') === '1' ? '0' : '1')
+    })
+    if (button) {
+      button.setAttribute('data-active', button.getAttribute('data-active') === '1' ? '0' : '1')
     }
+  }
 </script>
 <div class="navbar --{{ color }}">
-    <div class="navbar__wrapper common__centered">
-        <nav class="navbar__content">
-            <a href="/{{ page.lang }}" class="navbar__logo-link">
-                <img class="navbar__logo navbar__logo--black" src="{{asset '/img/ic_logo_colored_32.svg'}}" />
-                <img class="navbar__logo navbar__logo--white" src="{{asset '/img/ic_logo_colored_32_white.svg'}}" />
-            </a>
-            <button class="navbar__menu-toggle" onclick="window.toggleMenu(this)">Open menu</button>
-            <div class="navbar__menu">
-                <ul class="navbar__menu-list">
-                    <li class="navbar__menu-item">
-                        <a href="/{{ page.lang }}/invest" class="navbar__menu-link">Invest</a>
-                    </li>
-                    <li class="navbar__menu-item">
-                        <a href="/{{ page.lang }}/raise" class="navbar__menu-link">Raise</a>
-                    </li>
-                    <li class="navbar__menu-item">
-                        <a href="/{{ page.lang }}/about" class="navbar__menu-link">About</a>
-                    </li>
-                </ul>
-                <ul class="navbar__menu-list">
-                    {{#if visitor.isLoggedIn}}
-                        <li class="navbar__menu-item">
-                            <a class="navbar__menu-link" href="/logout">Log out</a>
-                        </li>
-                    {{else}}
-                        <li class="navbar__menu-item">
-                            <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/login" class="navbar__menu-link">Log in</a>
-                        </li>
-                        <li class="navbar__menu-item">
-                            <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="navbar__menu-link --button">Sign up</a>
-                        </li>
-                    {{/if}}
-                </ul>
-            </div>
-        </nav>
-    </div>
+  <div class="navbar__wrapper common__centered">
+    <nav class="navbar__content">
+      <a href="/{{ page.lang }}" class="navbar__logo-link">
+        <img class="navbar__logo navbar__logo--black" src="{{asset '/img/ic_logo_colored_32.svg'}}" />
+        <img class="navbar__logo navbar__logo--white" src="{{asset '/img/ic_logo_colored_32_white.svg'}}" />
+      </a>
+      <button class="navbar__menu-toggle" onclick="window.toggleMenu(this)">Open menu</button>
+      <div class="navbar__menu">
+        <ul class="navbar__menu-list">
+          <li class="navbar__menu-item">
+            <a href="/{{ page.lang }}/invest" class="navbar__menu-link">Invest</a>
+          </li>
+          <li class="navbar__menu-item">
+            <a href="/{{ page.lang }}/raise" class="navbar__menu-link">Raise</a>
+          </li>
+          <li class="navbar__menu-item">
+            <a href="/{{ page.lang }}/about" class="navbar__menu-link">About</a>
+          </li>
+        </ul>
+        <ul class="navbar__menu-list">
+          {{#if visitor.isLoggedIn}}
+            <li class="navbar__menu-item">
+              <a class="navbar__menu-link" href="/logout">Log out</a>
+            </li>
+          {{else}}
+            <li class="navbar__menu-item">
+              <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/login" class="navbar__menu-link">Log in</a>
+            </li>
+            <li class="navbar__menu-item">
+              <a href="//id.{{ env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="navbar__menu-link --button">Sign up</a>
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
 </div>

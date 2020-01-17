@@ -1,27 +1,27 @@
 {{#> layouts/default}}
 <div class="page">
-    <header class="page__header">
-        {{> partials/navbar color="black" }}
-    </header>
-    <div class="page__content">
-        <div class="index__banner" style="background-image: url({{asset '/img/pic_hero_rocket.png'}});">
-            <div class="index__banner__content common__centered">
-                <h1 class="index__banner__title">Startup investing made simple, for <em>everyone</em></h1>
-            </div>
-        </div>
-        <div class="offerings common__centered">
-            <h2 class="offerings__title">Primary Offerings</h2>
-            <ul class="offerings__list">
-                {{#each companies}}
-                    <li class="offerings__item">
-                      {{> partials/offerings-card }}
-                    </li>
-                {{/each}}
-            </ul>
-        </div>
+  <header class="page__header">
+    {{> partials/navbar color="black" }}
+  </header>
+  <div class="page__content">
+    <div class="index__banner" style="background-image: url({{asset '/img/pic_hero_rocket.png'}});">
+      <div class="index__banner__content common__centered">
+        <h1 class="index__banner__title">Startup investing made simple, for <em>everyone</em></h1>
+      </div>
     </div>
-    <footer class="page__footer">
-        {{> partials/footer }}
-    </footer>
+    <div class="offerings common__centered">
+      <h2 class="offerings__title">Primary Offerings</h2>
+      <ul class="offerings__list">
+        {{#each companies}}
+          <li class="offerings__item">
+            {{> partials/offerings-card }}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <footer class="page__footer">
+    {{> partials/footer }}
+  </footer>
 </div>
 {{/layouts/default}}
