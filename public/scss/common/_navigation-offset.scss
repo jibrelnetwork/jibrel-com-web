@@ -1,0 +1,9 @@
+@import "media";
+
+@mixin navigation-offset($property) {
+  #{$property}: 80px;
+
+  @include screen('>small') {
+    #{$property}: 96px;
+  }
+}

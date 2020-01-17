@@ -27,3 +27,13 @@ a:hover {
 a:active {
   color: rgba(0, 61, 198, 0.4);
 }
+
+.g-hidden {
+  // Proper hiding leaves elements existent for screen readers
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}

@@ -1,0 +1,28 @@
+@import '../common/utils';
+@import '../common/colors';
+@import '../common/fonts';
+@import '../common/media';
+
+.offering-stub {
+  text-align: center;
+  padding: 24px 24px 32px;
+  border-radius: 12px;
+  margin: 0 0 32px;
+  background:$color-blue-5;
+
+  &__title {
+    @include font-title;
+    color: $color-black;
+    padding: 0 0 30px;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-bottom: 36px;
+  }
+
+  &__notice {
+    @include font-caption;
+    color: $color-black-60;
+  }
+}

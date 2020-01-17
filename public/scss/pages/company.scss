@@ -1,0 +1,352 @@
+@import '../common/colors';
+@import '../common/fonts';
+@import '../common/media';
+@import '../common/navigation-offset';
+@import '../common/utils';
+
+.company {
+  display: flex;
+  flex-direction: column;
+  color: #081E39;
+}
+
+.company-hero {
+  position: relative;
+  height: 402px;
+  margin-bottom: -402px;
+  @include navigation-offset(padding-top);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include screen('>xsmall') {
+    height: 440px;
+    margin-bottom: -440px;
+  }
+
+  @include screen('>small') {
+    height: 480px;
+    margin-bottom: 0;
+  }
+
+  @include screen('>medium') {
+    height: 520px;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+  }
+
+  &__video-link {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    border: none;
+    background: none;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    color: $color-black;
+    @include transition(color);
+
+    @include screen('>small') {
+      display: flex;
+    }
+
+    &:hover {
+      color: $color-blue;
+      text-decoration: none;
+    }
+
+    &-icon {
+      display: block;
+      width: 63px;
+      height: auto;
+      margin: 0 auto 27px;
+      @include transition(fill);
+    }
+
+    &:hover &-icon {
+      fill: $color-blue-5;
+    }
+
+    &-text {
+      @include font-button-2;
+      border: none;
+      overflow: hidden;
+      font-weight: bold;
+      padding: 9px 16px;
+      border-radius: 20px;
+      background: $color-white;
+      margin: 0 auto;
+      @include transition(background-color);
+    }
+
+    &:hover &-text {
+      background: $color-blue-5;
+    }
+
+    &:active {
+      opacity: .6;
+    }
+  }
+}
+
+.company-about {
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  @include screen('>small') {
+    margin-top: -44px;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
+  }
+
+  &__logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    border: 1px solid rgba(8, 30, 57, 0.1);
+
+    @include screen('>small') {
+      width: 88px;
+      height: 88px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__logo-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    @include font-h1-xs;
+    color: $color-white;
+    margin-bottom: 24px;
+
+    @include screen('>xsmall') {
+      @include font-h1-s;
+    }
+
+    @include screen('>small') {
+      @include font-h1-m;
+      color: $color-black;
+    }
+
+    @include screen('>medium') {
+      @include font-h1-l;
+    }
+  }
+
+  &__tags {
+    margin-bottom: 24px;
+    height: 60px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+
+    @include screen('>xsmall') {
+      margin-bottom: 34px;
+    }
+
+    @include screen('>small') {
+      height: auto;
+      margin: 0 -4px 16px;
+    }
+  }
+
+  &__tags-item {
+    display: inline-block;
+    @include font-button-2;
+    color: $color-blue-60;
+    padding: 4px 8px;
+    background: $color-blue-10;
+    border-radius: 4px;
+    margin: 0 4px 8px;
+  }
+
+  &__video-link {
+    border: none;
+    overflow: hidden;
+    color: $color-black;
+    @include font-button-2;
+    padding: 4px 16px;
+    border-radius: 20px;
+    background: $color-white;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    @include transition(background-color color);
+
+    @include screen('>xsmall') {
+      margin-bottom: 41px;
+    }
+
+    @include screen('>small') {
+      display: none;
+    }
+
+    &-icon {
+      @include transition(fill);
+    }
+
+    &-text + &-icon {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background: $color-blue-10;
+      color: $color-blue;
+      text-decoration: none;
+    }
+
+    &:hover &-icon {
+      fill: $color-blue;
+    }
+  }
+
+  &__pitch {
+    margin-top: 64px;
+    padding: 32px 0;
+    @include font-subheader-2-s;
+    color: $color-black;
+
+    @include screen('>small') {
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__video-link + &__pitch {
+    margin-top: 0;
+  }
+}
+
+.company-cta {
+  margin-top: 12px;
+  justify-content: center;
+
+  &__invest {
+    margin-bottom: 48px;
+  }
+
+  @include screen('>small') {
+    display: none;
+  }
+}
+
+.company-cta-deal-stub {
+  margin-top: 12px;
+
+  @include screen('>small') {
+    display: none;
+  }
+}
+
+.company-description {
+  padding-bottom: 48px;
+  border-bottom: 1px solid $color-black-10;
+
+  @include screen('>small') {
+    padding-bottom: 64px;
+    border-bottom: none;
+  }
+}
+
+.company-sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+
+  @include screen('>small') {
+    position: relative;
+    margin-top: -32px;
+  }
+
+  &__invest {
+    margin-bottom: 48px;
+
+    @include screen('>xsmall') {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include screen('>small') {
+      order: 0;
+      margin-bottom: 44px;
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+    }
+
+    &.--placeholder {
+      display: none;
+      height: 64px;
+
+      @include screen('>small') {
+        display: block;
+      }
+    }
+  }
+
+  &__offering-stub-title {
+    @include font-h2-s;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include screen('>xsmall') {
+      margin-bottom: 24px;
+    }
+
+    @include screen('>small') {
+      display: none;
+    }
+  }
+}
+
+.company-last-chance {
+  justify-content: center;
+
+  @include screen('>small') {
+    border-top: 1px solid $color-black-10;
+    padding: 32px 0 64px;
+  }
+
+  &__invest {
+    display: none;
+
+    @include screen('>small') {
+      display: block;
+    }
+  }
+}
+
+.company-footer-deal-stub {
+  display: none;
+
+  @include screen('>small') {
+    display: block;
+  }
+}

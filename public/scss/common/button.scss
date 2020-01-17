@@ -1,0 +1,126 @@
+@import 'colors';
+@import 'fonts';
+@import 'utils';
+
+.big-button {
+  @include ellipsis;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 4px;
+  border-style: solid;
+  @include font-button-1;
+  text-align: center;
+  text-decoration: none;
+  padding: 19px 12px 18px;
+  border-radius: 32px;
+  @include transition(background border-color color);
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &.--main {
+    background: $color-blue;
+    border-color: $color-blue;
+    color: $color-white;
+
+    &:hover {
+      background: $color-white;
+      color: $color-blue;
+    }
+
+    &:active {
+      background: $color-blue-10;
+      color: $color-blue;
+    }
+
+    @include disabled {
+      background: $color-black-10;
+      border-color: $color-black-10;
+      color: $color-black-40;
+      cursor: auto;
+    }
+  }
+
+  &.--secondary {
+    background: transparent;
+    border-color: $color-black-30;
+    color: $color-black;
+    border-width: 1px;
+    padding: 22px 15px 21px;
+
+    &:hover {
+      background: transparent;
+      border-color: $color-black-30;
+      color: $color-black;
+    }
+
+    &:active {
+      background: transparent;
+      border-color: $color-black-30;
+      color: $color-black;
+    }
+
+    @include disabled {
+      background: transparent;
+      border-color: $color-black-30;
+      color: $color-black;
+      cursor: auto;
+    }
+  }
+}
+
+.small-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 100%;
+  border-width: 2px;
+  border-style: solid;
+  @include font-button-2;
+  text-align: left;
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 16px;
+  @include transition(background border-color color);
+  background: $color-blue;
+  border-color: $color-blue;
+  color: $color-white;
+
+  &:hover {
+    background: $color-white;
+    color: $color-blue;
+    cursor: pointer;
+  }
+
+  &:active {
+    background: $color-blue-10;
+    color: $color-blue;
+  }
+
+  @include disabled {
+    background: $color-black-10;
+    border-color: $color-black-10;
+    color: $color-black-40;
+    cursor: auto;
+  }
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+  }
+
+  &__text {
+    display: block;
+    @include ellipsis;
+    flex: 1 1 auto;
+    margin: 5px 8px;
+  }
+
+  &__icon {
+    width: 24px;
+  }
+}

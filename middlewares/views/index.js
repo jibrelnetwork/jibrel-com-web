@@ -79,25 +79,27 @@ module.exports = strapi => {
         log.debug({ partials }, 'Prepared list of partials from filesystem')
 
         strapi.app.use(
-          views(
-            viewsDir,
-            {
-              map: { hbs: 'handlebars' },
-              options: {
-                helpers: {
-                  asset: (str) => assetsPath + str,
-                  cdn: replaceS3UrlWithCDN,
-                  // preview markdown project description as html
-                  projectMD: (content) =>
-                    md.render(content || '')
-                },
+          (ctx, next) =>
+            views(
+              viewsDir,
+              {
+                map: { hbs: 'handlebars' },
+                options: {
+                  helpers: {
+                    asset: (str) => assetsPath + str,
+                    cdn: replaceS3UrlWithCDN,
+                    // preview markdown project description as html
+                    projectMD: (content) =>
+                      md.render(content || ''),
+                    __: (key, ...params) => ctx.i18n.__(key, ...params),
+                  },
 
-                partials,
+                  partials,
 
-                cache: false
+                  cache: false
+                }
               }
-            }
-          )
+            )(ctx, next)
         )
       } catch (err) {
         log.error('Could not load list of partials from filesystem')

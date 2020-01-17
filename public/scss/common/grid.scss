@@ -1,4 +1,4 @@
-@import './media';
+@import 'media';
 
 $column-s-1:  100% * 1  / 4;
 $column-s-2:  100% * 2  / 4;
@@ -40,6 +40,7 @@ $column-l-12: 100% * 12 / 12;
 .common__centered {
   @include padding-horizontal(24px);
   @include margin-horizontal(auto);
+  width: 100%;
 
   @include screen(">xsmall") {
     @include padding-horizontal(32px);
@@ -60,6 +61,8 @@ $column-l-12: 100% * 12 / 12;
   &.--grid {
     @include padding-horizontal(16px);
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     @include screen(">xsmall") {
       @include padding-horizontal(24px);

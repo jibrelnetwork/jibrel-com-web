@@ -1,0 +1,27 @@
+@import '../common/utils';
+@import '../common/colors';
+@import '../common/fonts';
+@import '../common/media';
+
+.content-hidden {
+  text-align: center;
+  background: no-repeat left url('../../img/pic_blurred.png');
+  background-size: contain;
+  padding: 126px 24px;
+
+  &__title#{&}__title {
+    @include font-title;
+    color: $color-black;
+    padding: 0 0 30px;
+  }
+
+  &__link#{&}__link {
+    display: inline-block;
+    margin-bottom: 36px;
+  }
+
+  &__notice#{&}__notice {
+    @include font-caption;
+    color: $color-black-60;
+  }
+}
