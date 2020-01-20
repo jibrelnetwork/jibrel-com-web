@@ -1,0 +1,24 @@
+{
+  "info": {
+    "name": "Social Link",
+    "icon": "users"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "twitter",
+        "linkedin",
+        "medium",
+        "youtube"
+      ]
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "connection": "default",
+  "collectionName": "components_company_social_links"
+}
