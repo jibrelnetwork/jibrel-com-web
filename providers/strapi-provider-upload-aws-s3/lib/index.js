@@ -70,6 +70,7 @@ module.exports = {
               Key: `${envPathPrefix}${path}${file.hash}${file.ext}`,
               Body: Buffer.from(file.buffer, 'binary'),
               ContentType: file.mime,
+              CacheControl: 'public, max-age=31536000, immutable',
             },
             (err, data) => {
               if (err) {
