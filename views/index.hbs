@@ -9,12 +9,51 @@
         <h1 class="index__banner__title">Startup investing made simple, for <em>everyone</em></h1>
       </div>
     </div>
-    <div class="offerings common__centered">
-      <h2 class="offerings__title">Primary Offerings</h2>
-      <ul class="offerings__list">
+    <div class="companies common__centered">
+      <h2 class="companies__title">Primary Offerings</h2>
+      <ul class="companies__list common__grid">
         {{#each companies}}
-          <li class="offerings__item">
-            {{> partials/offerings-card }}
+          <li class="companies__list-item common__grid__item --xs-4 --s-8 --m-4 --l-4">
+            <a href="{{ permalink }}" class="company-card {{#if @root.visitor.isKnown }}--with-stats{{/if}}" style="background-image: url({{cdn preview_bg_img }});">
+              <div class="company-card__contents" style="background-image: linear-gradient(180deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%);">
+                <div class="company-card__logo" style="background-color: {{logo_bg_color}};">
+                  <img src="{{cdn logo_img }}" alt="{{ title }} Logo" class="company-card__logo-img" />
+                </div>
+                <h3 class="company-card__title">{{ title }}</h3>
+                <div class="company-card__tagline">{{ translation.tagline }}</div>
+                <div class="company-card__location">{{ location }}</div>
+                {{#if @root.visitor.isKnown }}
+                  {{#with current_offering}}
+                    <ul class="company-card__stats">
+                      {{#if valuation }}
+                        <li class="company-card__stat">
+                          {{#if convertible_debt}}
+                            <h4 class="company-card__stat-title">{{__ 'offering.valuationCap.title'}}</h4>
+                          {{else}}
+                            <h4 class="company-card__stat-title">{{__ 'offering.valuation.title'}}</h4>
+                          {{/if}}
+                          <p class="company-card__stat-value">{{ valuation_formatted }}</p>
+                        </li>
+                      {{/if}}
+                      <li class="company-card__stat">
+                        <h4 class="company-card__stat-title">{{__ 'offering.goal.title'}}</h4>
+                        <p class="company-card__stat-value">{{ goal_formatted }}</p>
+                      </li>
+                      {{#if equity }}
+                        <li class="company-card__stat">
+                          <h4 class="company-card__stat-title">{{__ 'offering.equity.title'}}</h4>
+                          <p class="company-card__stat-value">{{ equity_formatted }}</p>
+                        </li>
+                      {{/if}}
+                      <li class="company-card__stat">
+                        <h4 class="company-card__stat-title">{{__ 'offering.round.title'}}</h4>
+                        <p class="company-card__stat-value">{{ round_formatted }}</p>
+                      </li>
+                    </ul>
+                  {{/with}}
+                {{/if}}
+              </div>
+            </a>
           </li>
         {{/each}}
       </ul>
