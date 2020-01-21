@@ -99,6 +99,13 @@ module.exports = {
       company.current_offering,
     )
 
+    if (company.social) {
+      company.social = company.social.map((link) => ({
+        ...link,
+        title: i18n.__(`navigation.social.${link.type}.title`),
+      }))
+    }
+
     return company
   },
 
@@ -128,6 +135,7 @@ module.exports = {
       'translations',
       'translations.tags',
       'translations.content',
+      'social',
     ])
 
     if (!rawCompany) {

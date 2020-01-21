@@ -97,29 +97,29 @@
           </section>
         {{/unless}}
         <section class="offering__contacts">
-          <h2 class="offering__title-2">About {{ title }}</h2>
+          <h2 class="offering__title-2">{{__ 'company.contacts.title' title}}</h2>
           <ul class="offering__contacts__list">
             {{#if legal_name}}
               <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">Legal Name</h3>
+                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.name.title'}}</h3>
                 <p class="offering__contacts__list__item__value">{{ legal_name }}</p>
               </li>
             {{/if}}
             {{#if founded}}
               <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">Founded</h3>
+                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.founded.title'}}</h3>
                 <p class="offering__contacts__list__item__value">{{ founded }}</p>
               </li>
             {{/if}}
             {{#if employees}}
               <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">Employees</h3>
+                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.employees.title'}}</h3>
                 <p class="offering__contacts__list__item__value">{{ employees }}</p>
               </li>
             {{/if}}
             {{#if website_url}}
               <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">Website</h3>
+                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.website.title'}}</h3>
                 <p class="offering__contacts__list__item__value">
                   <a href="{{ website_url }}" target="_blank"
                      rel="noopener noreferrer">{{ website_name }}</a>
@@ -128,62 +128,20 @@
             {{/if}}
             {{#if social}}
               <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">Social</h3>
-                <ul class="offering__contacts__list__item__value offering__contacts__list__social-list">
-                  {{#if social.facebook }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.facebook }}"
-                         class="offering__contacts__list__social-list__item__link --facebook">Facebook</a>
+                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.social.title'}}</h3>
+                <ul class="offering__contacts__list__item__value company-social">
+                  {{#each social}}
+                    <li class="company-social__item">
+                      <a target="_blank" rel="noopener noreferrer" href="{{ url }}"
+                         class="company-social__link --{{ type }}">{{ title }}</a>
                     </li>
-                  {{/if}}
-                  {{#if social.instagram }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.instagram }}"
-                         class="offering__contacts__list__social-list__item__link --instagram">Instagram</a>
-                    </li>
-                  {{/if}}
-                  {{#if social.twitter }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.twitter }}"
-                         class="offering__contacts__list__social-list__item__link --twitter">Twitter</a>
-                    </li>
-                  {{/if}}
-                  {{#if social.linkedin }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.linkedin }}"
-                         class="offering__contacts__list__social-list__item__link --linkedin">LinkedIn</a>
-                    </li>
-                  {{/if}}
-                  {{#if social.medium }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.medium }}"
-                         class="offering__contacts__list__social-list__item__link --medium">Medium</a>
-                    </li>
-                  {{/if}}
-                  {{#if social.kakaotalk }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.kakaotalk }}"
-                         class="offering__contacts__list__social-list__item__link --kakaotalk">KakaoTalk</a>
-                    </li>
-                  {{/if}}
-                  {{#if social.telegram }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.telegram }}"
-                         class="offering__contacts__list__social-list__item__link --telegram">Telegram</a>
-                    </li>
-                  {{/if}}
-                  {{#if social.youtube }}
-                    <li class="offering__contacts__list__social-list__item">
-                      <a target="_blank" rel="noopener noreferrer" href="{{ social.youtube }}"
-                         class="offering__contacts__list__social-list__item__link --youtube">YouTube</a>
-                    </li>
-                  {{/if}}
+                  {{/each}}
                 </ul>
               </li>
             {{/if}}
             {{#if location_googlemaps_id}}
               <li class="offering__contacts__list__item --map">
-                <h3 class="offering__contacts__list__item__title">Location</h3>
+                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.location.title'}}</h3>
                 <p class="offering__contacts__list__item__value">
                   <iframe
                       title="{{ location }}"
