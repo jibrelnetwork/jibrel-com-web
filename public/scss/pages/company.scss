@@ -350,3 +350,128 @@
     display: block;
   }
 }
+
+.company-social {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px -8px 0;
+
+  &__item {
+    flex: 0 0 auto;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  &__link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      @include transition(opacity);
+    }
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 0;
+    }
+
+    &:hover::before {
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    &.--facebook {
+      &::before {
+        background-image: url('../../img/social/ic_facebook_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_facebook_24.svg')
+      }
+    }
+
+    &.--instagram {
+      &::before {
+        background-image: url('../../img/social/ic_instagram_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_instagram_24.svg')
+      }
+    }
+
+    &.--kakaotalk {
+      &::before {
+        background-image: url('../../img/social/ic_kakaotalk_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_kakaotalk_24.svg')
+      }
+    }
+
+    &.--linkedin {
+      &::before {
+        background-image: url('../../img/social/ic_linkedin_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_linkedin_24.svg')
+      }
+    }
+
+    &.--medium {
+      &::before {
+        background-image: url('../../img/social/ic_medium_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_medium_24.svg')
+      }
+    }
+
+    &.--telegram {
+      &::before {
+        background-image: url('../../img/social/ic_telegram_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_telegram_24.svg')
+      }
+    }
+
+    &.--twitter {
+      &::before {
+        background-image: url('../../img/social/ic_twitter_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_twitter_24.svg')
+      }
+    }
+
+    &.--youtube {
+      &::before {
+        background-image: url('../../img/social/ic_youtube_24_gray.svg')
+      }
+      &::after {
+        background-image: url('../../img/social/ic_youtube_24.svg')
+      }
+    }
+  }
+}
