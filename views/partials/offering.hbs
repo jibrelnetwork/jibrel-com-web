@@ -1,40 +1,40 @@
 <section class="offering">
-  <h2 class="offering__title">Deal Terms</h2>
+  <h2 class="offering__title">{{__ 'offering.title'}}</h2>
   <ul class="offering__terms">
     {{#if valuation }}
       <li class="offering__terms-item">
         {{#if convertible_debt}}
-            <h3 class="offering__terms-item-title">Valuation Cap</h3>
+            <h3 class="offering__terms-item-title">{{__ 'offering.valuationCap.title'}}</h3>
         {{else}}
-            <h3 class="offering__terms-item-title">Valuation</h3>
+            <h3 class="offering__terms-item-title">{{__ 'offering.valuation.title'}}</h3>
         {{/if}}
           <p class="offering__terms-item-value">{{ valuation_formatted }}</p>
       </li>
     {{/if}}
       <li class="offering__terms-item">
-        <h3 class="offering__terms-item-title">Funding Round</h3>
+        <h3 class="offering__terms-item-title">{{__ 'offering.round.title'}}</h3>
         <p class="offering__terms-item-value">{{ round_formatted }}</p>
       </li>
       <li class="offering__terms-item">
-        <h3 class="offering__terms-item-title">Minimum Investment</h3>
+        <h3 class="offering__terms-item-title">{{__ 'offering.minInvestment.title'}}</h3>
         <p class="offering__terms-item-value">{{ min_investment_formatted }}</p>
       </li>
       <li class="offering__terms-item">
-        <h3 class="offering__terms-item-title">Type of Security</h3>
+        <h3 class="offering__terms-item-title">{{__ 'offering.type.title'}}</h3>
         <p class="offering__terms-item-value">{{ type_formatted }}</p>
       </li>
     {{#if equity }}
       <li class="offering__terms-item">
-        <h3 class="offering__terms-item-title">Offered Equity</h3>
+        <h3 class="offering__terms-item-title">{{__ 'offering.equity.title'}}</h3>
         <p class="offering__terms-item-value">{{ equity_formatted }}</p>
       </li>
     {{/if}}
       <li class="offering__terms-item">
-        <h3 class="offering__terms-item-title">Round Size</h3>
+        <h3 class="offering__terms-item-title">{{__ 'offering.goal.title'}}</h3>
         <p class="offering__terms-item-value">{{ goal_formatted }}</p>
       </li>
       <li class="offering__terms-item">
-        <h3 class="offering__terms-item-title">Deadline</h3>
+        <h3 class="offering__terms-item-title">{{__ 'offering.deadline.title'}}</h3>
         <p class="offering__terms-item-value">{{ date_end_formatted }}</p>
       </li>
   </ul>
