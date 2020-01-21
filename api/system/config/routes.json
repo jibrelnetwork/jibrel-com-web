@@ -15,6 +15,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/generated/styles/:slug.css",
+      "handler": "System.companyStyles",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

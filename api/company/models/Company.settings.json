@@ -39,6 +39,12 @@
       "plugin": "upload",
       "required": false
     },
+    "primary_color": {
+      "maxLength": 7,
+      "default": "#003dc6",
+      "minLength": 7,
+      "type": "string"
+    },
     "preview_bg_color": {
       "maxLength": 7,
       "default": "#000000",
