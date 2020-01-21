@@ -5,18 +5,21 @@ const _ = require('lodash')
 module.exports = {
   async about(ctx) {
     _.set(ctx, 'state.page.title', ctx.app.createPageTitle('About'))
+    _.set(ctx, 'state.page.id', 'about')
 
     await ctx.render('about.hbs')
   },
 
   async invest(ctx) {
     _.set(ctx, 'state.page.title', ctx.app.createPageTitle('Invest'))
+    _.set(ctx, 'state.page.id', 'invest')
 
     await ctx.render('invest.hbs')
   },
 
   async raise(ctx) {
     _.set(ctx, 'state.page.title', ctx.app.createPageTitle('Raise'))
+    _.set(ctx, 'state.page.id', 'raise')
 
     await ctx.render('raise.hbs')
   },
