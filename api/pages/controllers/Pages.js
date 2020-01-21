@@ -93,4 +93,12 @@ module.exports = {
   async noop(ctx) {
     return ctx.send('')
   },
+
+  async notFound(ctx) {
+    return ctx.notFound()
+  },
+
+  async internalError() {
+    throw new Error('500')
+  },
 }

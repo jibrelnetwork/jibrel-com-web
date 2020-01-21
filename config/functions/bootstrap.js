@@ -32,6 +32,12 @@ module.exports = async () => {
               noop: {
                 enabled: 1,
               },
+              notFound: {
+                enabled: 1,
+              },
+              internalError: {
+                enabled: 1,
+              },
               about: {
                 enabled: 1,
               },
