@@ -90,6 +90,11 @@
       "type": "component",
       "repeatable": true,
       "component": "company.translation"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "company.social-link"
     }
   }
 }
