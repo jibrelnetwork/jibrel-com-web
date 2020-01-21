@@ -62,11 +62,11 @@ module.exports = {
         offering.list(ctx.params.slug),
       ])
 
-    rawData.offerings = rawOfferingsData
-
     if (!rawData) {
       return ctx.notFound()
     }
+
+    rawData.offerings = rawOfferingsData
 
     const data = company.localize(
       ctx.i18n,
