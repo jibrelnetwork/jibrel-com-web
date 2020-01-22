@@ -65,11 +65,11 @@ module.exports = {
         offering.list(ctx.params.slug),
       ])
 
-    rawData.offerings = rawOfferingsData
-
     if (!rawData) {
       return ctx.notFound()
     }
+
+    rawData.offerings = rawOfferingsData
 
     const data = company.localize(
       ctx.i18n,
@@ -95,5 +95,13 @@ module.exports = {
 
   async noop(ctx) {
     return ctx.send('')
+  },
+
+  async notFound(ctx) {
+    return ctx.notFound()
+  },
+
+  async internalError() {
+    throw new Error('500')
   },
 }

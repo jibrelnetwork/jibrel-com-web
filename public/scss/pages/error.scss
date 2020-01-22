@@ -1,0 +1,47 @@
+@import '../common/fonts';
+@import '../common/media';
+
+.error {
+  margin-bottom: 64px;
+
+  &__hero {
+    max-width: 100%;
+    margin: 16px 0 0;
+  }
+
+  &__title {
+    @include font-h1-xs;
+    margin: 64px 0 0;
+    text-align: center;
+
+    @include screen('>xsmall') {
+      @include font-h1-s;
+    }
+
+    @include screen('>small') {
+      @include font-h1-m;
+    }
+
+    @include screen('>medium') {
+      @include font-h1-l;
+    }
+  }
+
+  &__wrapper {
+    justify-content: center;
+  }
+
+  &__description {
+    @include font-subheader-2-s;
+    margin: 64px 0 0;
+    text-align: center;
+
+    @include screen('>small') {
+      @include font-subheader-2-l;
+    }
+  }
+
+  &__button {
+    margin: 64px 0 0;
+  }
+}
