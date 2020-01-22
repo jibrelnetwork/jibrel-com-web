@@ -12,6 +12,22 @@
     },
     {
       "method": "GET",
+      "path": "/404",
+      "handler": "Pages.notFound",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/500",
+      "handler": "Pages.internalError",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/:lang(en|ar)",
       "handler": "Pages.list",
       "config": {

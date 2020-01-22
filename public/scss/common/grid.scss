@@ -1,4 +1,5 @@
 @import 'media';
+@import 'navigation-offset';
 
 $column-s-1:  100% * 1  / 4;
 $column-s-2:  100% * 2  / 4;
@@ -35,6 +36,10 @@ $column-l-12: 100% * 12 / 12;
 @mixin padding-horizontal($value) {
   padding-left: $value;
   padding-right: $value;
+}
+
+.common__with-navigation-offset {
+  @include navigation-offset(padding-top);
 }
 
 .common__centered {
