@@ -72,7 +72,7 @@
   }
 }
 
-.small-button {
+@mixin small-button () {
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
@@ -112,6 +112,10 @@
   &:hover, &:focus, &:active {
     text-decoration: none;
   }
+}
+
+.small-button {
+  @include small-button;
 
   &__text {
     display: block;
