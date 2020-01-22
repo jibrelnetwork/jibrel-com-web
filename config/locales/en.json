@@ -49,5 +49,11 @@
   "navigation.social.medium.title": "Medium",
   "navigation.social.telegram.title": "Telegram",
   "navigation.social.twitter.title": "Twitter",
-  "navigation.social.youtube.title": "YouTube"
+  "navigation.social.youtube.title": "YouTube",
+  "404.title": "It Looks Like You’re Lost",
+  "404.description": "This page is missing or you assembled the link incorrectly.",
+  "404.action.back": "Back to main",
+  "500.title": "Something Went Wrong",
+  "500.description": "It’s not you — it’s us. Please try again later.",
+  "500.action.back": "Back to main"
 }
