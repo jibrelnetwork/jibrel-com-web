@@ -57,7 +57,9 @@ module.exports = {
       currency: i18n.user.currency,
       minimumFractionDigits: 0,
     })
-    const numberLocale = new Intl.NumberFormat(locale)
+    const percentLocale = new Intl.NumberFormat(locale, {
+      style: 'percent',
+    })
 
     const dateEnd = offering.dateEnd
       ? parseISO(offering.dateEnd)
@@ -78,7 +80,7 @@ module.exports = {
     offering.min_investment_formatted = moneyLocale.format(offering.limitMinAmount)
     offering.max_investment_formatted = moneyLocale.format(offering.limitMaxAmount)
     offering.valuation_formatted = moneyLocale.format(offering.valuation)
-    offering.equity_formatted = `${numberLocale.format(offering.equity)}%`
+    offering.equity_formatted = percentLocale.format(offering.equity)
 
     if (offering.security) {
       offering.type_formatted = i18n.__(`offering.type.${offering.security.type}`)
