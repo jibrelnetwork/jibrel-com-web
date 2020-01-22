@@ -64,6 +64,9 @@ module.exports = async () => {
               companyStyles: {
                 enabled: 1,
               },
+              gaTrack: {
+                enabled: 1,
+              },
             },
           },
         },
