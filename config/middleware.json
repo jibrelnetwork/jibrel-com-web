@@ -15,6 +15,7 @@
       "parser",
       "router",
       "public",
+      "visitor",
       "enhance-i18n",
       "page-meta"
     ]

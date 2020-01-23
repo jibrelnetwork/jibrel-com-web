@@ -32,8 +32,7 @@
       "handler": "Pages.list",
       "config": {
         "policies": [
-          "withValidLanguage",
-          "withVisitor"
+          "withValidLanguage"
         ]
       }
     },
@@ -43,8 +42,7 @@
       "handler": "Pages.about",
       "config": {
         "policies": [
-          "withValidLanguage",
-          "withVisitor"
+          "withValidLanguage"
         ]
       }
     },
@@ -54,8 +52,7 @@
       "handler": "Pages.invest",
       "config": {
         "policies": [
-          "withValidLanguage",
-          "withVisitor"
+          "withValidLanguage"
         ]
       }
     },
@@ -65,8 +62,7 @@
       "handler": "Pages.raise",
       "config": {
         "policies": [
-          "withValidLanguage",
-          "withVisitor"
+          "withValidLanguage"
         ]
       }
     },
@@ -76,8 +72,7 @@
       "handler": "Pages.company",
       "config": {
         "policies": [
-          "withValidLanguage",
-          "withVisitor"
+          "withValidLanguage"
         ]
       }
     },
