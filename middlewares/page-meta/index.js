@@ -10,6 +10,7 @@ module.exports = strapi => {
       strapi.app.use(
         (ctx, next) => {
           _.set(ctx, 'state.env.GOOGLE_MAPS_API_KEY', process.env.GOOGLE_MAPS_API_KEY)
+          _.set(ctx, 'state.env.GOOGLE_ANALYTICS_ID', process.env.GOOGLE_ANALYTICS_ID)
           _.set(ctx, 'state.env.FRONTEND_ROOT_DOMAIN_NAME', process.env.FRONTEND_ROOT_DOMAIN_NAME)
 
           _.set(ctx, 'state.global.year', (new Date()).getFullYear())

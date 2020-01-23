@@ -29,6 +29,11 @@
 
   <link rel="stylesheet" href="{{asset '/styles/common.css'}}" />
   <link rel="stylesheet" href="{{asset '/styles/navigation.css'}}" />
+
+  <!-- Google Analytics -->
+  <script src="/generated/track.js?id={{ @root/env.GOOGLE_ANALYTICS_ID }}"></script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <!-- End Google Analytics -->
 </head>
 <body>
 {{> @partial-block }}

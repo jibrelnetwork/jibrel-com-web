@@ -31,7 +31,7 @@ module.exports = {
     ctx.set('Cache-Control', 'no-cache')
 
     if (!rawData.primary_color) {
-      return ctx.send('')
+      return ctx.send('/* Primary color not set, using default styles */')
     }
 
     const primaryColor = rawData.primary_color
@@ -66,7 +66,7 @@ module.exports = {
       .offering__terms {
         background-color: ${colors.sidebar.background};
       }
-      
+
       .big-button.--company {
         background: ${colors.button.background};
         border-color: ${colors.button.background};
@@ -80,25 +80,25 @@ module.exports = {
         background: ${colors.button.active.background};
         color: ${colors.button.active.text};
       }
-      
+
       .company-about__tags-item {
         background: ${colors.button.active.background};
         color: ${colors.button.active.text};
       }
-      
+
       .company-hero__video-link:hover {
         color: ${colors.link.text};
       }
-      
+
       .offering-stub {
         background-color: ${colors.sidebar.background};
       }
-      
+
       .small-button.--company {
         background: ${colors.button.background};
         border-color: ${colors.button.background};
       }
-      
+
       .small-button.--company:hover {
         background: #fff;
         color: ${colors.button.background};
@@ -108,10 +108,21 @@ module.exports = {
         background: ${colors.button.active.background};
         color: ${colors.button.active.text};
       }
-      
+
       a {
         color: ${colors.link.text};
       }
+    `)
+  },
+
+  async gaTrack(ctx) {
+    ctx.set('Content-Type', 'application/javascript')
+    ctx.set('Cache-Control', 'public, max-age=31536000, immutable')
+
+    await ctx.send(`
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', '${ctx.query.id}', 'auto');
+      ga('send', 'pageview');
     `)
   },
 }
