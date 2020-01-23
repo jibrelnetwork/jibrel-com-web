@@ -375,14 +375,14 @@
     flex-direction: row;
     align-items: center;
     text-decoration: none;
-  }
 
-  &__navigation-link:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+      text-decoration: underline;
+    }
 
-  &__navigation-link:active {
-    color: $color-black-30;
+    &:active {
+      color: $color-black-30;
+    }
   }
 
   &__navigation-item-icon {
