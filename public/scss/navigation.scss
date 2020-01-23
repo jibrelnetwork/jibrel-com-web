@@ -312,6 +312,12 @@
     align-items: flex-start;
   }
 
+  &__logo-link {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+  }
+
   &__company {
     padding: 0 0 9px;
 
