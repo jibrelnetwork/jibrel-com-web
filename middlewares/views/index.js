@@ -92,6 +92,10 @@ module.exports = strapi => {
                     projectMD: (content) =>
                       md.render(content || ''),
                     __: (key, ...params) => ctx.i18n.__(key, ...params),
+                    isCurrentPageId: (id, options) =>
+                      id === _.get(ctx, 'state.page.id')
+                        ? options.fn(this)
+                        : '',
                   },
 
                   partials,
