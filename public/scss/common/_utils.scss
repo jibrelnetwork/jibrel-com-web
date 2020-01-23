@@ -13,8 +13,8 @@
 $transition-duration-hover: .15s;
 
 @mixin transition($properties, $duration: $transition-duration-hover, $timing-function: ease-in-out, $delay: unset) {
-  transition-property: $properties;
-  transition-duration: $duration;
-  transition-timing-function: $timing-function;
-  transition-delay: $delay;
+  transition-property: join((), $properties, comma);
+  transition-duration: join((), $duration, comma);
+  transition-timing-function: join((), $timing-function, comma);
+  transition-delay: join((), $delay, comma);
 }

@@ -103,6 +103,10 @@
       background-image: url('../img/ic_close_24.svg');
     }
 
+    .--no-dropdown & {
+      display: none;
+    }
+
     @include screen('>small') {
       display: none;
     }
@@ -121,6 +125,16 @@
     [data-is-open="1"] & {
       display: flex;
       background: $color-white;
+    }
+
+    .--no-dropdown & {
+      display: flex;
+      position: static;
+      justify-content: flex-end;
+      flex-direction: row;
+      width: auto;
+      height: auto;
+      background: none;
     }
 
     @include screen('>small') {
@@ -147,10 +161,24 @@
     & + & {
       border-top: 2px solid $color-black-10;
 
+      .--no-dropdown & {
+        border-top: none;
+        padding-left: 40px;
+      }
+
       @include screen('>small') {
         border-top: none;
         padding-left: 40px;
       }
+    }
+
+    .--no-dropdown & {
+      padding: 0 16px;
+      margin: 0;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: flex-end;
+      flex: 0 0 auto;
     }
 
     @include screen('>small') {
@@ -167,6 +195,12 @@
     padding: 0 28px;
     display: flex;
     align-items: center;
+
+    .--no-dropdown & {
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+    }
 
     @include screen('>small') {
       padding: 0 8px;
@@ -216,6 +250,11 @@
     }
 
     &.--button {
+      .--no-dropdown & {
+        @include small-button;
+        padding: 7px 14px;
+      }
+
       @include screen('>small') {
         @include small-button;
         padding: 7px 14px;
