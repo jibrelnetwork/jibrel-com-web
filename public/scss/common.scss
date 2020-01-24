@@ -435,7 +435,7 @@ END GLOBAL MODIFIERS
   font-weight: 800;
   font-size: 28px;
   line-height: 33px;
-  padding: 0 0 16px;
+  margin-bottom: 16px;
 }
 
 .invest__start__instructions,
@@ -443,20 +443,12 @@ END GLOBAL MODIFIERS
   font-weight: normal;
   font-size: 20px;
   line-height: 28px;
-  padding: 0 0 48px;
+  margin-bottom: 48px;
 }
 
 .invest__start__link,
 .raise__start__link {
-  margin: 0 0 48px;
-}
-
-/* Small */
-@media (min-width: 600px) {
-  .invest__start__link,
-  .raise__start__link {
-    width: 50%;
-  }
+  margin-bottom: 48px;
 }
 
 /* Medium */
@@ -464,27 +456,6 @@ END GLOBAL MODIFIERS
   .invest,
   .raise {
     padding-top: 96px;
-  }
-
-  .invest__start__link,
-  .raise__start__link {
-    width: 37.5%;
-  }
-}
-
-/* Large */
-@media (min-width: 1024px) {
-  .invest__start__link,
-  .raise__start__link {
-    width: 33.33%;
-  }
-}
-
-/* XLarge */
-@media (min-width: 1209px) {
-  .invest__start__link,
-  .raise__start__link {
-    width: 25%;
   }
 }
 
@@ -506,6 +477,11 @@ END GLOBAL MODIFIERS
 .about__excerpt {
   font-size: 24px;
   line-height: 140%;
+  margin: 24px 0 64px;
+
+  strong, b {
+    font-weight: bold;
+  }
 }
 
 /* Small */

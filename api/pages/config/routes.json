@@ -29,7 +29,7 @@
     {
       "method": "GET",
       "path": "/:lang(en|ar)",
-      "handler": "Pages.list",
+      "handler": "Pages.main",
       "config": {
         "policies": [
           "withValidLanguage"
