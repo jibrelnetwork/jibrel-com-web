@@ -10,5 +10,8 @@
   "scss": {
     "src": "/scss",
     "dest": "/styles"
+  },
+  "internal": {
+    "secret": "${process.env.INTERNAL_SECRET}"
   }
 }

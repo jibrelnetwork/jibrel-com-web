@@ -13,10 +13,12 @@
         "linkedin",
         "medium",
         "youtube"
-      ]
+      ],
+      "required": true
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   },
   "connection": "default",

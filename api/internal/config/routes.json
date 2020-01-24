@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/internal/companies/export",
+      "handler": "Internal.export",
+      "config": {
+        "policies": [
+          "hasAdminSecret"
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/internal/companies/import",
+      "handler": "Internal.import",
+      "config": {
+        "policies": [
+          "hasAdminSecret"
+        ]
+      }
+    }
+  ]
+}

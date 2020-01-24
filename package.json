@@ -40,7 +40,8 @@
     "strapi-plugin-users-permissions": "~3.0.0-beta.18.4",
     "strapi-provider-upload-aws-s3": "file:providers/strapi-provider-upload-aws-s3",
     "strapi-utils": "~3.0.0-beta.18.4",
-    "utils": "file:./utils"
+    "utils": "file:./utils",
+    "uuid": "~3.4.0"
   },
   "author": {
     "name": "Jibrel AG",
