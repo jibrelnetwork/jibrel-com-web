@@ -68,6 +68,14 @@ module.exports = async () => {
                 enabled: 1,
               },
             },
+            internal: {
+              import: {
+                enabled: 1,
+              },
+              export: {
+                enabled: 1,
+              },
+            },
           },
         },
       },

@@ -143,5 +143,56 @@ module.exports = {
     }
 
     return rawCompany
-  }
+  },
+
+  async listAll () {
+    return await strapi.query('company').find()
+  },
+
+  async import (data, {
+    primaryKey = 'slug',
+    duplicateStrategy = 'ignore',
+  } = {}) {
+    const prev = await strapi.query('company').findOne({
+      [primaryKey]: data[primaryKey],
+    })
+
+    if (prev) {
+      switch (duplicateStrategy) {
+        case 'ignore': {
+          return null
+        }
+        case 'overwrite': {
+          await strapi.query('company').delete({ id: prev.id })
+          break
+        }
+        case 'error': {
+          throw new Error(`Duplicate import data for ${primaryKey}: ${data[primaryKey]}`)
+        }
+        default: {
+          throw new Error(`Duplicate strategy unknown: ${duplicateStrategy}`)
+        }
+      }
+    }
+
+    const internalService = strapi.services.internal
+    const propsToImport = ['preview_bg_img', 'logo_img', 'hero_img']
+
+    const fileIds = await Promise.all(propsToImport.map(async (name) => {
+      const sourceFileMeta = data[name]
+
+      const file = await internalService.importFileFromMeta(sourceFileMeta)
+
+      return file.id
+    }))
+
+    const files = _.zipObject(propsToImport, fileIds)
+
+    const result = await strapi.query('company').create({
+      ...data,
+      ...files,
+    })
+
+    return result.id
+  },
 }
