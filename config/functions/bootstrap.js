@@ -53,6 +53,9 @@ module.exports = async () => {
               company: {
                 enabled: 1,
               },
+              static: {
+                enabled: 1,
+              },
               logout: {
                 enabled: 1,
               },

@@ -78,6 +78,16 @@
     },
     {
       "method": "GET",
+      "path": "/:lang(en|ar)/*",
+      "handler": "Pages.static",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
       "path": "/logout",
       "handler": "Pages.logout",
       "config": {

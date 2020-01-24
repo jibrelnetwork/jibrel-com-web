@@ -24,6 +24,11 @@ module.exports = {
     await ctx.render('raise.hbs')
   },
 
+  async static(ctx) {
+    // FIXME: check markdown source and template existence, then render it or proceed to 404
+    return ctx.notFound()
+  },
+
   async list(ctx) {
     const {
       company,
