@@ -5,16 +5,16 @@
     </header>
     <div class="page__content">
       <article class="invest common__content common__centered">
-        <h1 class="invest__title common__page-title">Invest</h1>
+        <h1 class="invest__title common__page-title">{{__ 'invest.title'}}</h1>
         <div class="invest__main">
           <section class="common__feature common__grid">
             <div class="common__feature__icon common__grid__item">
               <img src="{{asset '/img/pic_in_lock.png'}}" width="432" height="432" alt="Lock" />
             </div>
             <div class="common__feature__content common__grid__item">
-              <h2 class="common__feature__title">Unique Access</h2>
+              <h2 class="common__feature__title">{{__ 'invest.feature.access.title'}}</h2>
               <div class="common__feature__description">
-                <p>Global investors can access opportunities from a previously inaccessible market of early and growth-stage startups, through a fully regulated equity management platform. Jibrel aims to better connect global investors with some of the fastest-growing startup economies in the world.</p>
+                <p>{{__ 'invest.feature.access.description'}}</p>
               </div>
             </div>
           </section>
@@ -23,9 +23,9 @@
               <img src="{{asset '/img/pic_in_ghost.png'}}" width="432" height="432" alt="Ghost" />
             </div>
             <div class="common__feature__content common__grid__item">
-              <h2 class="common__feature__title">Full Transparency</h2>
+              <h2 class="common__feature__title">{{__ 'invest.feature.transparency.title'}}</h2>
               <div class="common__feature__description">
-                <p>By automating capitalization tables and shareholder governance, Jibrel provides investors with more transparency and control. Investors can exercise equity rights, such as liquidation preferences, anti-dilution provisions, and governance voting, through a simple interface.</p>
+                <p>{{__ 'invest.feature.transparency.description'}}</p>
               </div>
             </div>
           </section>
@@ -34,9 +34,9 @@
               <img src="{{asset '/img/pic_in_exit.png'}}" width="432" height="432" alt="Door" />
             </div>
             <div class="common__feature__content common__grid__item">
-              <h2 class="common__feature__title">Digital Exit Facility</h2>
+              <h2 class="common__feature__title">{{__ 'invest.feature.liquidity.title'}}</h2>
               <div class="common__feature__description">
-                <p>Jibrel enhances market depth and liquidity in a way that is legally and technically secure by facilitating secondary transfers through a digital exit facility.</p>
+                <p>{{__ 'invest.feature.liquidity.description'}}</p>
               </div>
             </div>
           </section>
@@ -45,17 +45,19 @@
               <img src="{{asset '/img/pic_in_shield.png'}}" width="432" height="432" alt="Shield" />
             </div>
             <div class="common__feature__content common__grid__item">
-              <h2 class="common__feature__title">Regulated & Enforced Investor Rights</h2>
+              <h2 class="common__feature__title">{{__ 'invest.feature.regulation.title'}}</h2>
               <div class="common__feature__description">
-                <p>Shareholder rights are protected and ensured through automated enforcement. Investors directly own digitized equity through a fully regulated equity management platform. Using Jibrel, investors can exercise their governance rights through a simple interface.</p>
+                <p>{{__ 'invest.feature.regulation.description'}}</p>
               </div>
             </div>
           </section>
           {{#unless @root.visitor.isKnown }}
-            <section class="invest__start">
-              <h2 class="invest__start__title">How to start?</h2>
-              <p class="invest__start__instructions">To start investing, please verify your identity.</p>
-              <a href="//id.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/kyc" class="invest__start__link big-button --main">{{__ 'invest.action.verify'}}</a>
+            <section class="invest__start common__grid">
+              <h2 class="invest__start__title common__grid__item --xs-4">{{__ 'invest.start.title'}}</h2>
+              <p class="invest__start__instructions common__grid__item --xs-4">{{__ 'invest.start.description'}}</p>
+              <div class="common__grid__item --xs-4 --s-4 --m-3 --l-4">
+                <a href="//id.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/kyc" class="invest__start__link big-button --main">{{__ 'invest.action.verify'}}</a>
+              </div>
             </section>
           {{/unless}}
         </div>

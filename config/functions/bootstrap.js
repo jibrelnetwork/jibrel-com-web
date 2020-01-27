@@ -47,7 +47,7 @@ module.exports = async () => {
               raise: {
                 enabled: 1,
               },
-              list: {
+              main: {
                 enabled: 1,
               },
               company: {
