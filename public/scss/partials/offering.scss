@@ -1,5 +1,6 @@
 @import '../common/media';
 @import '../common/fonts';
+@import '../common/colors';
 
 .offering {
   margin-bottom: 48px;
@@ -20,7 +21,7 @@
   }
 
   &__terms {
-    background: rgba(0, 61, 198, 0.05);
+    background: $color-blue-10;
     border-radius: 12px;
     padding: 16px 16px 0;
     display: flex;
@@ -55,18 +56,13 @@
 
   &__terms-item-title {
     font-weight: normal;
-    font-size: 12px;
-    line-height: 140%;
-    letter-spacing: -0.54px;
-    color: rgba(8, 30, 57, 0.6);
+    @include font-caption;
+    color: $color-black-60;
     margin-bottom: 4px;
   }
 
   &__terms-item-value {
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: -0.54px;
-    color: #081E39;
+    @include font-title;
+    color: $color-black;
   }
 }

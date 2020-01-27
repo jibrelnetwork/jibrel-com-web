@@ -29,7 +29,7 @@ module.exports = {
     return ctx.notFound()
   },
 
-  async list(ctx) {
+  async main(ctx) {
     const {
       company,
       offering,
@@ -53,7 +53,7 @@ module.exports = {
         )
       )
 
-    await ctx.render('index.hbs', {
+    await ctx.render('main.hbs', {
       companies,
     })
   },

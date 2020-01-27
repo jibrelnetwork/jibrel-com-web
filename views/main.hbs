@@ -6,11 +6,11 @@
   <div class="page__content">
     <div class="index__banner" style="background-image: url({{asset '/img/pic_hero_rocket.png'}});">
       <div class="index__banner__content common__centered">
-        <h1 class="index__banner__title">Startup investing made simple, for <em>everyone</em></h1>
+        <h1 class="index__banner__title">{{{__ 'main.tagline'}}}</h1>
       </div>
     </div>
     <div class="companies common__centered">
-      <h2 class="companies__title">Primary Offerings</h2>
+      <h2 class="companies__title">{{__ 'main.companies.title'}}</h2>
       <ul class="companies__list common__grid">
         {{#each companies}}
           <li class="companies__list-item common__grid__item --xs-4 --s-8 --m-4 --l-4">
