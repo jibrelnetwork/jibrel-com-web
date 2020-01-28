@@ -36,6 +36,13 @@
                 </svg>
               </a>
             {{/if}}
+            {{#with current_offering}}
+              {{#if is_completed}}
+                <div class="company-about__status">
+                  {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
+                </div>
+              {{/if}}
+            {{/with}}
             <p class="company-about__pitch">{{ translation.pitch }}</p>
           </div>
           {{#unless @root.visitor.isKnown}}
@@ -70,7 +77,13 @@
               <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}"
                  class="company-sidebar__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
             {{else}}
-              <div class="company-sidebar__invest --placeholder"></div>
+              {{#if is_completed}}
+                <div class="company-sidebar__status">
+                  {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
+                </div>
+              {{else}}
+                <div class="company-sidebar__invest --placeholder"></div>
+              {{/if}}
             {{/if}}
             {{#if @root.visitor.isKnown}}
               {{> partials/offering }}

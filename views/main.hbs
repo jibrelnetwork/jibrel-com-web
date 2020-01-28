@@ -20,11 +20,25 @@
                   <img src="{{cdn logo_img }}" alt="{{ title }} Logo" class="company-card__logo-img" />
                 </div>
                 <h3 class="company-card__title">{{ title }}</h3>
+                {{#if current_offering.is_completed}}
+                  <div class="company-card__status --completed">{{__ 'offering.status.completed'}}</div>
+                {{/if}}
                 <div class="company-card__tagline">{{ translation.tagline }}</div>
                 <div class="company-card__location">{{ location }}</div>
                 {{#if @root.visitor.isKnown }}
                   {{#with current_offering}}
                     <ul class="company-card__stats">
+                      {{#if is_completed}}
+                        <li class="company-card__stat --completed">
+                          <h4 class="company-card__stat-title">{{__ 'offering.completed.goal.title'}}</h4>
+                          <p class="company-card__stat-value">{{ goal_formatted }}</p>
+                        </li>
+                      {{else}}
+                        <li class="company-card__stat">
+                          <h4 class="company-card__stat-title">{{__ 'offering.goal.title'}}</h4>
+                          <p class="company-card__stat-value">{{ goal_formatted }}</p>
+                        </li>
+                      {{/if}}
                       {{#if valuation }}
                         <li class="company-card__stat">
                           {{#if convertible_debt}}
@@ -35,10 +49,6 @@
                           <p class="company-card__stat-value">{{ valuation_formatted }}</p>
                         </li>
                       {{/if}}
-                      <li class="company-card__stat">
-                        <h4 class="company-card__stat-title">{{__ 'offering.goal.title'}}</h4>
-                        <p class="company-card__stat-value">{{ goal_formatted }}</p>
-                      </li>
                       {{#if equity }}
                         <li class="company-card__stat">
                           <h4 class="company-card__stat-title">{{__ 'offering.equity.title'}}</h4>

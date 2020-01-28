@@ -229,6 +229,16 @@
     }
   }
 
+  &__status {
+    width: 100%;
+    margin: 112px 0 16px;
+    text-align: left;
+
+    @include screen('>small') {
+      display: none;
+    }
+  }
+
   &__pitch {
     margin-top: 64px;
     padding: 32px 0;
@@ -244,6 +254,16 @@
 
   &__video-link + &__pitch {
     margin-top: 0;
+  }
+
+  @include screen('<medium') {
+    &__video-link + &__status {
+      margin-top: 64px;
+    }
+
+    &__status + &__pitch {
+      margin-top: 0;
+    }
   }
 }
 
@@ -312,6 +332,15 @@
       @include screen('>small') {
         display: block;
       }
+    }
+  }
+
+  &__status {
+    display: none;
+
+    @include screen('>small') {
+      display: block;
+      margin: 0 0 64px;
     }
   }
 

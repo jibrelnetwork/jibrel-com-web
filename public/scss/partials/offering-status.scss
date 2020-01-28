@@ -1,0 +1,37 @@
+@import '../common/colors';
+@import '../common/fonts';
+@import '../common/media';
+
+.offering-status {
+  background: $color-blue-10;
+  color: $color-black;
+  padding: 24px;
+  border-radius: 24px;
+
+  &.--completed {
+    background: $color-green;
+    color: $color-white;
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 0 16px;
+  }
+
+  &__title {
+    @include font-h2-s;
+    margin: 0 0 16px;
+
+    @include screen('>small') {
+      @include font-h2-l;
+    }
+  }
+
+  &__description {
+    @include font-body-s;
+
+    @include screen('>small') {
+      @include font-body-l;
+    }
+  }
+}

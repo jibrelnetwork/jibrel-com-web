@@ -48,7 +48,7 @@ module.exports = {
     company.current_offering = company.offerings
       .find((offering) =>
         offering.is_active || offering.is_past
-      )
+      ) || _.last(company.offerings)
 
     company.website_name = company.website_url
       ? (new URL(company.website_url)).hostname
