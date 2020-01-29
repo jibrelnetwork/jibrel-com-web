@@ -4,11 +4,12 @@
 @import 'common/button';
 @import 'common/markdown';
 
-@import 'partials/offering';
-@import 'partials/offering-stub';
 @import 'partials/content-hidden';
+@import 'partials/offering';
+@import 'partials/offering-status';
+@import 'partials/offering-stub';
 
-@import 'pages/index';
+@import 'pages/main';
 @import 'pages/company';
 @import 'pages/error';
 
