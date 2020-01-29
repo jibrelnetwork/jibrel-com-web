@@ -15,7 +15,7 @@ module.exports = {
       return ctx.notFound()
     }
 
-    const primaryColor = data.primary_color
+    const primaryColor = data.primary_color || '#003dc6'
 
     const primaryColorRGB = [
       primaryColor.slice(1, 3),
@@ -31,7 +31,9 @@ module.exports = {
           primary: data.primary_color,
           background: rgbaToHex([...primaryColorRGB, 0.1]),
         },
-        logo: data.logo_img.url,
+        logo: data.logo_img
+          ? data.logo_img.url
+          : null,
       },
     }
   },
