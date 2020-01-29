@@ -1,7 +1,75 @@
+@import '../common/navigation-offset';
 @import '../common/colors';
 @import '../common/fonts';
 @import '../common/media';
 @import '../common/utils';
+
+.main-hero {
+  height: 202px;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  @include navigation-offset(margin-top);
+
+  @include screen('>xsmall') {
+    height: 380px;
+  }
+
+  @include screen('>small') {
+    height: 512px;
+  }
+
+  @include screen('>medium') {
+    height: 592px;
+  }
+
+  @include screen('>large') {
+    background-size: contain;
+  }
+
+  &__content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    min-height: 100%;
+    flex-direction: column;
+
+    @include screen('>xsmall') {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    @include screen('>small') {
+      padding-top: 96px;
+      padding-bottom: 96px;
+    }
+  }
+
+  &__title {
+    @include font-h1-xs;
+    text-align: center;
+
+    @include screen('>xsmall') {
+      @include font-h1-s;
+    }
+
+    @include screen('>small') {
+      text-align: left;
+      max-width: 60%;
+      @include font-h1-m;
+    }
+
+    @include screen('>medium') {
+      max-width: 648px;
+      @include font-h1-l;
+    }
+
+    em {
+      font-style: normal;
+      color: $color-blue;
+    }
+  }
+}
 
 .companies {
   margin-top: 40px;
