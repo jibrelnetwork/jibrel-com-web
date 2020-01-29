@@ -25,7 +25,7 @@ module.exports = {
     offering.is_completed = offering.status === 'completed'
     offering.is_active = offering.status !== 'completed'
     // FIXME: should check relative to fixed time zone
-    offering.is_current = dateStart
+    offering.is_current = !!dateStart
       && isPast(dateStart)
       && (!dateEnd || isFuture(dateEnd))
     offering.is_past = dateEnd
