@@ -1,100 +1,81 @@
 @import 'colors';
 @import 'media';
+@import 'fonts';
 
 .common__markdown {
   h2 {
-    font-weight: 800;
-    font-size: 28px;
-    line-height: 33px;
-    padding-top: 64px;
-    padding-bottom: 16px;
+    @include font-h2;
+    margin-top: 48px;
 
     @include screen('>small') {
-      font-size: 32px;
-      line-height: 38px;
-      padding-bottom: 24px;
+      margin-top: 64px;
     }
   }
 
   h3 {
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 24px;
-    padding-bottom: 16px;
+    @include font-h3;
+    margin-top: 48px;
 
     @include screen('>small') {
-      font-size: 24px;
-      line-height: 29px;
-      padding-bottom: 24px;
+      margin-top: 64px;
     }
   }
 
   h4 {
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 140%;
-    padding-bottom: 16px;
+    @include font-subheader-2;
+    margin-top: 16px;
 
     @include screen('>small') {
-      padding-bottom: 24px;
+      margin-top: 24px;
     }
   }
 
-  h2 + h3,
-  h2 + h4,
-  h3 + h4 {
-    padding-top: 16px;
-
-    @include screen('>xsmall') {
-      padding-top: 32px;
-    }
+  :not(p) + p {
+    margin-top: 16px;
 
     @include screen('>small') {
-      padding-top: 40px;
+      margin-top: 24px;
     }
   }
 
   p {
-    font-size: 15px;
-    line-height: 140%;
-    padding-bottom: 15px;
+    @include font-body;
+    margin-top: 15px;
 
     @include screen('>small') {
-      font-size: 18px;
-      line-height: 24px;
-      padding-bottom: 16px;
-    }
-  }
-
-  p + :not(p) {
-    padding-top: 1px;
-
-    @include screen('>small') {
-      padding-top: 6px;
+      margin-top: 18px;
     }
   }
 
   ul {
-    font-size: 15px;
-    line-height: 140%;
+    @include font-body;
+    margin-top: 16px;
 
     @include screen('>small') {
-      font-size: 18px;
+      margin-top: 24px;
     }
-  }
 
-  ul li {
-    padding-left: 24px;
-    padding-bottom: 24px;
-    position: relative;
-  }
+    li {
+      padding-left: 24px;
+      margin-top: 15px;
+      position: relative;
 
-  ul li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: $color-black-40;
+      @include screen('>small') {
+        margin-top: 18px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: $color-black-40;
+      }
+    }
   }
 
   img {
@@ -102,20 +83,32 @@
     width: 100%;
     height: auto;
     min-height: 24px;
-    margin: 0 0 32px;
+    margin: 16px 0 0;
     overflow: hidden;
+
+    @include screen('>small') {
+      margin-top: 24px;
+    }
   }
 
   iframe {
     background: $color-blue-10;
     max-width: 100%;
-    margin: 0 0 32px;
+    margin: 16px 0 0;
+
+    @include screen('>small') {
+      margin-top: 24px;
+    }
   }
 
   hr {
     border: none;
     border-bottom: 1px solid $color-black-10;
-    margin: 0 0 32px;
+    margin: 16px 0;
+
+    @include screen('>small') {
+      margin: 24px 0;
+    }
   }
 
   strong {
@@ -125,23 +118,11 @@
   &.--company {
     .tagline {
       display: block;
-      font-weight: 800;
-      font-size: 32px;
-      line-height: 38px;
-
-      @include screen('>xsmall') {
-        font-size: 48px;
-        line-height: 57px;
-      }
+      @include font-h1;
+      margin: 16px 0 0;
 
       @include screen('>small') {
-        font-size: 56px;
-        line-height: 67px;
-      }
-
-      @include screen('>medium') {
-        font-size: 64px;
-        line-height: 76px;
+        margin: 24px 0 0;
       }
     }
 
@@ -170,7 +151,11 @@
     .team {
       display: block;
       color: $color-black-40;
-      margin: 0 0 32px;
+      margin: 16px 0 0;
+
+      @include screen('>small') {
+        margin: 24px 0 0;
+      }
     }
 
     .team ul {
