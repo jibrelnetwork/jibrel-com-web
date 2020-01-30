@@ -166,7 +166,7 @@
     line-height: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     @include screen('>xsmall') {
@@ -242,13 +242,12 @@
   &__pitch {
     margin-top: 64px;
     padding: 32px 0;
-    @include font-subheader-2-s;
+    @include font-subheader-2;
     color: $color-black;
 
     @include screen('>small') {
       padding: 0;
       margin-top: 0;
-      margin-bottom: 64px;
     }
   }
 
@@ -367,7 +366,7 @@
     padding: 32px 0 64px;
   }
 
-  &__invest {
+  &__invest#{&}__invest {
     display: none;
 
     @include screen('>small') {
