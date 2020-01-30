@@ -568,6 +568,47 @@ END GLOBAL MODIFIERS
   margin: 0;
 }
 
+.slider {
+  width: 100%;
+  height: auto;
+}
+
+.slider__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider__wrapper {
+  width: 120vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: red;
+}
+
+.slider__wrapper-item {
+  background-color: $color-black-5;
+  border-radius: 24px;
+  color: $color-blue-50;
+  padding: 0;
+  margin: 0;
+  height: 312px;
+  width: 395px;
+  margin-right: 16px;
+
+  @include font-h1-l;
+  text-align: left;
+
+  @include screen('>xsmall') {
+    margin-right: 24px;
+    height: 376px;
+    width: 456px;
+  }
+}
+
 /* Small */
 @media (min-width: 600px) {
 }
