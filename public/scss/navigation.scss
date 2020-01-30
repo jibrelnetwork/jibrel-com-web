@@ -225,6 +225,10 @@
       .--white & {
         color: rgba(255, 255, 255, 0.6);
       }
+
+      .--white[data-is-open="1"] & {
+        color: $color-blue-60;
+      }
     }
 
     &:active {
@@ -233,6 +237,10 @@
 
       .--white & {
         color: rgba(255, 255, 255, 0.3);
+      }
+
+      .--white[data-is-open="1"] & {
+        color: $color-blue;
       }
     }
 

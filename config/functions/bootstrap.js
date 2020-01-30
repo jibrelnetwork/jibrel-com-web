@@ -28,6 +28,11 @@ module.exports = async () => {
       permissions: {
         application: {
           controllers: {
+            company: {
+              slug: {
+                enabled: 1,
+              },
+            },
             pages: {
               noop: {
                 enabled: 1,
