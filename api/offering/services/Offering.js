@@ -86,6 +86,9 @@ module.exports = {
 
     if (offering.security) {
       offering.type_formatted = i18n.__(`offering.type.${offering.security.type}`)
+      offering.valuation_title = offering.security.type === 'convertible_debt'
+        ? i18n.__('offering.valuationCap.title')
+        : i18n.__('offering.valuation.title')
     }
     offering.round_formatted = i18n.__(`offering.round.${offering.round}`)
 
