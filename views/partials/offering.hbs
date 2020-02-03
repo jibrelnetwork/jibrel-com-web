@@ -3,12 +3,8 @@
   <ul class="offering__terms">
     {{#if valuation }}
       <li class="offering__terms-item">
-        {{#if convertible_debt}}
-            <h3 class="offering__terms-item-title">{{__ 'offering.valuationCap.title'}}</h3>
-        {{else}}
-            <h3 class="offering__terms-item-title">{{__ 'offering.valuation.title'}}</h3>
-        {{/if}}
-          <p class="offering__terms-item-value">{{ valuation_formatted }}</p>
+        <h3 class="offering__terms-item-title">{{ valuation_title }}</h3>
+        <p class="offering__terms-item-value">{{ valuation_formatted }}</p>
       </li>
     {{/if}}
       <li class="offering__terms-item">

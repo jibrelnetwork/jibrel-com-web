@@ -41,11 +41,7 @@
                       {{/if}}
                       {{#if valuation }}
                         <li class="company-card__stat">
-                          {{#if convertible_debt}}
-                            <h4 class="company-card__stat-title">{{__ 'offering.valuationCap.title'}}</h4>
-                          {{else}}
-                            <h4 class="company-card__stat-title">{{__ 'offering.valuation.title'}}</h4>
-                          {{/if}}
+                          <h4 class="company-card__stat-title">{{ valuation_title }}</h4>
                           <p class="company-card__stat-value">{{ valuation_formatted }}</p>
                         </li>
                       {{/if}}
