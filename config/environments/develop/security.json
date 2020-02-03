@@ -27,7 +27,7 @@
   },
   "cors": {
     "enabled": true,
-    "origin": "http://id.jibrelcom.local, http://investor.jibrelcom.local, http://profile.jibrelcom.local, https://id.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://investor.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://profile.${process.env.FRONTEND_ROOT_DOMAIN_NAME}"
+    "origin": "http://jibrelcom.local, http://id.jibrelcom.local, http://investor.jibrelcom.local, http://profile.jibrelcom.local, https://${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://id.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://investor.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://profile.${process.env.FRONTEND_ROOT_DOMAIN_NAME}"
   },
   "ip": {
     "enabled": false,
