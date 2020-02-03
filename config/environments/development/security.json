@@ -27,7 +27,7 @@
   },
   "cors": {
     "enabled": true,
-    "origin": "http://id.jibrelcom.local, http://investor.jibrelcom.local, http://profile.jibrelcom.local"
+    "origin": "http://jibrelcom.local, http://id.jibrelcom.local, http://investor.jibrelcom.local, http://profile.jibrelcom.local"
   },
   "ip": {
     "enabled": false,
