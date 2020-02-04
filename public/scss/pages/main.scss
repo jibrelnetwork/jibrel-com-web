@@ -249,6 +249,9 @@
 
   &:hover &__contents {
     background: rgba(0, 0, 0, 0.6);
+  }
+
+  &.--with-stats:hover &__contents {
     padding: 152px 32px 32px;
   }
 

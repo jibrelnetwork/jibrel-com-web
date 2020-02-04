@@ -45,7 +45,7 @@
             {{/with}}
             <p class="company-about__pitch">{{ translation.pitch }}</p>
           </div>
-          {{#unless @root.visitor.isKnown}}
+          {{#unless @root.visitor.kyc.verified}}
             <section class="company-cta-deal-stub">
               {{> partials/offering-stub }}
             </section>
@@ -85,7 +85,7 @@
                 <div class="company-sidebar__invest --placeholder"></div>
               {{/if}}
             {{/if}}
-            {{#if @root.visitor.isKnown}}
+            {{#if @root.visitor.kyc.verified}}
               {{> partials/offering }}
             {{else}}
               <h2 class="company-sidebar__offering-stub-title">Deal Terms</h2>
@@ -104,7 +104,7 @@
             </section>
           {{/if}}
         {{/with}}
-        {{#unless @root.visitor.isKnown}}
+        {{#unless @root.visitor.kyc.verified}}
           <section class="company-footer-deal-stub">
             {{> partials/offering-stub }}
           </section>

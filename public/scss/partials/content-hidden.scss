@@ -10,18 +10,25 @@
   padding: 126px 24px;
 
   &__title#{&}__title {
+    @include font-h2;
+    color: $color-black;
+    margin: 0 0 32px;
+  }
+
+  &__subtitle#{&}__subtitle {
     @include font-title;
     color: $color-black;
-    padding: 0 0 30px;
+    margin: 0 0 32px;
   }
 
   &__link#{&}__link {
     display: inline-block;
-    margin-bottom: 36px;
+    margin: 0 0 32px;
   }
 
   &__notice#{&}__notice {
     @include font-caption;
     color: $color-black-60;
+    margin: 0 0 32px;
   }
 }

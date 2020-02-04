@@ -8,12 +8,18 @@
   padding: 24px 24px 32px;
   border-radius: 12px;
   margin: 0 0 32px;
-  background:$color-blue-5;
+  background: $color-blue-5;
 
   &__title {
+    @include font-h3;
+    color: $color-black;
+    margin: 0 0 32px;
+  }
+
+  &__subtitle {
     @include font-title;
     color: $color-black;
-    padding: 0 0 30px;
+    margin: 0 0 32px;
   }
 
   &__link {
