@@ -9,7 +9,7 @@
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-  @include navigation-offset(margin-top);
+  margin-top: 80px;
 
   @include screen('>xsmall') {
     height: 380px;
@@ -17,13 +17,15 @@
 
   @include screen('>small') {
     height: 512px;
+    margin-top: 0;
+    padding-top: 96px;
   }
 
   @include screen('>medium') {
     height: 592px;
   }
 
-  @include screen('>large') {
+  @include media('screen-only', '>=2060px') {
     background-size: contain;
   }
 

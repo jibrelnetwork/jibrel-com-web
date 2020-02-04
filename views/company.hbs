@@ -109,40 +109,40 @@
             {{> partials/offering-stub }}
           </section>
         {{/unless}}
-        <section class="offering__contacts">
-          <h2 class="offering__title-2">{{__ 'company.contacts.title' title}}</h2>
-          <ul class="offering__contacts__list">
+        <section class="company-contacts">
+          <h2 class="company-contacts__title">{{__ 'company.contacts.title' title}}</h2>
+          <ul class="company-contacts__list">
             {{#if legal_name}}
-              <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.name.title'}}</h3>
-                <p class="offering__contacts__list__item__value">{{ legal_name }}</p>
+              <li class="company-contacts__list-item">
+                <h3 class="company-contacts__list-item-title">{{__ 'company.contacts.name.title'}}</h3>
+                <p class="company-contacts__list-item-value">{{ legal_name }}</p>
               </li>
             {{/if}}
             {{#if founded}}
-              <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.founded.title'}}</h3>
-                <p class="offering__contacts__list__item__value">{{ founded }}</p>
+              <li class="company-contacts__list-item">
+                <h3 class="company-contacts__list-item-title">{{__ 'company.contacts.founded.title'}}</h3>
+                <p class="company-contacts__list-item-value">{{ founded }}</p>
               </li>
             {{/if}}
             {{#if employees}}
-              <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.employees.title'}}</h3>
-                <p class="offering__contacts__list__item__value">{{ employees }}</p>
+              <li class="company-contacts__list-item">
+                <h3 class="company-contacts__list-item-title">{{__ 'company.contacts.employees.title'}}</h3>
+                <p class="company-contacts__list-item-value">{{ employees }}</p>
               </li>
             {{/if}}
             {{#if website_url}}
-              <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.website.title'}}</h3>
-                <p class="offering__contacts__list__item__value">
+              <li class="company-contacts__list-item">
+                <h3 class="company-contacts__list-item-title">{{__ 'company.contacts.website.title'}}</h3>
+                <p class="company-contacts__list-item-value">
                   <a href="{{ website_url }}" target="_blank"
                      rel="noopener noreferrer">{{ website_name }}</a>
                 </p>
               </li>
             {{/if}}
             {{#if social}}
-              <li class="offering__contacts__list__item">
-                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.social.title'}}</h3>
-                <ul class="offering__contacts__list__item__value company-social">
+              <li class="company-contacts__list-item">
+                <h3 class="company-contacts__list-item-title">{{__ 'company.contacts.social.title'}}</h3>
+                <ul class="company-contacts__list-item-value company-social">
                   {{#each social}}
                     <li class="company-social__item">
                       <a target="_blank" rel="noopener noreferrer" href="{{ url }}"
@@ -153,12 +153,12 @@
               </li>
             {{/if}}
             {{#if location_googlemaps_id}}
-              <li class="offering__contacts__list__item --map">
-                <h3 class="offering__contacts__list__item__title">{{__ 'company.contacts.location.title'}}</h3>
-                <p class="offering__contacts__list__item__value">
+              <li class="company-contacts__list-item --map">
+                <h3 class="company-contacts__list-item-title">{{__ 'company.contacts.location.title'}}</h3>
+                <p class="company-contacts__list-item-value">
                   <iframe
                       title="{{ location }}"
-                      class="offering__contacts__map"
+                      class="company-contacts__map"
                       src="https://www.google.com/maps/embed/v1/place?q=place_id:{{ location_googlemaps_id }}&key={{ env.GOOGLE_MAPS_API_KEY }}"
                   width="400"
                   height="300"
@@ -171,7 +171,11 @@
             {{/if}}
           </ul>
         </section>
-        {{> partials/risks }}
+        <div class="common__grid">
+          <div class="common__grid__item --xs-4 --s-8 --m-5 --l-8">
+            {{> partials/risks }}
+          </div>
+        </div>
       </div>
     </article>
     <footer class="page__footer">

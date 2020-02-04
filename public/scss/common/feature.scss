@@ -1,0 +1,51 @@
+@import 'fonts';
+@import 'media';
+
+.feature {
+  margin-bottom: 32px;
+
+  @include screen('>xsmall') {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 25%;
+    margin-bottom: 24px;
+
+    @include screen('>medium') {
+      width: 16.66%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    width: 100%;
+
+    @include screen('>xsmall') {
+      width: 75%;
+    }
+
+    @include screen('>medium') {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    @include font-h3;
+    margin: 0 0 16px;
+  }
+
+  &__description {
+    @include font-body;
+
+    p {
+      margin: 0 0 16px;
+    }
+  }
+}
