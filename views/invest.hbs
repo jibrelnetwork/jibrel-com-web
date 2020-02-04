@@ -51,7 +51,7 @@
               </div>
             </div>
           </section>
-          {{#if @root.visitor.isKnown }}
+          {{#if @root.visitor.kyc.verified }}
             <section class="common__grid">
               <div class="common__grid__item --xs-4 --s-4 --m-3 --l-4">
                 <a href="/{{ page.lang }}" class="invest__start__link big-button --main">{{__ 'invest.action.invest'}}</a>

@@ -5,7 +5,10 @@ const { ACCESS_LEVEL } = require('utils/access')
 
 const ANONYMOUS_VISITOR = {
   isLoggedIn: false,
-  isKnown: false,
+  kyc: {
+    pending: false,
+    verified: false,
+  },
   access: ACCESS_LEVEL.PUBLIC,
 }
 
@@ -64,7 +67,10 @@ module.exports = strapi => {
           })
           _.set(ctx, 'state.visitor', {
             isLoggedIn: true,
-            isKnown: profile.kycStatus === 'verified',
+            kyc: {
+              pending: profile.kycStatus === 'pending',
+              verified: profile.kycStatus === 'verified',
+            },
             access: profile.kycStatus === 'verified'
               ? ACCESS_LEVEL.VERIFIED
               : ACCESS_LEVEL.REGISTERED,
