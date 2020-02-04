@@ -1,0 +1,48 @@
+@import '../common/fonts';
+@import '../common/colors';
+@import '../common/media';
+
+.risks {
+  margin-bottom: 64px;
+
+  &__title {
+    @include font-h2;
+    margin-bottom: 16px;
+    text-align: center;
+
+    @include screen('>small') {
+      text-align: left;
+    }
+  }
+
+  &__excerpt {
+    @include font-body;
+    margin-bottom: 24px;
+
+    p {
+      margin: 0 0 16px;
+    }
+  }
+
+  &__links {
+    margin: 0 0 48px;
+    text-align: center;
+
+    @include screen('>small') {
+      text-align: left;
+    }
+
+    a {
+      @include font-button-1;
+    }
+  }
+
+  &__legal {
+    @include font-body;
+    color: $color-black-40;
+
+    p {
+      margin: 0 0 15px;
+    }
+  }
+}

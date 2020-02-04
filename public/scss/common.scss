@@ -3,11 +3,13 @@
 @import 'common/grid';
 @import 'common/button';
 @import 'common/markdown';
+@import 'common/feature';
 
 @import 'partials/content-hidden';
 @import 'partials/offering';
 @import 'partials/offering-status';
 @import 'partials/offering-stub';
+@import 'partials/risks';
 
 @import 'pages/main';
 @import 'pages/company';
@@ -23,57 +25,11 @@
   padding-top: 80px;
 }
 
-.common__feature {
-  margin-bottom: 32px;
-}
-
-.common__feature__icon {
-  width: 25%;
-  padding-bottom: 24px;
-}
-
-.common__feature__icon img {
-  width: 100%;
-  height: auto;
-}
-
-.common__feature__content {
-  width: 100%;
-}
-
-.common__feature__title {
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 24px;
-  padding: 0 0 16px;
-}
-
-.common__feature__description {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 21px;
-}
-
-.common__feature__description p {
-  padding-bottom: 16px;
-}
-
 /* Small */
 @media (min-width: 600px) {
   .common__page-title {
     font-size: 48px;
     line-height: 57px;
-  }
-
-  .common__feature {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .common__feature__content {
-    width: 75%;
   }
 }
 
@@ -94,14 +50,6 @@
   .common__page-title {
     font-size: 64px;
     line-height: 76px;
-  }
-
-  .common__feature__icon {
-    width: 16.66%;
-  }
-
-  .common__feature__content {
-    width: 50%;
   }
 }
 
@@ -200,83 +148,10 @@ END GLOBAL MODIFIERS
   color: #081E39;
 }
 
-.offering__contacts {
-  -webkit-box-ordinal-group: 3;
-  -ms-flex-order: 2;
-  order: 2;
-  margin-bottom: 64px;
-}
-
-.offering__contacts__list {
-  background: rgba(8, 30, 57, 0.05);
-  border-radius: 12px;
-  padding: 16px 16px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.offering__contacts__list__item {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 100%;
-  margin: 6px 0 21px;
-}
-
-.offering__contacts__list__item__title {
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 140%;
-  letter-spacing: -0.54px;
-  color: rgba(8, 30, 57, 0.6);
-  margin-bottom: 4px;
-}
-
-.offering__contacts__list__item__value {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: -0.54px;
-  color: #081E39;
-}
-
-.offering__contacts__map-link {
-  display: block;
-}
-
-.offering__contacts__map {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
 /* Small */
 @media (min-width: 600px) {
   .offering__title-2 {
     margin-bottom: 24px;
-  }
-
-  .offering__contacts__list {
-    max-height: 340px;
-  }
-
-  .offering__contacts__list__item {
-    width: 50%;
-  }
-
-  .offering__contacts__list__item.--map {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 auto;
-    flex: 1 0 auto;
   }
 }
 
@@ -321,14 +196,6 @@ END GLOBAL MODIFIERS
   .offering__primary__investment-features__item {
     width: 50%;
     padding: 0 12px;
-  }
-
-  .offering__contacts__list {
-    max-height: 250px;
-  }
-
-  .offering__contacts__list__item {
-    width: 33.33%;
   }
 }
 
@@ -425,79 +292,4 @@ END GLOBAL MODIFIERS
   .about__main {
     width: 66.66%;
   }
-}
-
-.risks {}
-
-.risks__title {
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 38px;
-  padding-bottom: 24px;
-  max-width: 744px;
-  text-align: center;
-}
-
-.risks__excerpt {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 140%;
-  padding-bottom: 16px;
-  max-width: 744px;
-}
-
-.risks__excerpt p {
-  padding-bottom: 16px;
-  margin: 0;
-}
-
-.risks__links {
-  padding: 0 0 64px;
-  max-width: 744px;
-  text-align: center;
-}
-
-.risks__links a {
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.risks__legal {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 140%;
-  color: #9CA5B0;
-  padding-bottom: 16px;
-  max-width: 744px;
-}
-
-.risks__legal p {
-  padding-bottom: 16px;
-  margin: 0;
-}
-
-/* Small */
-@media (min-width: 600px) {
-}
-
-/* Medium */
-@media (min-width: 768px) {
-  .risks__title {
-    text-align: left;
-  }
-
-  .risks__links {
-    text-align: left;
-  }
-}
-
-/* Large */
-@media (min-width: 1024px) {
-}
-
-/* XLarge */
-@media (min-width: 1209px) {
 }
