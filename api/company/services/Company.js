@@ -42,13 +42,11 @@ module.exports = {
     company.offerings = company.offerings
       ? company.offerings
         .map(strapi.services.offering.prepare)
-        // sort descending by start date
-        .sort((a, b) => b.start - a.start)
       : []
     company.current_offering = company.offerings
       .find((offering) =>
-        offering.is_active || offering.is_past
-      ) || _.last(company.offerings)
+        offering.is_active
+      ) || _.first(company.offerings)
 
     company.website_name = company.website_url
       ? (new URL(company.website_url)).hostname
