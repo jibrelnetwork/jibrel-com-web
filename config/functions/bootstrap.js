@@ -108,7 +108,7 @@ module.exports = async () => {
           public: s3Config.public,
           private: s3Config.private,
           bucket: s3Config.bucket,
-          root: s3Config.root || strapi.config.environment,
+          root: s3Config.root,
         }
       })
   }
