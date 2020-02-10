@@ -45,6 +45,15 @@ module.exports = {
 
     const source = ctx.request.body
 
+    // Retrieve provider configuration
+    const uploadConfig = await strapi
+      .store({
+        environment: strapi.config.environment,
+        type: 'plugin',
+        name: 'upload',
+      })
+      .get({ key: 'provider' })
+
     if (source.version > company.version) {
       log.error({
         msg: `Could not import older version! Data: ${source.version}, current: ${company.version}`,
@@ -67,7 +76,11 @@ module.exports = {
                   MD_IMG_RE,
                   (found, url) => found.replace(
                     url,
-                    url.replace(`/${source.environment}/`, `/${strapi.config.environment}/`)
+                    url.replace(
+                      new RegExp('^(https://)([a-zA-Z\-0-9]+)(\.s3\.)([a-zA-Z\-0-9]+)(\.amazonaws\.com)'),
+                      (match, protocol, bucket, s3, region, domain) =>
+                        protocol + uploadConfig.bucket + s3 + uploadConfig.region + domain
+                    )
                   ),
                 )
                 : block.data
