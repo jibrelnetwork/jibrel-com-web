@@ -4,7 +4,10 @@ const { promisify } = require('util')
 const path = require('path')
 const fs = require('fs')
 
-const { rgbaToHex } = require('utils/color')
+const {
+  rgbaToHex,
+  hexToRgb,
+} = require('utils/color')
 
 const readFile = promisify(fs.readFile)
 
@@ -34,15 +37,12 @@ module.exports = {
       return ctx.send('/* Primary color not set, using default styles */')
     }
 
-    const primaryColor = rawData.primary_color
-
-    const primaryColorRGB = [
-      primaryColor.slice(1, 3),
-      primaryColor.slice(3, 5),
-      primaryColor.slice(5, 7),
-    ].map((hex) => parseInt(hex, 16))
+    const primaryColorRGB = hexToRgb(rawData.primary_color || '#003dc6')
 
     const colors = {
+      status: {
+        background: rgbaToHex([...primaryColorRGB, 1]),
+      },
       sidebar: {
         background: rgbaToHex([...primaryColorRGB, 0.1]),
       },
@@ -65,6 +65,14 @@ module.exports = {
     await ctx.send(`
       .offering__terms {
         background-color: ${colors.sidebar.background};
+      }
+
+      .offering-status.--waitlist {
+        background-color: ${colors.status.background};
+      }
+
+      .offering-status .offering-status__button {
+        color: ${colors.status.background};
       }
 
       .big-button.--company {

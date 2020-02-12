@@ -11,6 +11,15 @@ const rgbaToHex = ([rSource, gSource, bSource, a]) => {
   return `#${intToHexWithLeadingZero(r)}${intToHexWithLeadingZero(g)}${intToHexWithLeadingZero(b)}`
 }
 
+const hexToRgb = (hex) => {
+  return [
+    hex.slice(1, 3),
+    hex.slice(3, 5),
+    hex.slice(5, 7),
+  ].map((hex) => parseInt(hex, 16))
+}
+
 module.exports = {
   rgbaToHex,
+  hexToRgb,
 }

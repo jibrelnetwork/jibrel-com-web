@@ -22,16 +22,19 @@ module.exports = {
       ? parseISO(offering.dateEnd)
       : null
 
-    offering.is_completed = offering.status === 'completed'
-    offering.is_active = offering.status !== 'completed'
-    // FIXME: should check relative to fixed time zone
-    offering.is_current = !!dateStart
-      && isPast(dateStart)
-      && (!dateEnd || isFuture(dateEnd))
-    offering.is_past = dateEnd
-      ? isPast(dateEnd)
-      : false
-    offering.is_future = isFuture(dateStart)
+    offering.flags = {
+      completed: offering.status === 'completed' || offering.status === 'clearing',
+      active: offering.status === 'active',
+      waitlist: offering.status === 'waitlist',
+      past: dateEnd
+        ? isPast(dateEnd)
+        : false,
+      // FIXME: should check relative to fixed time zone
+      current: !!dateStart
+        && isPast(dateStart)
+        && (!dateEnd || isFuture(dateEnd)),
+      future: isFuture(dateStart),
+    }
 
     if (offering.raise === undefined) {
       offering.raise = 0

@@ -20,15 +20,22 @@
                   <img src="{{cdn logo_img }}" alt="{{ title }} Logo" class="company-card__logo-img" />
                 </div>
                 <h3 class="company-card__title">{{ title }}</h3>
-                {{#if current_offering.is_completed}}
+                {{#if current_offering.flags.completed}}
                   <div class="company-card__status --completed">{{__ 'offering.status.completed'}}</div>
+                {{else if current_offering.flags.waitlist}}
+                  <div class="company-card__status --waitlist">{{__ 'offering.status.waitlist'}}</div>
                 {{/if}}
                 <div class="company-card__tagline">{{ translation.tagline }}</div>
                 <div class="company-card__location">{{ location }}</div>
                 {{#if @root.visitor.kyc.verified }}
                   {{#with current_offering}}
+                    {{#if flags.waitlist}}
+                    <div class="company-card__stats">
+                      <p class="company-card__stats-note">{{__ 'offering.waitlist.description'}}</p>
+                    </div>
+                    {{else}}
                     <ul class="company-card__stats">
-                      {{#if is_completed}}
+                      {{#if flags.completed}}
                         <li class="company-card__stat --completed">
                           <h4 class="company-card__stat-title">{{__ 'offering.completed.goal.title'}}</h4>
                           <p class="company-card__stat-value">{{ goal_formatted }}</p>
@@ -50,6 +57,7 @@
                         <p class="company-card__stat-value">{{ round_formatted }}</p>
                       </li>
                     </ul>
+                    {{/if}}
                   {{/with}}
                 {{/if}}
               </div>
