@@ -145,6 +145,7 @@
       width: auto;
       height: auto;
       background: none;
+      padding: 0 8px;
     }
   }
 
@@ -163,12 +164,10 @@
 
       .--no-dropdown & {
         border-top: none;
-        padding-left: 40px;
       }
 
       @include screen('>small') {
         border-top: none;
-        padding-left: 40px;
       }
     }
 
@@ -182,7 +181,7 @@
     }
 
     @include screen('>small') {
-      padding: 0 16px;
+      padding: 0 12px;
       margin: 0;
       flex-direction: row;
       align-items: stretch;
@@ -266,6 +265,7 @@
       @include screen('>small') {
         @include small-button;
         padding: 7px 14px;
+        margin: 0 4px 0 0;
       }
     }
 
