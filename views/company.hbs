@@ -37,9 +37,13 @@
               </a>
             {{/if}}
             {{#with current_offering}}
-              {{#if is_completed}}
+              {{#if flags.completed}}
                 <div class="company-about__status">
                   {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
+                </div>
+              {{else if flags.waitlist}}
+                <div class="company-about__status">
+                  {{> partials/offering-status status='waitlist' companyTitle=../title offering=this }}
                 </div>
               {{/if}}
             {{/with}}
@@ -51,7 +55,7 @@
             </section>
           {{/unless}}
           {{#with current_offering}}
-            {{#if is_active}}
+            {{#if flags.active}}
               <div class="company-cta common__grid">
                 <div class="common__grid__item --xs-4 --s-4">
                   <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}" class="company-cta__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
@@ -73,17 +77,19 @@
         </div>
         <div class="company-sidebar common__grid__item --m-3 --l-4">
           {{#with current_offering}}
-            {{#if is_active}}
+            {{#if flags.active}}
               <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}"
                  class="company-sidebar__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
+            {{else if flags.completed}}
+              <div class="company-sidebar__status">
+                {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
+              </div>
+            {{else if flags.waitlist}}
+              <div class="company-sidebar__status">
+                {{> partials/offering-status status='waitlist' companyTitle=../title offering=this }}
+              </div>
             {{else}}
-              {{#if is_completed}}
-                <div class="company-sidebar__status">
-                  {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
-                </div>
-              {{else}}
-                <div class="company-sidebar__invest --placeholder"></div>
-              {{/if}}
+              <div class="company-sidebar__invest --placeholder"></div>
             {{/if}}
             {{#if @root.visitor.kyc.verified}}
               {{> partials/offering }}
@@ -96,7 +102,7 @@
       </div>
       <div class="common__centered">
         {{#with current_offering}}
-          {{#if is_active}}
+          {{#if flags.active}}
             <section class="company-last-chance common__grid">
               <div class="common__grid__item --m-3 --l-4">
                 <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}" class="company-last-chance__invest big-button --main --company">{{__ 'company.action.invest'}}</a>

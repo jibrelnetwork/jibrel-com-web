@@ -127,4 +127,21 @@
   &__icon {
     width: 24px;
   }
+
+  &.--white {
+    background: $color-white;
+    border-color: $color-white;
+    color: $color-blue;
+
+
+    &:hover {
+      background: transparent;
+      color: $color-white;
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.3);
+      color: $color-white;
+    }
+  }
 }

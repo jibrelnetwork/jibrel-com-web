@@ -1,6 +1,7 @@
 @import '../common/colors';
 @import '../common/fonts';
 @import '../common/media';
+@import '../common/button';
 
 .offering-status {
   background: $color-blue-10;
@@ -10,6 +11,11 @@
 
   &.--completed {
     background: $color-green;
+    color: $color-white;
+  }
+
+  &.--waitlist {
+    background: $color-blue;
     color: $color-white;
   }
 
@@ -32,6 +38,14 @@
 
     @include screen('>small') {
       @include font-body-l;
+    }
+  }
+
+  &__button {
+    margin-top: 24px;
+
+    @include screen('>small') {
+      margin-top: 32px;
     }
   }
 }

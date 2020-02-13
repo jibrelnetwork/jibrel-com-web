@@ -5,7 +5,10 @@
  * to customize this controller
  */
 
-const { rgbaToHex } = require('utils/color')
+const {
+  rgbaToHex,
+  hexToRgb,
+} = require('utils/color')
 
 module.exports = {
   async slug(ctx) {
@@ -15,13 +18,7 @@ module.exports = {
       return ctx.notFound()
     }
 
-    const primaryColor = data.primary_color || '#003dc6'
-
-    const primaryColorRGB = [
-      primaryColor.slice(1, 3),
-      primaryColor.slice(3, 5),
-      primaryColor.slice(5, 7),
-    ].map((hex) => parseInt(hex, 16))
+    const primaryColorRGB = hexToRgb(data.primary_color || '#003dc6')
 
     return {
       data: {

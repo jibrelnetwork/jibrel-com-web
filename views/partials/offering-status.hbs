@@ -1,5 +1,14 @@
 <div class="offering-status --{{ status }}">
-  <img src="{{asset '/img/ic_check_48.svg'}}" class="offering-status__icon" alt="{{__ 'offering.status.completed'}}" />
-  <h2 class="offering-status__title">{{__ 'offering.completed.title'}}</h2>
-  <p class="offering-status__description">{{__ 'offering.completed.description' companyTitle offering.raise_formatted offering.date_end_formatted}}</p>
+  {{#if offering.flags.completed}}
+    <img src="{{asset '/img/ic_check_48.svg'}}" class="offering-status__icon" alt="{{__ 'offering.status.completed'}}" />
+    <h2 class="offering-status__title">{{__ 'offering.completed.title'}}</h2>
+    <p class="offering-status__description">{{__ 'offering.completed.description' companyTitle offering.raise_formatted offering.date_end_formatted}}</p>
+  {{else if offering.flags.waitlist}}
+    <img src="{{asset '/img/ic_arrow_48.svg'}}" class="offering-status__icon" alt="{{__ 'offering.status.waitlist'}}" />
+    <h2 class="offering-status__title">{{__ 'offering.waitlist.title'}}</h2>
+    <p class="offering-status__description">{{__ 'offering.waitlist.description'}}</p>
+    <a class="offering-status__button small-button --white" href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/waitlist/{{ offering.uuid }}">
+      <span class="small-button__text">{{__ 'offering.waitlist.action.join'}}</span>
+    </a>
+  {{/if}}
 </div>

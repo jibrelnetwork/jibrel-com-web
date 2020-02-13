@@ -184,6 +184,11 @@
       background: $color-green;
       color: $color-white;
     }
+
+    &.--waitlist {
+      background: $color-blue;
+      color: $color-white;
+    }
   }
 
   &__tagline {
@@ -219,6 +224,10 @@
     height: 100%;
     padding: 205px 32px 32px;
     display: none;
+  }
+
+  &__stats-note {
+    @include font-body;
   }
 
   &__stat {

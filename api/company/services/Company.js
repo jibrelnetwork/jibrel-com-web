@@ -45,7 +45,7 @@ module.exports = {
       : []
     company.current_offering = company.offerings
       .find((offering) =>
-        offering.is_active
+        offering.flags.active
       ) || _.first(company.offerings)
 
     company.website_name = company.website_url
