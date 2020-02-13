@@ -41,7 +41,7 @@
                 <div class="company-about__status">
                   {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
                 </div>
-              {{else if flags.waitlist}}
+              {{else if (and flags.waitlist @root.visitor.kyc.verified)}}
                 <div class="company-about__status">
                   {{> partials/offering-status status='waitlist' companyTitle=../title offering=this }}
                 </div>
@@ -49,20 +49,18 @@
             {{/with}}
             <p class="company-about__pitch">{{ translation.pitch }}</p>
           </div>
-          {{#unless @root.visitor.kyc.verified}}
+          {{#unless (or @root.visitor.kyc.verified current_offering.flags.completed)}}
             <section class="company-cta-deal-stub">
               {{> partials/offering-stub }}
             </section>
           {{/unless}}
-          {{#with current_offering}}
-            {{#if flags.active}}
-              <div class="company-cta common__grid">
-                <div class="common__grid__item --xs-4 --s-4">
-                  <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}" class="company-cta__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
-                </div>
+          {{#if current_offering.flags.active}}
+            <div class="company-cta common__grid">
+              <div class="common__grid__item --xs-4 --s-4">
+                <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ slug }}" class="company-cta__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
               </div>
-            {{/if}}
-          {{/with}}
+            </div>
+          {{/if}}
           <h2 class="g-hidden">Description</h2>
           <div class="company-description common__markdown --company">
             {{#each translation.content}}
@@ -84,19 +82,20 @@
               <div class="company-sidebar__status">
                 {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
               </div>
-            {{else if flags.waitlist}}
+            {{else if (and flags.waitlist @root.visitor.kyc.verified)}}
               <div class="company-sidebar__status">
                 {{> partials/offering-status status='waitlist' companyTitle=../title offering=this }}
               </div>
             {{else}}
               <div class="company-sidebar__invest --placeholder"></div>
             {{/if}}
-            {{#if @root.visitor.kyc.verified}}
+            {{#if (and @root.visitor.kyc.verified flags.active)}}
               {{> partials/offering }}
-            {{else}}
-              <h2 class="company-sidebar__offering-stub-title">Deal Terms</h2>
-              {{> partials/offering-stub }}
             {{/if}}
+            {{#unless (or @root.visitor.kyc.verified flags.completed)}}
+              <h2 class="company-sidebar__offering-stub-title">{{__ 'offering.title'}}</h2>
+              {{> partials/offering-stub }}
+            {{/unless}}
           {{/with}}
         </div>
       </div>
@@ -110,7 +109,7 @@
             </section>
           {{/if}}
         {{/with}}
-        {{#unless @root.visitor.kyc.verified}}
+        {{#unless (or @root.visitor.kyc.verified current_offering.flags.completed)}}
           <section class="company-footer-deal-stub">
             {{> partials/offering-stub }}
           </section>
