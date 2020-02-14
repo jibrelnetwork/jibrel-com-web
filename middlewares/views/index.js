@@ -91,11 +91,17 @@ module.exports = strapi => {
                     // preview markdown project description as html
                     projectMD: (content) =>
                       md.render(content || ''),
-                    __: (key, ...params) => ctx.i18n.__(key, ...params),
+                    __: (key, ...params) =>
+                      ctx.i18n.__(key, ...params.slice(0, -1)),
                     isCurrentPageId: (id, options) =>
                       id === _.get(ctx, 'state.page.id')
                         ? options.fn(this)
                         : '',
+                    // Refactored from this StackOverflow response: https://stackoverflow.com/a/31632215
+                    and: (...args) =>
+                      args.slice(0, -1).every(Boolean),
+                    or: (...args) =>
+                      args.slice(0, -1).some(Boolean),
                   },
 
                   partials,

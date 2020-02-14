@@ -22,7 +22,7 @@
                 <h3 class="company-card__title">{{ title }}</h3>
                 {{#if current_offering.flags.completed}}
                   <div class="company-card__status --completed">{{__ 'offering.status.completed'}}</div>
-                {{else if current_offering.flags.waitlist}}
+                {{else if (and current_offering.flags.waitlist @root.visitor.kyc.verified)}}
                   <div class="company-card__status --waitlist">{{__ 'offering.status.waitlist'}}</div>
                 {{/if}}
                 <div class="company-card__tagline">{{ translation.tagline }}</div>
@@ -31,21 +31,31 @@
                   {{#with current_offering}}
                     {{#if flags.waitlist}}
                     <div class="company-card__stats">
-                      <p class="company-card__stats-note">{{__ 'offering.waitlist.description'}}</p>
+                      <p class="company-card__stats-note">{{__ 'offering.waitlist.notice'}}</p>
                     </div>
-                    {{else}}
+                    {{else if flags.active}}
                     <ul class="company-card__stats">
-                      {{#if flags.completed}}
-                        <li class="company-card__stat --completed">
-                          <h4 class="company-card__stat-title">{{__ 'offering.completed.goal.title'}}</h4>
-                          <p class="company-card__stat-value">{{ goal_formatted }}</p>
-                        </li>
-                      {{else}}
+                      <li class="company-card__stat">
+                        <h4 class="company-card__stat-title">{{__ 'offering.goal.title'}}</h4>
+                        <p class="company-card__stat-value">{{ goal_formatted }}</p>
+                      </li>
+                      {{#if valuation }}
                         <li class="company-card__stat">
-                          <h4 class="company-card__stat-title">{{__ 'offering.goal.title'}}</h4>
-                          <p class="company-card__stat-value">{{ goal_formatted }}</p>
+                          <h4 class="company-card__stat-title">{{ valuation_title }}</h4>
+                          <p class="company-card__stat-value">{{ valuation_formatted }}</p>
                         </li>
                       {{/if}}
+                      <li class="company-card__stat">
+                        <h4 class="company-card__stat-title">{{__ 'offering.round.title'}}</h4>
+                        <p class="company-card__stat-value">{{ round_formatted }}</p>
+                      </li>
+                    </ul>
+                    {{else if flags.completed}}
+                    <ul class="company-card__stats">
+                      <li class="company-card__stat --completed">
+                        <h4 class="company-card__stat-title">{{__ 'offering.completed.goal.title'}}</h4>
+                        <p class="company-card__stat-value">{{ goal_formatted }}</p>
+                      </li>
                       {{#if valuation }}
                         <li class="company-card__stat">
                           <h4 class="company-card__stat-title">{{ valuation_title }}</h4>
