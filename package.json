@@ -1,7 +1,7 @@
 {
   "name": "@jibrelnetwork/jibrel-com-web",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Jibrel.com Strapi CMS",
   "scripts": {
     "develop": "strapi develop",
