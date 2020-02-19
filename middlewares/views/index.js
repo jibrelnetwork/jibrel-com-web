@@ -15,6 +15,9 @@ module.exports = strapi => {
       const assetsPath = _.get(strapi.config, 'currentEnvironment.request.router.prefix', '')
       const viewsDir = path.resolve(strapi.config.appPath, strapi.config.paths.views)
       const cdnHost = _.get(strapi.config, 'currentEnvironment.awsS3.cdnHost', '')
+      const cdnUrl = cdnHost
+        ? new URL(cdnHost)
+        : null
 
       // accepts file or s3 url, returns url to cdn
       const replaceS3UrlWithCDN = (strOrObject) => {
@@ -22,12 +25,13 @@ module.exports = strapi => {
           ? (strOrObject.url || strOrObject)
           : '#'
 
-        if (!cdnHost) {
+        if (!cdnUrl) {
           return str
         }
 
-        const url = new URL(str, cdnHost)
-        url.host = cdnHost
+        const url = new URL(str, cdnUrl)
+        url.protocol = cdnUrl.protocol
+        url.host = cdnUrl.host
 
         return url.toString()
       }
