@@ -2,6 +2,20 @@
 
 const _ = require('lodash')
 
+const STARTUP_ORDER = [
+  'smartcrowd',
+  'kader',
+  'mindrockets',
+]
+
+const getStartupOrder = (slug) => {
+  const idx = STARTUP_ORDER.indexOf(slug)
+
+  return idx > -1
+    ? idx
+    : Infinity
+}
+
 module.exports = {
   async about(ctx) {
     _.set(ctx, 'state.page.title', ctx.app.createPageTitle('About'))
@@ -52,6 +66,18 @@ module.exports = {
           company.prepare(c),
         )
       )
+      .sort((a, b) => {
+        const aIdx = getStartupOrder(a.slug)
+        const bIdx = getStartupOrder(b.slug)
+
+        if (aIdx < bIdx) {
+          return -1
+        } else if (aIdx > bIdx) {
+          return 1
+        } else {
+          return 0
+        }
+      })
 
     await ctx.render('main.hbs', {
       companies,
