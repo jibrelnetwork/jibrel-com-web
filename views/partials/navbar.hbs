@@ -36,10 +36,10 @@
             </li>
           {{else}}
             <li class="navbar__menu-item">
-              <a href="//id.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/login" class="navbar__menu-link">{{__ 'navigation.primary.login'}}</a>
+              <a href="{{ @root/origin.id }}/{{ page.lang }}/login" class="navbar__menu-link">{{__ 'navigation.primary.login'}}</a>
             </li>
             <li class="navbar__menu-item">
-              <a href="//id.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/{{ page.lang }}/signup" class="navbar__menu-link --button">{{__ 'navigation.primary.signup'}}</a>
+              <a href="{{ @root/origin.id }}/{{ page.lang }}/signup" class="navbar__menu-link --button">{{__ 'navigation.primary.signup'}}</a>
             </li>
           {{/if}}
         </ul>
