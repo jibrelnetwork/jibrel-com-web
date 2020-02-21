@@ -5,7 +5,7 @@
   "description": "Jibrel.com Strapi CMS",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "node ./index.js",
     "build": "strapi build",
     "strapi": "strapi",
     "postversion": "echo $npm_package_version > version.txt"
