@@ -13,5 +13,14 @@
   },
   "internal": {
     "secret": "${process.env.INTERNAL_SECRET}"
+  },
+  "origin": {
+    "self": "${process.env.ORIGIN_SELF || 'https://jibrel.com'}",
+    "id": "${process.env.ORIGIN_ID || ''}",
+    "investor": "${process.env.ORIGIN_INVESTOR || ''}",
+    "company": "${process.env.ORIGIN_COMPANY || ''}"
+  },
+  "hostname": {
+    "shared": "${process.env.HOSTNAME_SHARED || ''}"
   }
 }

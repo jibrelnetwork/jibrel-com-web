@@ -117,7 +117,7 @@ module.exports = {
 
   async logout(ctx) {
     ctx.cookies.set('sessionid', null, {
-      domain: `.${process.env.FRONTEND_ROOT_DOMAIN_NAME}`
+      domain: strapi.config.hostname.shared,
     })
     const lang = ctx.cookies.get('lang') || ctx.i18n.defaultLocale
 

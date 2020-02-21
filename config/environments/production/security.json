@@ -27,7 +27,7 @@
   },
   "cors": {
     "enabled": true,
-    "origin": "https://${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://id.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://investor.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://profile.${process.env.FRONTEND_ROOT_DOMAIN_NAME}, https://jibrelcom.production.jdev.network"
+    "origin": "https://jibrelcom.production.jdev.network, ${process.env.CORS_ORIGINS || ''}"
   },
   "ip": {
     "enabled": false,

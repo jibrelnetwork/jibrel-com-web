@@ -57,7 +57,7 @@
           {{#if current_offering.flags.active}}
             <div class="company-cta common__grid">
               <div class="common__grid__item --xs-4 --s-4">
-                <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ slug }}" class="company-cta__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
+                <a href="{{ @root/origin.investor }}/invest/{{ slug }}" class="company-cta__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
               </div>
             </div>
           {{/if}}
@@ -76,7 +76,7 @@
         <div class="company-sidebar common__grid__item --m-3 --l-4">
           {{#with current_offering}}
             {{#if flags.active}}
-              <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}"
+              <a href="{{ @root/origin.investor }}/invest/{{ ../slug }}"
                  class="company-sidebar__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
             {{else if flags.completed}}
               <div class="company-sidebar__status">
@@ -104,7 +104,7 @@
           {{#if flags.active}}
             <section class="company-last-chance common__grid">
               <div class="common__grid__item --m-3 --l-4">
-                <a href="//investor.{{ @root/env.FRONTEND_ROOT_DOMAIN_NAME }}/invest/{{ ../slug }}" class="company-last-chance__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
+                <a href="{{ @root/origin.investor }}/invest/{{ ../slug }}" class="company-last-chance__invest big-button --main --company">{{__ 'company.action.invest'}}</a>
               </div>
             </section>
           {{/if}}

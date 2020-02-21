@@ -22,6 +22,22 @@ const PUBLIC_ROLE_ID = 2
 module.exports = async () => {
   const log = strapi.log.child({ module: 'bootstrap' })
 
+  // fill origins if they are not set
+  const self = new URL(strapi.config.origin.self)
+  const prefixes = ['id', 'investor', 'company']
+  prefixes.forEach((prefix) => {
+    if (strapi.config.origin[prefix] === '') {
+      const prefixUrl = new URL('', self)
+      prefixUrl.hostname = `${prefix}.${self.hostname}`
+      strapi.config.origin[prefix] = prefixUrl.origin
+    }
+  })
+
+  // fill domains if they are not set
+  if (strapi.config.hostname.shared === '') {
+    strapi.config.hostname.shared = `.${self.hostname}`
+  }
+
   // Enable public access to some controllers on init
   await strapi.plugins['users-permissions'].services.userspermissions
     .updateRole(PUBLIC_ROLE_ID, {
@@ -111,6 +127,25 @@ module.exports = async () => {
           root: s3Config.root,
         }
       })
+  }
+
+  if (strapi.config.currentEnvironment.security.cors.enabled === true) {
+    const { origin: initialOrigin } = strapi.config.middleware.settings.cors
+    const initialOriginArray = Array.isArray(initialOrigin)
+      ? initialOrigin
+      : initialOrigin.split(/\s*,\s*/)
+
+    const allowedOrigin = new Set([
+      ...initialOriginArray,
+      strapi.config.origin.self,
+      strapi.config.origin.id,
+      strapi.config.origin.investor,
+      strapi.config.origin.company,
+    ])
+
+    allowedOrigin.delete('')
+
+    strapi.config.middleware.settings.cors.origin = [...allowedOrigin]
   }
 
   if (strapi.config.environment !== 'development') {
