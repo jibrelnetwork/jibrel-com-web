@@ -7,7 +7,7 @@ RUN apt update \
  && apt install -y \
     curl \
     wget \
- && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
  && apt-get install -y nodejs \
  && wget --quiet https://github.com/jibrelnetwork/dockerize/releases/latest/download/dockerize-alpine-linux-amd64-latest.tar.gz \
  && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-latest.tar.gz \
