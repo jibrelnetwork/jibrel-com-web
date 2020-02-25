@@ -12,24 +12,46 @@ const {
 
 module.exports = {
   async slug(ctx) {
-    const data = await strapi.services.company.slug(ctx.params.slug)
+    const raw = await strapi.services.company.slug(ctx.params.slug)
+    const data = strapi.services.company.localize(ctx.i18n, raw)
 
     if (!data) {
       return ctx.notFound()
     }
 
-    const primaryColorRGB = hexToRgb(data.primary_color || '#003dc6')
+    const {
+      slug,
+      title,
+      location,
+      permalink,
+      translation,
+      hero_img: hero,
+      logo_img: logo,
+      primary_color: primary,
+      current_offering: currentOffering,
+      ...rest
+    } = data
+
+    const primaryColorRGB = hexToRgb(primary || '#003dc6')
 
     return {
       data: {
-        slug: data.slug,
-        title: data.title,
+        ...rest,
+        slug,
+        title,
+        location,
+        permalink,
+        currentOffering,
+        tagline: translation.tagline,
         color: {
-          primary: data.primary_color,
+          primary,
           background: rgbaToHex([...primaryColorRGB, 0.1]),
         },
-        logo: data.logo_img
-          ? data.logo_img.url
+        hero: hero
+          ? hero.url
+          : null,
+        logo: logo
+          ? logo.url
           : null,
       },
     }
