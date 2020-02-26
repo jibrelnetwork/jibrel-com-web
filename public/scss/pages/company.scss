@@ -3,6 +3,7 @@
 @import '../common/media';
 @import '../common/navigation-offset';
 @import '../common/utils';
+@import '../common/direction';
 
 .company {
   display: flex;
@@ -113,6 +114,10 @@
     align-items: flex-start;
     text-align: left;
     padding-top: 0;
+
+    @include rtl {
+      text-align: right;
+    }
   }
 
   &__logo {
@@ -216,6 +221,11 @@
 
     &-text + &-icon {
       margin-left: 8px;
+
+      @include rtl {
+        margin-left: auto;
+        margin-right: 8px;
+      }
     }
 
     &:hover {
@@ -233,6 +243,10 @@
     width: 100%;
     margin: 112px 0 16px;
     text-align: left;
+
+    @include rtl {
+      text-align: right;
+    }
 
     @include screen('>small') {
       display: none;
@@ -395,6 +409,10 @@
     @include screen('>small') {
       text-align: left;
       margin-bottom: 24px;
+
+      @include rtl {
+        text-align: right;
+      }
     }
   }
 
@@ -502,6 +520,11 @@
       background-size: contain;
       background-position: center center;
       @include transition(opacity);
+
+      @include rtl {
+        left: auto;
+        right: 0;
+      }
     }
 
     &::before {

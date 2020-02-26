@@ -1,6 +1,7 @@
 @import '../common/media';
 @import '../common/fonts';
 @import '../common/colors';
+@import '../common/direction';
 
 .offering {
   margin-bottom: 48px;
@@ -17,6 +18,10 @@
     @include screen('>small') {
       @include font-h2-l;
       text-align: left;
+
+      @include rtl {
+        text-align: right;
+      }
     }
   }
 

@@ -3,6 +3,7 @@
 @import '../common/fonts';
 @import '../common/media';
 @import '../common/utils';
+@import '../common/direction';
 
 .main-hero {
   height: 202px;
@@ -59,6 +60,10 @@
       text-align: left;
       max-width: 60%;
       @include font-h1-m;
+
+      @include rtl {
+        text-align: right;
+      }
     }
 
     @include screen('>medium') {
@@ -100,11 +105,14 @@
     @include screen('>small') {
       @include font-h1-m;
       text-align: left;
+
+      @include rtl {
+        text-align: right;
+      }
     }
 
     @include screen('>medium') {
       @include font-h1-l;
-      text-align: left;
     }
   }
 
@@ -153,6 +161,11 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    @include rtl {
+      right: 32px;
+      left: auto;
+    }
   }
 
   &__logo-img {
@@ -179,6 +192,11 @@
     @include font-button-2;
     padding: 5px 8px;
     border-radius: 4px;
+
+    @include rtl {
+      left: 32px;
+      right: auto;
+    }
 
     &.--completed {
       background: $color-green;

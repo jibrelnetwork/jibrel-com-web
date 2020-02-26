@@ -3,6 +3,7 @@
 @import 'common/media';
 @import 'common/button';
 @import 'common/utils';
+@import 'common/direction';
 
 .navbar {
   height: 80px;
@@ -319,6 +320,10 @@
     flex-direction: row;
     text-align: left;
     align-items: flex-start;
+
+    @include rtl {
+      text-align: right;
+    }
   }
 
   &__logo-link {
@@ -399,5 +404,10 @@
     fill: $color-black-40;
     margin-right: 12px;
     flex: 0 0 auto;
+
+    @include rtl {
+      margin-right: initial;
+      margin-left: 12px;
+    }
   }
 }
