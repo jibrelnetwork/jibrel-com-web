@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/api/v1/companies",
+      "handler": "Company.list",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/companies/:slug",
       "handler": "Company.slug",
       "config": {
