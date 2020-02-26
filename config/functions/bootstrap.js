@@ -45,6 +45,9 @@ module.exports = async () => {
         application: {
           controllers: {
             company: {
+              list: {
+                enabled: 1,
+              },
               slug: {
                 enabled: 1,
               },
