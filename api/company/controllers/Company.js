@@ -29,14 +29,12 @@ module.exports = {
       logo_img: logo,
       primary_color: primary,
       current_offering: currentOffering,
-      ...rest
     } = data
 
     const primaryColorRGB = hexToRgb(primary || '#003dc6')
 
     return {
       data: {
-        ...rest,
         slug,
         title,
         location,
