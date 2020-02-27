@@ -10,7 +10,7 @@ const {
   hexToRgb,
 } = require('utils/color')
 
-function getCompanyData(company) {
+function getCompanyData(i18n, company) {
   const {
     slug,
     title,
@@ -21,7 +21,7 @@ function getCompanyData(company) {
     primary_color: primary,
     preview_bg_img: preview,
     current_offering: currentOffering,
-  } = company
+  } = strapi.services.company.localize(i18n, company)
 
   const primaryColorRGB = hexToRgb(primary || '#003dc6')
 
@@ -47,27 +47,38 @@ function getCompanyData(company) {
 
 module.exports = {
   async list(ctx) {
-    const raw = await strapi.services.company.list()
+    const {
+      company,
+      offering,
+    } = strapi.services
+
+    const raw = await company.list()
+    const offerings = await Promise.all(raw.map(i => !i ? null : offering.list(i.slug)))
 
     return {
-      data: raw.map((item) => {
-        const data = strapi.services.company.localize(ctx.i18n, item)
-
-        return getCompanyData(data)
-      }),
+      data: raw.map((item, index) => !item ? null : getCompanyData(ctx.i18n, {
+        ...item,
+        offerings: offerings[index],
+      })),
     }
   },
 
   async slug(ctx) {
-    const raw = await strapi.services.company.slug(ctx.params.slug)
-    const data = strapi.services.company.localize(ctx.i18n, raw)
+    const {
+      company,
+      offering,
+    } = strapi.services
 
-    if (!data) {
-      return ctx.notFound()
-    }
+    const [raw, offerings] = await Promise.all([
+      company.slug(ctx.params.slug),
+      offering.list(ctx.params.slug),
+    ])
 
     return {
-      data: getCompanyData(data),
+      data: !raw ? null : getCompanyData(ctx.i18n, {
+        ...raw,
+        offerings,
+      }),
     }
   },
 }
