@@ -17,9 +17,9 @@ function getCompanyData(company) {
     location,
     permalink,
     translation,
-    hero_img: hero,
     logo_img: logo,
     primary_color: primary,
+    preview_bg_img: preview,
     current_offering: currentOffering,
   } = company
 
@@ -36,11 +36,11 @@ function getCompanyData(company) {
       primary,
       background: rgbaToHex([...primaryColorRGB, 0.1]),
     },
-    hero: hero
-      ? hero.url
-      : null,
     logo: logo
       ? logo.url
+      : null,
+    preview: preview
+      ? preview.url
       : null,
   }
 }
