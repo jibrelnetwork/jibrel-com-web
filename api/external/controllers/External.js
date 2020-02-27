@@ -46,7 +46,11 @@ function getCompanyData(i18n, company) {
 }
 
 module.exports = {
-  async list(ctx) {
+  async companiesList(ctx) {
+    if (!ctx.state.visitor.kyc.verified) {
+      return ctx.forbidden()
+    }
+
     const {
       company,
       offering,
@@ -63,7 +67,11 @@ module.exports = {
     }
   },
 
-  async slug(ctx) {
+  async companiesSlug(ctx) {
+    if (!ctx.state.visitor.kyc.verified) {
+      return ctx.forbidden()
+    }
+
     const {
       company,
       offering,

@@ -44,11 +44,11 @@ module.exports = async () => {
       permissions: {
         application: {
           controllers: {
-            company: {
-              list: {
+            external: {
+              companiesList: {
                 enabled: 1,
               },
-              slug: {
+              companiesSlug: {
                 enabled: 1,
               },
             },
