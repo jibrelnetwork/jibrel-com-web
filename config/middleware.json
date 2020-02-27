@@ -2,6 +2,7 @@
   "timeout": 100,
   "load": {
     "before": [
+      "update-config-before-middlewares",
       "responseTime",
       "logger",
       "cors",
