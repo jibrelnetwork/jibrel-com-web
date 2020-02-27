@@ -12,6 +12,10 @@
   background-repeat: no-repeat;
   margin-top: 80px;
 
+  @include rtl {
+    transform: scaleX(-1);
+  }
+
   @include screen('>xsmall') {
     height: 380px;
   }
@@ -32,10 +36,14 @@
 
   &__content {
     display: flex;
-    align-content: center;
+    align-items: flex-start;
     justify-content: center;
     min-height: 100%;
     flex-direction: column;
+
+    @include rtl {
+      align-items: flex-end;
+    }
 
     @include screen('>xsmall') {
       padding-top: 80px;
@@ -60,10 +68,6 @@
       text-align: left;
       max-width: 60%;
       @include font-h1-m;
-
-      @include rtl {
-        text-align: right;
-      }
     }
 
     @include screen('>medium') {

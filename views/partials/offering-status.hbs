@@ -4,7 +4,7 @@
     <h2 class="offering-status__title">{{__ 'offering.completed.title'}}</h2>
     <p class="offering-status__description">{{__ 'offering.completed.description' companyTitle offering.raise_formatted offering.date_end_formatted}}</p>
   {{else if offering.flags.waitlist}}
-    <img src="{{asset '/img/ic_arrow_48.svg'}}" class="offering-status__icon" alt="{{__ 'offering.status.waitlist'}}" />
+    <img src="{{asset '/img/ic_arrow_48.svg'}}" class="offering-status__icon --has-direction" alt="{{__ 'offering.status.waitlist'}}" />
     <h2 class="offering-status__title">{{__ 'offering.waitlist.title'}}</h2>
     <p class="offering-status__description">{{__ 'offering.waitlist.description' companyTitle}}</p>
     <a class="offering-status__button small-button --white" href="{{ @root/origin.investor }}/waitlist/{{ offering.uuid }}">
