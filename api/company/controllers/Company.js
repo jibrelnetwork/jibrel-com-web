@@ -26,24 +26,22 @@ function getCompanyData(company) {
   const primaryColorRGB = hexToRgb(primary || '#003dc6')
 
   return {
-    data: {
-      slug,
-      title,
-      location,
-      permalink,
-      currentOffering,
-      tagline: translation.tagline,
-      color: {
-        primary,
-        background: rgbaToHex([...primaryColorRGB, 0.1]),
-      },
-      hero: hero
-        ? hero.url
-        : null,
-      logo: logo
-        ? logo.url
-        : null,
+    slug,
+    title,
+    location,
+    permalink,
+    currentOffering,
+    tagline: translation.tagline,
+    color: {
+      primary,
+      background: rgbaToHex([...primaryColorRGB, 0.1]),
     },
+    hero: hero
+      ? hero.url
+      : null,
+    logo: logo
+      ? logo.url
+      : null,
   }
 }
 
@@ -51,11 +49,13 @@ module.exports = {
   async list(ctx) {
     const raw = await strapi.services.company.list()
 
-    return raw.map((item) => {
-      const data = strapi.services.company.localize(ctx.i18n, item)
+    return {
+      data: raw.map((item) => {
+        const data = strapi.services.company.localize(ctx.i18n, item)
 
-      return getCompanyData(data)
-    })
+        return getCompanyData(data)
+      }),
+    }
   },
 
   async slug(ctx) {
@@ -66,6 +66,8 @@ module.exports = {
       return ctx.notFound()
     }
 
-    return getCompanyData(data)
+    return {
+      data: getCompanyData(data),
+    }
   },
 }
