@@ -12,24 +12,30 @@ const ANONYMOUS_VISITOR = {
   access: ACCESS_LEVEL.PUBLIC,
 }
 
+function getRoutesByPaths(routes) {
+  return _.keyBy(routes, 'path')
+}
+
 module.exports = strapi => {
   const log = strapi.log.child({ module: 'middlewares/visitor' })
 
   return {
     async initialize() {
       // list all routes for Pages controller and convert it to hashmap
-      const routes = _.keyBy(
+      const pageRoutes = getRoutesByPaths(
         strapi.config.routes.filter((route) =>
           route.handler && route.handler.startsWith('Pages')
         ),
-        'path',
       )
+
+      const externalAPIRoutes = getRoutesByPaths(strapi.api.external.config.routes)
+      const routeMatched = (path) => !!pageRoutes[path] || !!externalAPIRoutes[path]
 
       strapi.app.use(async (ctx, next) => {
         // match router handling layers for request
         const matched = strapi.router.match(ctx.request.path, ctx.request.method)
         // if there is no layer that looks like one of Pages controller, skip this middleware
-        if (!matched.pathAndMethod.find((match) => !!routes[match.path])) {
+        if (!matched.pathAndMethod.find((match) => routeMatched(match.path))) {
           return next()
         }
 
