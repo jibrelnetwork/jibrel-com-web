@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/healthcheck",
+      "handler": "System.healthcheck",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/generated/styles/:slug.css",
       "handler": "System.companyStyles",
       "config": {
