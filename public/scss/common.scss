@@ -12,6 +12,8 @@
 @import 'partials/risks';
 
 @import 'pages/main';
+@import 'pages/invest';
+@import 'pages/raise';
 @import 'pages/company';
 @import 'pages/error';
 
@@ -201,32 +203,6 @@ END GLOBAL MODIFIERS
 
 .invest {
   padding-top: 80px;
-}
-
-.invest__start,
-.raise__start {
-  padding-bottom: 14px;
-}
-
-.invest__start__title,
-.raise__start__title {
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 33px;
-  margin-bottom: 16px;
-}
-
-.invest__start__instructions,
-.raise__start__instructions {
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 28px;
-  margin-bottom: 48px;
-}
-
-.invest__start__link,
-.raise__start__link {
-  margin-bottom: 48px;
 }
 
 /* Medium */
