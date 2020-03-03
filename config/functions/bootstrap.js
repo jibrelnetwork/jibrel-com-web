@@ -72,6 +72,9 @@ module.exports = async () => {
               version: {
                 enabled: 1,
               },
+              healthcheck: {
+                enabled: 1,
+              },
               companyStyles: {
                 enabled: 1,
               },
