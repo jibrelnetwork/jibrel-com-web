@@ -1,0 +1,22 @@
+@import '../common/fonts';
+
+.invest {
+  &__more {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  &__more-title {
+    @include font-h2;
+    margin-bottom: 16px;
+  }
+
+  &__more-content {
+    @include font-body;
+    margin-bottom: 48px;
+  }
+
+  &__more-button {
+    margin-bottom: 48px;
+  }
+}

@@ -3,6 +3,7 @@
 @import '../common/fonts';
 @import '../common/media';
 @import '../common/utils';
+@import '../common/direction';
 
 .main-hero {
   height: 202px;
@@ -10,6 +11,10 @@
   background-position: center bottom;
   background-repeat: no-repeat;
   margin-top: 80px;
+
+  @include rtl {
+    transform: scaleX(-1);
+  }
 
   @include screen('>xsmall') {
     height: 380px;
@@ -31,10 +36,14 @@
 
   &__content {
     display: flex;
-    align-content: center;
+    align-items: flex-start;
     justify-content: center;
     min-height: 100%;
     flex-direction: column;
+
+    @include rtl {
+      align-items: flex-end;
+    }
 
     @include screen('>xsmall') {
       padding-top: 80px;
@@ -100,11 +109,14 @@
     @include screen('>small') {
       @include font-h1-m;
       text-align: left;
+
+      @include rtl {
+        text-align: right;
+      }
     }
 
     @include screen('>medium') {
       @include font-h1-l;
-      text-align: left;
     }
   }
 
@@ -153,6 +165,11 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    @include rtl {
+      right: 32px;
+      left: auto;
+    }
   }
 
   &__logo-img {
@@ -179,6 +196,11 @@
     @include font-button-2;
     padding: 5px 8px;
     border-radius: 4px;
+
+    @include rtl {
+      left: 32px;
+      right: auto;
+    }
 
     &.--completed {
       background: $color-green;

@@ -1,6 +1,7 @@
 @import '../common/fonts';
 @import '../common/colors';
 @import '../common/media';
+@import '../common/direction';
 
 .risks {
   margin-bottom: 64px;
@@ -12,6 +13,10 @@
 
     @include screen('>small') {
       text-align: left;
+
+      @include rtl {
+        text-align: right;
+      }
     }
   }
 
@@ -30,6 +35,10 @@
 
     @include screen('>small') {
       text-align: left;
+
+      @include rtl {
+        text-align: right;
+      }
     }
 
     a {
