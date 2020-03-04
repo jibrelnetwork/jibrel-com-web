@@ -2,17 +2,6 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/",
-      "handler": "Pages.noop",
-      "config": {
-        "policies": [
-          "withValidLanguage"
-        ]
-      }
-    },
-
-    {
-      "method": "GET",
       "path": "/404",
       "handler": "Pages.notFound",
       "config": {
@@ -26,17 +15,6 @@
       "handler": "Pages.internalError",
       "config": {
         "policies": []
-      }
-    },
-
-    {
-      "method": "GET",
-      "path": "/:lang",
-      "handler": "Pages.main",
-      "config": {
-        "policies": [
-          "withValidLanguage"
-        ]
       }
     },
 
@@ -107,6 +85,27 @@
       "method": "GET",
       "path": "/:lang/companies/:slug",
       "handler": "Pages.company",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "Pages.noop",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang(en|ar)",
+      "handler": "Pages.main",
       "config": {
         "policies": [
           "withValidLanguage"
