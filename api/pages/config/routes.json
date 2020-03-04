@@ -10,6 +10,7 @@
         ]
       }
     },
+
     {
       "method": "GET",
       "path": "/404",
@@ -18,6 +19,7 @@
         "policies": []
       }
     },
+
     {
       "method": "GET",
       "path": "/500",
@@ -26,9 +28,10 @@
         "policies": []
       }
     },
+
     {
       "method": "GET",
-      "path": "/:lang(en|ar)",
+      "path": "/:lang",
       "handler": "Pages.main",
       "config": {
         "policies": [
@@ -36,9 +39,20 @@
         ]
       }
     },
+
     {
       "method": "GET",
-      "path": "/:lang(en|ar)/about",
+      "path": "/about",
+      "handler": "Pages.noop",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang/about",
       "handler": "Pages.about",
       "config": {
         "policies": [
@@ -46,9 +60,20 @@
         ]
       }
     },
+
     {
       "method": "GET",
-      "path": "/:lang(en|ar)/invest",
+      "path": "/invest",
+      "handler": "Pages.noop",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang/invest",
       "handler": "Pages.invest",
       "config": {
         "policies": [
@@ -56,9 +81,20 @@
         ]
       }
     },
+
     {
       "method": "GET",
-      "path": "/:lang(en|ar)/raise",
+      "path": "/raise",
+      "handler": "Pages.noop",
+      "config": {
+        "policies": [
+          "withValidLanguage"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/:lang/raise",
       "handler": "Pages.raise",
       "config": {
         "policies": [
@@ -66,9 +102,10 @@
         ]
       }
     },
+
     {
       "method": "GET",
-      "path": "/:lang(en|ar)/companies/:slug",
+      "path": "/:lang/companies/:slug",
       "handler": "Pages.company",
       "config": {
         "policies": [
@@ -76,6 +113,7 @@
         ]
       }
     },
+
     {
       "method": "GET",
       "path": "/:lang(en|ar)/*",
@@ -86,6 +124,7 @@
         ]
       }
     },
+
     {
       "method": "GET",
       "path": "/logout",
