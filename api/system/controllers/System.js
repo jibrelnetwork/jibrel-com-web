@@ -1,114 +1,13 @@
 'use strict';
 
-const { promisify } = require('util')
-const path = require('path')
-const fs = require('fs')
-const rp = require('request-promise')
-const errors = require('request-promise/errors')
-const _ = require('lodash')
-
 const {
   rgbaToHex,
   hexToRgb,
 } = require('utils/color')
 
-const readFile = promisify(fs.readFile)
-
-const getVersionStatus = async () => {
-  try {
-    return {
-      version: (await readFile(path.resolve(
-        __dirname,
-        '../../../version.txt',
-      ), 'utf8')).trim(),
-    }
-  } catch (error) {
-    strapi.log.error(error)
-
-    return {
-      healthy: false,
-      version: 'unavailable',
-    }
-  }
-}
-
-const getDBHealth = async () => {
-  try {
-    await strapi.query('company').count()
-    return {
-      db: 'ok',
-    }
-  } catch (error) {
-    strapi.log.error(error)
-
-    return {
-      healthy: false,
-      db: 'unavailable',
-    }
-  }
-}
-
-const getAPIHealth = async () => {
-  try {
-    await rp({
-      baseUrl: _.get(strapi.config, 'api.baseUrl'),
-      url: '/healthcheck',
-      headers: {
-        'User-Agent': _.get(strapi.config, 'api.userAgent'),
-      },
-      json: true,
-    })
-    return {
-      api: 'ok',
-    }
-  } catch (error) {
-    if (error instanceof errors.StatusCodeError && error.statusCode === 500) {
-      strapi.log.warn(error)
-
-      return {
-        api: 'failing',
-      }
-    } else {
-      strapi.log.error(error)
-
-      return {
-        healthy: false,
-        api: 'unavailable',
-      }
-    }
-  }
-}
-
 module.exports = {
-  async version(ctx) {
-    const version = await readFile(path.resolve(
-      __dirname,
-      '../../../version.txt',
-    ), 'utf8')
-
-    return ctx.send(version.trim())
-  },
-
-  async healthcheck(ctx) {
-    const initial = {
-      healthy: true,
-    }
-
-    const checks = await Promise.all([
-      getVersionStatus(),
-      getDBHealth(),
-      getAPIHealth(),
-    ])
-
-    const result = _.extend(initial, ...checks)
-
-    if (result.healthy) {
-      return ctx.send(result)
-    }
-
-    ctx.response.status = 424
-    ctx.response.body = result
-  },
+  version: require('./version'),
+  healthcheck: require('./healthcheck'),
 
   async companyStyles(ctx) {
     const { company } = strapi.services
