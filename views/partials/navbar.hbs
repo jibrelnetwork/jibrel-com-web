@@ -28,6 +28,11 @@
           <li class="navbar__menu-item">
             <a href="/{{ page.lang }}/about" class="navbar__menu-link {{#isCurrentPageId 'about'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.about'}}</a>
           </li>
+          {{#if visitor.isLoggedIn}}
+            <li class="navbar__menu-item">
+              <a href="{{ @root/origin.investor }}" class="navbar__menu-link">{{__ 'navigation.primary.portfolio'}}</a>
+            </li>
+          {{/if}}
         </ul>
         <ul class="navbar__menu-list">
           {{#if visitor.isLoggedIn}}
