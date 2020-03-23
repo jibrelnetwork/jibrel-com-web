@@ -65,10 +65,13 @@
                     </ul>
                     {{/if}}
                   {{/with}}
-                {{else if (and current_offering.flags.waitlist @root.visitor.isLoggedIn)}}
-                  <div class="company-card__stats">
-                    <p class="company-card__stats-note">{{__ 'offering.waitlist.notice'}}</p>
-                  </div>
+                {{/if}}
+                {{#if (or @root.visitor.kyc.verified @root.visitor.isLoggedIn)}}
+                  {{#if current_offering.flags.waitlist}}
+                    <div class="company-card__stats">
+                      <p class="company-card__stats-note">{{__ 'offering.waitlist.notice'}}</p>
+                    </div>
+                  {{/if}}
                 {{/if}}
               </div>
             </a>
