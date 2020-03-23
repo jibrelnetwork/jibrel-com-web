@@ -14,7 +14,7 @@
       <ul class="companies__list common__grid">
         {{#each companies}}
           <li class="companies__list-item common__grid__item --xs-4 --s-8 --m-4 --l-4">
-            <a href="{{ permalink }}" class="company-card {{#if @root.visitor.kyc.verified }}--with-stats{{/if}}" style="background-image: url({{cdn preview_bg_img }});">
+            <a href="{{ permalink }}" class="company-card {{#if (or @root.visitor.kyc.verified (and current_offering.flags.waitlist @root.visitor.isLoggedIn)) }}--with-stats{{/if}}" style="background-image: url({{cdn preview_bg_img }});">
               <div class="company-card__contents" style="background-image: linear-gradient(180deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%);">
                 <div class="company-card__logo" style="background-color: {{logo_bg_color}};">
                   <img src="{{cdn logo_img }}" alt="{{ title }} Logo" class="company-card__logo-img" />
@@ -22,18 +22,14 @@
                 <h3 class="company-card__title">{{ title }}</h3>
                 {{#if current_offering.flags.completed}}
                   <div class="company-card__status --completed">{{__ 'offering.status.completed'}}</div>
-                {{else if (and current_offering.flags.waitlist @root.visitor.kyc.verified)}}
+                {{else if (and current_offering.flags.waitlist @root.visitor.isLoggedIn)}}
                   <div class="company-card__status --waitlist">{{__ 'offering.status.waitlist'}}</div>
                 {{/if}}
                 <div class="company-card__tagline">{{ translation.tagline }}</div>
                 <div class="company-card__location">{{ location }}</div>
                 {{#if @root.visitor.kyc.verified }}
                   {{#with current_offering}}
-                    {{#if flags.waitlist}}
-                    <div class="company-card__stats">
-                      <p class="company-card__stats-note">{{__ 'offering.waitlist.notice'}}</p>
-                    </div>
-                    {{else if flags.active}}
+                    {{#if flags.active}}
                     <ul class="company-card__stats">
                       <li class="company-card__stat">
                         <h4 class="company-card__stat-title">{{__ 'offering.goal.title'}}</h4>
@@ -69,6 +65,10 @@
                     </ul>
                     {{/if}}
                   {{/with}}
+                {{else if (and current_offering.flags.waitlist @root.visitor.isLoggedIn)}}
+                  <div class="company-card__stats">
+                    <p class="company-card__stats-note">{{__ 'offering.waitlist.notice'}}</p>
+                  </div>
                 {{/if}}
               </div>
             </a>

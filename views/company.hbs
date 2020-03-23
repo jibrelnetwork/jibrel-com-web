@@ -41,7 +41,7 @@
                 <div class="company-about__status">
                   {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
                 </div>
-              {{else if (and flags.waitlist @root.visitor.kyc.verified)}}
+              {{else if (and flags.waitlist @root.visitor.isLoggedIn)}}
                 <div class="company-about__status">
                   {{> partials/offering-status status='waitlist' companyTitle=../title offering=this }}
                 </div>
@@ -82,7 +82,7 @@
               <div class="company-sidebar__status">
                 {{> partials/offering-status status='completed' companyTitle=../title offering=this }}
               </div>
-            {{else if (and flags.waitlist @root.visitor.kyc.verified)}}
+            {{else if (and flags.waitlist @root.visitor.isLoggedIn)}}
               <div class="company-sidebar__status">
                 {{> partials/offering-status status='waitlist' companyTitle=../title offering=this }}
               </div>
