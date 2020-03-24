@@ -2,6 +2,14 @@ const _ = require('lodash')
 
 const RTL_LANG_CODES = ['ar', 'ara', 'arc', 'ae', 'ave', 'egy', 'he', 'heb', 'nqo', 'pal', 'phn', 'sam', 'syc', 'syr', 'fa', 'per', 'fas', 'ku', 'kur', 'ur', 'urd']
 
+function transformLocales(locales) {
+  return Object.keys(locales).map(languageKey => ({
+    value: languageKey,
+    label: `language.${languageKey}`
+  }))
+}
+
+
 module.exports = strapi => {
   const log = strapi.log.child({ module: 'middlewares/page-meta' })
 
@@ -15,6 +23,7 @@ module.exports = strapi => {
 
           _.set(ctx, 'state.global.year', (new Date()).getFullYear())
           _.set(ctx, 'state.page.lang', ctx.i18n.locale)
+          _.set(ctx, 'state.locales', transformLocales(ctx.i18n.locales))
           _.set(ctx,
             'state.page.dir',
             RTL_LANG_CODES.indexOf(ctx.i18n.locale) >= 0

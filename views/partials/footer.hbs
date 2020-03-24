@@ -1,10 +1,20 @@
 <div class="common__centered">
   <footer class="footer">
-    <div class="footer__company">
-      <a href="/{{ page.lang }}" class="footer__logo-link">
-        <img class="footer__logo" src="{{asset '/img/ic_logo_mono_32.svg'}}" />
-      </a>
-      <div class="footer__copyright" lang="en" dir="ltr">&copy; {{ global.year }} Jibrel Limited</div>
+    <div>
+      <div class="footer__company">
+        <a href="/{{ page.lang }}" class="footer__logo-link">
+          <img class="footer__logo" src="{{asset '/img/ic_logo_mono_32.svg'}}" />
+        </a>
+        <div class="footer__copyright" lang="en" dir="ltr">&copy; {{ global.year }} Jibrel Limited</div>
+      </div>
+      <div>
+        <select class="footer__language language-select">
+          {{#each locales}}
+            <option value="{{this.value}}">{{__ this.label}}</option>
+          {{/each}}
+        </select>
+        <script src="{{asset '/js/navigation.js'}}"></script>
+      </div>
     </div>
     <nav class="footer__navigation">
       <section class="footer__navigation-section">

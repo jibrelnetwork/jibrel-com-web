@@ -351,6 +351,10 @@
     @include font-caption;
   }
 
+  &__language {
+    @include small-button();
+  }
+
   &__navigation {
     margin: 0 -8px;
     display: flex;
