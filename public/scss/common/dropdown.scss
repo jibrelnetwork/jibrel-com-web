@@ -1,0 +1,57 @@
+@import 'colors';
+@import './button.scss';
+
+.dropdown-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  max-width: 100%;
+  border-width: 2px;
+  border-style: solid;
+  @include font-button-2;
+  padding: 9px 48px 9px 16px;
+  border-radius: 24px;
+  background-color: $color-blue;
+  border-color: $color-blue;
+  color: $color-white;
+  background-position-y: center;
+  background-position-x: calc(100% - 23px);
+  background-repeat: no-repeat;
+  @include transition(background border-color color);
+
+  [dir="rtl"] & {
+    padding: 9px 16px 9px 48px;
+    background-position-x: 23px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-white;
+  }
+
+  &:focus:active {
+    background-color: $color-blue-10;
+  }
+
+  &.--gray {
+    background-color: $color-black-10;
+    background-image: url("/img/ic_arrow_drop_gray.svg");
+    border-color: $color-black-10;
+    color: $color-black-60;
+
+    &:hover {
+      background-color: $color-black-20;
+      border-color: $color-black-20;
+    }
+
+    &:active {
+      background-color: $color-black-30;
+      border-color: $color-black-30;
+    }
+  }
+}

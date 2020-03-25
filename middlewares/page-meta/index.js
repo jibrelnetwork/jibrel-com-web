@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const LANGUAGES = require('../../presets/languages.json')
+const LANGUAGES = require('./languages.json')
 
 const RTL_LANG_CODES = ['ar', 'ara', 'arc', 'ae', 'ave', 'egy', 'he', 'heb', 'nqo', 'pal', 'phn', 'sam', 'syc', 'syr', 'fa', 'per', 'fas', 'ku', 'kur', 'ur', 'urd']
 
@@ -9,7 +9,6 @@ function transformLocales(locales) {
     label: LANGUAGES[languageKey].title
   }))
 }
-
 
 module.exports = strapi => {
   const log = strapi.log.child({ module: 'middlewares/page-meta' })
