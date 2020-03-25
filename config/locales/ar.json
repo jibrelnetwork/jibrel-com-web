@@ -110,9 +110,5 @@
 	"offering-stub.pending.notice": "يُمكننا أن نسمح بمشاهدة تفاصيل الحملة كاملة للمستخدمين المُسجلين الذين استوفوا كافة الشروط المالية.",
 	"content-hidden.pending.title": "حِسابك قيد التحقُق",
 	"content-hidden.pending.description": "ستتمكن من مُشاهدة تفاصيل الحملة %s بالكامل بمُجرد التحقُق من حِسابك.",
-	"content-hidden.pending.notice": "يُمكننا أن نسمح بمشاهدة تفاصيل الحملة كاملة للمستخدمين المُسجلين الذين استوفوا كافة الشروط المالية.",
-	"language.english": "language.english",
-	"language.arabic": "language.arabic",
-	"language.ar": "language.ar",
-	"language.en": "language.en"
+	"content-hidden.pending.notice": "يُمكننا أن نسمح بمشاهدة تفاصيل الحملة كاملة للمستخدمين المُسجلين الذين استوفوا كافة الشروط المالية."
 }

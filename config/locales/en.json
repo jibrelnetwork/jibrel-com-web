@@ -110,7 +110,5 @@
 	"404.action.back": "Back to main",
 	"500.title": "Something Went Wrong",
 	"500.description": "It’s not you — it’s us. Please try again later.",
-	"500.action.back": "Back to main",
-	"language.en": "English",
-	"language.ar": "Arabic"
+	"500.action.back": "Back to main"
 }
