@@ -1,11 +1,12 @@
 const _ = require('lodash')
+const LANGUAGES = require('../../presets/languages.json')
 
 const RTL_LANG_CODES = ['ar', 'ara', 'arc', 'ae', 'ave', 'egy', 'he', 'heb', 'nqo', 'pal', 'phn', 'sam', 'syc', 'syr', 'fa', 'per', 'fas', 'ku', 'kur', 'ur', 'urd']
 
 function transformLocales(locales) {
   return Object.keys(locales).map(languageKey => ({
     value: languageKey,
-    label: `language.${languageKey}`
+    label: LANGUAGES[languageKey].title
   }))
 }
 

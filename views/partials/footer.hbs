@@ -8,9 +8,9 @@
         <div class="footer__copyright" lang="en" dir="ltr">&copy; {{ global.year }} Jibrel Limited</div>
       </div>
       <div>
-        <select class="footer__language language-select">
+        <select class="footer__language" data-language-selector>
           {{#each locales}}
-            <option value="{{this.value}}">{{__ this.label}}</option>
+            <option value="{{this.value}}">{{this.label}}</option>
           {{/each}}
         </select>
         <script src="{{asset '/js/navigation.js'}}"></script>

@@ -1,4 +1,4 @@
-var languageSelectElement = document.querySelectorAll(".language-select")
+var languageSelectElement = document.querySelectorAll("select[data-language-selector]")
 var splittedPath = window.location.pathname.split('/')
 
 var path = {
@@ -7,15 +7,13 @@ var path = {
 }
 
 languageSelectElement.forEach(function(element) {
-  if (element.tagName === "SELECT") {
-    element.value = path.language
+  element.value = path.language
 
-    element.addEventListener("change", function(event) {
-      var language = event && event.target && event.target.value || null
+  element.addEventListener("change", function(event) {
+    var language = event && event.target && event.target.value || null
 
-      if (language !== null) {
-        window.location = '/' + language + '/' + path.page
-      }
-    })
-  }
+    if (language !== null) {
+      window.location = '/' + language + '/' + path.page
+    }
+  })
 })
