@@ -346,20 +346,20 @@
     @include screen('>medium') {
       width: 33.33%;
     }
+  }
 
-    &__company {
-      @include screen('>xsmall') {
-        margin-bottom: 24px;
-      }
+  &__company {
+    @include screen('>xsmall') {
+      margin-bottom: 24px;
     }
+  }
 
-    &__company,
-    &__language {
-      width: 50%;
+  &__company,
+  &__language {
+    width: 50%;
 
-      @include screen('>xsmall') {
-        width: 100%;
-      }
+    @include screen('>xsmall') {
+      width: 100%;
     }
   }
 
