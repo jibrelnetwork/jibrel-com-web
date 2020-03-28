@@ -1,0 +1,58 @@
+{
+  "ar": {
+    "id": "ar",
+    "tag": "ar",
+    "dir": "rtl",
+    "title": "العربية",
+    "shorthand": "ع"
+  },
+  "en": {
+    "id": "en",
+    "tag": "en",
+    "dir": "ltr",
+    "title": "English",
+    "shorthand": "en"
+  },
+  "es": {
+    "id": "es",
+    "tag": "es",
+    "dir": "ltr",
+    "title": "Español",
+    "shorthand": "es"
+  },
+  "ja": {
+    "id": "ja",
+    "tag": "ja",
+    "dir": "ltr",
+    "title": "日本語",
+    "shorthand": "日本語"
+  },
+  "ko": {
+    "id": "ko",
+    "tag": "ko",
+    "dir": "ltr",
+    "title": "한국어",
+    "shorthand": "한국어"
+  },
+  "ru": {
+    "id": "ru",
+    "tag": "ru",
+    "dir": "ltr",
+    "title": "Русский",
+    "shorthand": "ру"
+  },
+  "zh-hans": {
+    "id": "zh-hans",
+    "tag": "zh-Hans",
+    "dir": "ltr",
+    "title": "简体中文",
+    "shorthand": "中文"
+  },
+  "zh-hant": {
+    "id": "zh-hant",
+    "tag": "zh-Hant",
+    "dir": "ltr",
+    "title": "繁体中文",
+    "shorthand": "中文"
+  }
+}
