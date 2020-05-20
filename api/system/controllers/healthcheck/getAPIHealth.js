@@ -20,6 +20,7 @@ module.exports = async function getAPIHealth() {
       strapi.log.warn(error)
 
       return {
+        healthy: false,
         api: 'failing',
       }
     } else {
