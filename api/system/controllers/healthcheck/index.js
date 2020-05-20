@@ -18,6 +18,6 @@ module.exports = async function healthcheck(ctx) {
     return ctx.send(result)
   }
 
-  ctx.response.status = 424
+  ctx.response.status = 503
   ctx.response.body = result
 }
