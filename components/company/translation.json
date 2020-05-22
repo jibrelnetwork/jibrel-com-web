@@ -30,6 +30,9 @@
       "type": "component",
       "repeatable": true,
       "component": "company.tag"
+    },
+    "pitchTitle": {
+      "type": "string"
     }
   }
 }

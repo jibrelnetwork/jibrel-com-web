@@ -4,7 +4,7 @@
   "version": "0.7.0",
   "description": "Jibrel.com Strapi CMS",
   "scripts": {
-    "develop": "strapi develop",
+    "develop": "export $(cat .env | xargs) && strapi develop",
     "start": "node ./index.js",
     "build": "strapi build",
     "strapi": "strapi",

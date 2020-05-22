@@ -7,7 +7,7 @@ Jibrel.com CMS for offerings management and public content
 Required server run environment variables:
 
 - `NODE_ENV` = `develop` for development server, `stage` for staging server, `production` for production server
-- `JWT_SECRET` = any secret string for session token signing / verifying. There is already a secret in default config, but it is not suitable for production.
+- `INTERNAL_SECRET` = any secret string for session token signing / verifying. There is already a secret in default config, but it is not suitable for production.
 - `DATABASE_HOST`
 - `DATABASE_PORT`
 - `DATABASE_NAME` = name of the project database
