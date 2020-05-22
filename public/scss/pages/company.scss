@@ -253,16 +253,32 @@
     }
   }
 
-  &__pitch {
+  &__pitch,
+  &__pitch-wrap {
+    @include font-subheader-2;
+
     margin-top: 64px;
     padding: 32px 0;
-    @include font-subheader-2;
     color: $color-black;
 
     @include screen('>small') {
       padding: 0;
       margin-top: 0;
     }
+  }
+
+  &__pitch-title {
+    @include font-h3;
+
+    @include screen('>small') {
+      margin-top: 32px;
+    }
+  }
+
+  &__pitch-content {
+    @include font-body;
+
+    margin-top: 32px;
   }
 
   &__video-link + &__pitch {

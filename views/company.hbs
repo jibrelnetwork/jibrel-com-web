@@ -47,7 +47,14 @@
                 </div>
               {{/if}}
             {{/with}}
-            <p class="company-about__pitch">{{ translation.pitch }}</p>
+            {{#if translation.pitchTitle}}
+              <div class="company-about__pitch-wrap">
+                <p class="company-about__pitch-title">{{ translation.pitchTitle }}</p>
+                <p class="company-about__pitch-content">{{ translation.pitch }}</p>
+              </div>
+            {{else}}
+              <p class="company-about__pitch">{{ translation.pitch }}</p>
+            {{/if}}
           </div>
           {{#unless (or @root.visitor.kyc.verified current_offering.flags.completed)}}
             <section class="company-cta-deal-stub">

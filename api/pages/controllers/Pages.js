@@ -110,7 +110,7 @@ module.exports = {
     )
 
     _.set(ctx, 'state.page.title', ctx.app.createPageTitle(data.title))
-    _.set(ctx, 'state.page.description', data.pitch)
+    _.set(ctx, 'state.page.description', data.translation.tagline)
 
     await ctx.render('company.hbs', data)
   },
