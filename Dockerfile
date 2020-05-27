@@ -7,6 +7,7 @@ RUN apt update \
  && apt install -y \
     curl \
     wget \
+    build-essential \
  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
  && apt-get install -y nodejs \
  && mkdir /app \
