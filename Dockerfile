@@ -5,6 +5,7 @@ ENV NODE_ENV ${NODE_ENV:-production}
 
 RUN apt update \
  && apt install -y \
+    apt-utils \
     curl \
     wget \
     build-essential \
