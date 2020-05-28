@@ -36,7 +36,5 @@ docker-build:
     - git submodule update --init --recursive
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  only:
-    - develop
-    - /^feature/.*$/
-    - /^release/.*$/
+  except:
+    - master
