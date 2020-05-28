@@ -2,7 +2,7 @@
   "name": "@jibrelnetwork/jibrel-com-web",
   "private": true,
   "version": "0.7.0",
-  "description": "Jibrel Strapi CMS",
+  "description": "Jibrel.com Strapi CMS",
   "scripts": {
     "develop": "export $(cat .env | xargs) && strapi develop",
     "start": "node ./index.js",
