@@ -115,6 +115,39 @@ module.exports = {
     await ctx.render('company.hbs', data)
   },
 
+  async tribal(ctx) {
+    const {
+      company,
+      offering,
+    } = strapi.services
+
+    const slug = 'tribal'
+
+    const [rawData, rawOfferingsData] = await Promise
+      .all([
+        company.slug(slug),
+        offering.list(slug),
+      ])
+
+    if (!rawData) {
+      return ctx.notFound()
+    }
+
+    rawData.offerings = rawOfferingsData
+
+    const data = company.localize(
+      ctx.i18n,
+      company.prepare(rawData, {
+        access: ctx.state.visitor.access,
+      }),
+    )
+
+    _.set(ctx, 'state.page.title', ctx.app.createPageTitle(data.title))
+    _.set(ctx, 'state.page.description', data.translation.tagline)
+
+    await ctx.render('company.hbs', data)
+  },
+
   async logout(ctx) {
     ctx.cookies.set('sessionid', null, {
       domain: strapi.config.hostname.shared,

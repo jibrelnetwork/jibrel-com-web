@@ -59,6 +59,9 @@ module.exports = async () => {
                 enabled: 1,
               },
               company: {
+                enabled: 0,
+              },
+              tribal: {
                 enabled: 1,
               },
               static: {

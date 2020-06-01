@@ -83,17 +83,6 @@
 
     {
       "method": "GET",
-      "path": "/:lang/companies/:slug",
-      "handler": "Pages.company",
-      "config": {
-        "policies": [
-          "withValidLanguage"
-        ]
-      }
-    },
-
-    {
-      "method": "GET",
       "path": "/",
       "handler": "Pages.noop",
       "config": {
@@ -105,7 +94,7 @@
     {
       "method": "GET",
       "path": "/:lang(en|ar)",
-      "handler": "Pages.main",
+      "handler": "Pages.tribal",
       "config": {
         "policies": [
           "withValidLanguage"
