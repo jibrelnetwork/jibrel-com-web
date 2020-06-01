@@ -6,7 +6,7 @@ services:
     build: .
     environment:
       NODE_ENV: stage
-      JWT_SECRET: 123
+      INTERNAL_SECRET: 123
       DATABASE_SSL: "false"
       DATABASE_HOST: database
       DATABASE_PORT: 5432

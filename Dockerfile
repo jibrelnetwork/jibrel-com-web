@@ -5,9 +5,10 @@ ENV NODE_ENV ${NODE_ENV:-production}
 
 RUN apt update \
  && apt install -y \
+    build-essential \
     curl \
     wget \
- && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
  && apt-get install -y nodejs \
  && mkdir /app \
  && rm -rf /var/lib/apt/lists/*
