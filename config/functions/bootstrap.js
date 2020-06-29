@@ -61,7 +61,7 @@ module.exports = async () => {
               company: {
                 enabled: 0,
               },
-              tribal: {
+              smartcrowd: {
                 enabled: 1,
               },
               static: {

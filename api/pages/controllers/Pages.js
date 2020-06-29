@@ -115,13 +115,13 @@ module.exports = {
     await ctx.render('company.hbs', data)
   },
 
-  async tribal(ctx) {
+  async smartcrowd(ctx) {
     const {
       company,
       offering,
     } = strapi.services
 
-    const slug = 'tribal'
+    const slug = 'smartcrowd'
 
     const [rawData, rawOfferingsData] = await Promise
       .all([

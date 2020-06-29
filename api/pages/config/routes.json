@@ -94,7 +94,7 @@
     {
       "method": "GET",
       "path": "/:lang(en|ar)",
-      "handler": "Pages.tribal",
+      "handler": "Pages.smartcrowd",
       "config": {
         "policies": [
           "withValidLanguage"
