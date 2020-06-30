@@ -27,7 +27,7 @@
   },
   "cors": {
     "enabled": true,
-    "origin": "https://jibrelcom.production.jdev.network, ${process.env.CORS_ORIGINS || ''}"
+    "origin": "${process.env.CORS_ORIGINS || ''}"
   },
   "ip": {
     "enabled": false,
