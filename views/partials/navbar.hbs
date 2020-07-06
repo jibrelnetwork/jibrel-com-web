@@ -12,7 +12,7 @@
 <div class="navbar --{{ color }}">
   <div class="navbar__wrapper common__centered">
     <nav class="navbar__content">
-      <a href="/{{ page.lang }}" class="navbar__logo-link">
+      <a id="t_headerMenuLogo" href="/{{ page.lang }}" class="navbar__logo-link">
         <img class="navbar__logo navbar__logo--black" src="{{asset '/img/ic_logo_colored_32.svg'}}" />
         <img class="navbar__logo navbar__logo--white" src="{{asset '/img/ic_logo_colored_32_white.svg'}}" />
       </a>
@@ -20,31 +20,31 @@
       <div class="navbar__menu">
         <ul class="navbar__menu-list">
           <li class="navbar__menu-item">
-            <a href="/{{ page.lang }}/invest" class="navbar__menu-link {{#isCurrentPageId 'invest'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.invest'}}</a>
+            <a id="t_headerMenuInvest" href="/{{ page.lang }}/invest" class="navbar__menu-link {{#isCurrentPageId 'invest'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.invest'}}</a>
           </li>
           <li class="navbar__menu-item">
-            <a href="/{{ page.lang }}/raise" class="navbar__menu-link {{#isCurrentPageId 'raise'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.raise'}}</a>
+            <a id="t_headerMenuRaise" href="/{{ page.lang }}/raise" class="navbar__menu-link {{#isCurrentPageId 'raise'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.raise'}}</a>
           </li>
           <li class="navbar__menu-item">
-            <a href="/{{ page.lang }}/about" class="navbar__menu-link {{#isCurrentPageId 'about'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.about'}}</a>
+            <a id="t_headerMenuAbout" href="/{{ page.lang }}/about" class="navbar__menu-link {{#isCurrentPageId 'about'}}--current{{/isCurrentPageId}}">{{__ 'navigation.primary.about'}}</a>
           </li>
           {{#if visitor.isLoggedIn}}
             <li class="navbar__menu-item">
-              <a href="{{ @root/origin.investor }}" class="navbar__menu-link">{{__ 'navigation.primary.portfolio'}}</a>
+              <a id="t_headerMenuPortfolio" href="{{ @root/origin.investor }}" class="navbar__menu-link">{{__ 'navigation.primary.portfolio'}}</a>
             </li>
           {{/if}}
         </ul>
         <ul class="navbar__menu-list">
           {{#if visitor.isLoggedIn}}
             <li class="navbar__menu-item">
-              <a class="navbar__menu-link" href="/logout">{{__ 'navigation.primary.logout'}}</a>
+              <a id="t_headerMenuLogout" class="navbar__menu-link" href="/logout">{{__ 'navigation.primary.logout'}}</a>
             </li>
           {{else}}
             <li class="navbar__menu-item">
-              <a href="{{ @root/origin.id }}/{{ page.lang }}/login" class="navbar__menu-link">{{__ 'navigation.primary.login'}}</a>
+              <a id="t_headerMenuLogin" href="{{ @root/origin.id }}/{{ page.lang }}/login" class="navbar__menu-link">{{__ 'navigation.primary.login'}}</a>
             </li>
             <li class="navbar__menu-item">
-              <a href="{{ @root/origin.id }}/{{ page.lang }}/signup" class="navbar__menu-link --button">{{__ 'navigation.primary.signup'}}</a>
+              <a id="t_headerMenuSignup" href="{{ @root/origin.id }}/{{ page.lang }}/signup" class="navbar__menu-link --button">{{__ 'navigation.primary.signup'}}</a>
             </li>
           {{/if}}
         </ul>
