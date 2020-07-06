@@ -12,7 +12,7 @@ module.exports = strapi => {
 
   return {
     async initialize() {
-      const assetsPath = _.get(strapi.config, 'origin.self', '')
+      const assetsPath = _.get(strapi.config, 'currentEnvironment.request.router.prefix', '')
       const viewsDir = path.resolve(strapi.config.appPath, strapi.config.paths.views)
       const cdnHost = _.get(strapi.config, 'currentEnvironment.awsS3.cdnHost', '')
       const cdnUrl = cdnHost
