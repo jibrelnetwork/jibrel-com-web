@@ -16,9 +16,9 @@ Required server run environment variables:
 - `PORT` = which port application is launched at
 - `AWS_S3_REGION`
 - `AWS_S3_BUCKET`
-- `API_BASE_URL` = base url to access backend API. For example, `https://api.jibrel.com` for production
+- `API_BASE_URL` = base url to access backend API. For example, `https://api.tokenize.jibrel.network` for production
 - `API_AUTH_TOKEN` = bearer auth token to use when accessing private backend API methods
-- `ORIGIN_SELF` = full origin (`schema://host:port`) for server to be deployed to; `https://jibrel.com` for production
+- `ORIGIN_SELF` = full origin (`schema://host:port`) for server to be deployed to; `https://tokenize.jibrel.network` for production
 
 Additional environment variables available are:
 
