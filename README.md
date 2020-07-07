@@ -1,6 +1,6 @@
-# Jibrel.com CMS
+# Jibrel platform CMS
 
-Jibrel.com CMS for offerings management and public content
+Jibrel platform CMS for offerings management and public content
 
 ## Deployment
 
