@@ -13,7 +13,7 @@
       <h2 class="companies__title">{{__ 'main.companies.title'}}</h2>
       <ul class="companies__list common__grid">
         {{#each companies}}
-          <li class="companies__list-item common__grid__item --xs-4 --s-8 --m-4 --l-4">
+          <li id="t_card_{{ slug }}" class="companies__list-item common__grid__item --xs-4 --s-8 --m-4 --l-4">
             <a href="{{ permalink }}" class="company-card {{#if @root.visitor.kyc.verified}}--with-stats{{else if (and current_offering.flags.waitlist @root.visitor.isLoggedIn)}}--with-stats{{/if}}" style="background-image: url({{cdn preview_bg_img }});">
               <div class="company-card__contents" style="background-image: linear-gradient(180deg, rgba(32, 34, 43, 0) 45.66%, {{ preview_bg_color }} 100%);">
                 <div class="company-card__logo" style="background-color: {{logo_bg_color}};">
@@ -21,9 +21,9 @@
                 </div>
                 <h3 class="company-card__title">{{ title }}</h3>
                 {{#if current_offering.flags.completed}}
-                  <div class="company-card__status --completed">{{__ 'offering.status.completed'}}</div>
+                  <div id="t_completed_{{ slug }}" class="company-card__status --completed">{{__ 'offering.status.completed'}}</div>
                 {{else if (and current_offering.flags.waitlist @root.visitor.isLoggedIn)}}
-                  <div class="company-card__status --waitlist">{{__ 'offering.status.waitlist'}}</div>
+                  <div id="t_waitlist_{{ slug }}" class="company-card__status --waitlist">{{__ 'offering.status.waitlist'}}</div>
                 {{/if}}
                 <div class="company-card__tagline">{{ translation.tagline }}</div>
                 <div class="company-card__location">{{ location }}</div>
