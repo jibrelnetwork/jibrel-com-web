@@ -1,4 +1,4 @@
-# tokenize.Jibrel.network CMS
+# Jibrel platform CMS
 
 Jibrel platform CMS for offerings management and public content
 
