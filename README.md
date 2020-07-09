@@ -1,6 +1,6 @@
 # tokenize.Jibrel.network CMS
 
-tokenize.Jibrel.network CMS for offerings management and public content
+Jibrel platform CMS for offerings management and public content
 
 ## Deployment
 
