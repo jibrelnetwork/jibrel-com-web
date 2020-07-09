@@ -54,7 +54,7 @@
           {{#if @root.visitor.kyc.verified }}
             <section class="invest__more common__grid">
               <div class="invest__more-button common__grid__item --xs-4 --s-4 --m-3 --l-4">
-                <a href="/{{ page.lang }}" class="big-button --main">{{__ 'invest.action.invest'}}</a>
+                <a id="t_investMainButton" href="/{{ page.lang }}" class="big-button --main">{{__ 'invest.action.invest'}}</a>
               </div>
             </section>
           {{else}}
@@ -62,7 +62,7 @@
               <h2 class="invest__more-title common__grid__item --xs-4 --s-8 --l-8">{{__ 'invest.start.title'}}</h2>
               <p class="invest__more-content common__grid__item --xs-4 --s-8 --l-8">{{__ 'invest.start.description'}}</p>
               <div class="invest__more-button common__grid__item --xs-4 --s-4 --m-3 --l-4">
-                <a href="{{ @root/origin.id }}/kyc" class="big-button --main">{{__ 'invest.action.verify'}}</a>
+                <a id="t_investKYCButton" href="{{ @root/origin.id }}/kyc" class="big-button --main">{{__ 'invest.action.verify'}}</a>
               </div>
             </section>
           {{/if}}
