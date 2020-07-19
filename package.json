@@ -20,7 +20,7 @@
     "include-media": "~1.4.9",
     "knex": "~0.20.1",
     "koa-views": "~6.2.1",
-    "lodash": "~4.17.15",
+    "lodash": "~4.17.19",
     "markdown-it": "~10.0.0",
     "markdown-it-container": "~2.0.0",
     "markdown-it-modify-token": "~1.0.2",
