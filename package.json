@@ -16,7 +16,7 @@
   "dependencies": {
     "autoprefixer": "~9.7.3",
     "date-fns": "~2.6.0",
-    "handlebars": "~4.5.3",
+    "handlebars": "~4.7.7",
     "include-media": "~1.4.9",
     "knex": "~0.20.1",
     "koa-views": "~6.2.1",
