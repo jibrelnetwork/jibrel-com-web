@@ -27,7 +27,7 @@
     "node-sass": "~4.13.0",
     "node-sass-tilde-importer": "~1.0.2",
     "pg": "~7.12.1",
-    "postcss": "~7.0.26",
+    "postcss": "~7.0.36",
     "request": "~2.88.0",
     "request-promise": "~4.2.5",
     "strapi": "~3.0.0-beta.18.4",
